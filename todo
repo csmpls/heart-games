@@ -1,0 +1,70 @@
+
+. .
+
+webpage that shows API calls + button to make them  
+	calls come over ('admin' namespace)
+	server messages go out to everyone for now
+	
+try below and "log" output
+
+try tape
+	http://www.macwright.org/2014/03/11/tape-is-cool.html
+	https://github.com/substack/faucet
+
+views get added..  
+	(is there a prototypical view?
+	 but dont make your life too hard)
+template for the main view + 'hardcoded' station #id
+	(no join view no for now no -> j hard-code `user-id`)
+
+views socket their data back to the server
+	in admin, we can see who is connected + their last API call 
+	(no storing state in server for now)
+
+a place to enter your ID
+
+
+specs:
+	enter ID, it says "waiting for opponent"
+	i show him the admin interface - your ID is there + your current status
+	i press a button that changes his status
+	he moves
+	we repeat. 
+	i show him i can change the view real time at will.
+
+
+
+
+next time ->
+	sockets get assigned to GAMES.
+	send_turn = when both A+Bs turns have been submitted
+	somehow, server keeps track of +```current```+ game state!
+	then save turn in a db then forget the turn
+
+
+
+
+
+
+# once the game starts,
+# we start listening for opponents turns
+startGameStream
+
+	# (note that the server won't send opponent turns
+	# until both our and the opponent's turn has been submitted)
+	.onValue((v) ->
+
+		# when opponent's "ready" for the next turn msg comes in, 
+		# show the entrust view
+		turnStream.filter(readyForNextTurn)
+			.onValue((v) -> showEntrustView(v))
+
+		# when opponent's "entrust" turn comes in, 
+		# show the cooperate/defect view
+		turnStream.filter(entrustTurn)
+			.onValue((v) -> showCooperateView(v))
+
+		# when opponent's "cooperate/defect" turn message comes in,
+		# show the summary view
+		turnStream.filter(cooperateDefectTurn)
+			.onValue((v) -> showSummaryView(v)))
