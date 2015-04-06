@@ -4,5 +4,17 @@ $grayish: rgb(200,200,200);
 body {
 	background-color: $blackish;
 	color:$grayish;
-	font-size:22pt;
+	font-size:14pt;
+}
+
+.callMaker {
+	background-color:#ccc;
+	color:#222;
+	padding: 10px;
+	margin:15px;
+
+	&:hover {
+		background-color: #fff;
+		cursor: pointer;
+	}
 }

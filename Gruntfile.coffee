@@ -40,11 +40,11 @@ module.exports = (grunt) ->
 					script: 'server.coffee'
 		watch:
 			coffeeify:
-				files: ['app/lib/*.coffee', 'app/main.coffee']
+				files: ['app/lib/*.coffee', 'app/player-main.coffee', 'app/admin-main.coffee']
 				tasks: ['coffeeify:player', 'coffeeify:admin']
 			copy:
-				files: ['app/index.html', 'app/assets/*']
-				tasks: ['copy:playerHTML', 'copy:adminwHTML', 'copy:assets']
+				files: ['app/player.html', 'app/admin.html', 'app/assets/*']
+				tasks: ['copy:playerHTML', 'copy:adminHTML', 'copy:assets']
 			sass:
 				files: ['app/styles/*.scss']
 				tasks: ['sass:compile']

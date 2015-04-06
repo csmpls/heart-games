@@ -4,16 +4,11 @@ app = express()
 server = require('http').Server(app);
 io = require('socket.io')(server);
 
-# app.set 'port', process.env.PORT ? 3000
 port = 3000
 publicDir = "#{__dirname}/built-app"
-# viewsDir = "#{__dirname}/views"
-# lib = "#{viewsDir}/lib"
-# app.set('public', publicDir)
 app.use(express.static(publicDir))
-# app.use(express.logger())
-# app.use(express.bodyParser())
 
+# HTTP routes
 server.listen(port)
 console.log 'server listening on ' + port
 
@@ -25,10 +20,38 @@ app.get("/admin", (req, res) ->
 	res.sendFile(
 		path.join(publicDir, 'admin.html')))
 
-io.on('connection', (socket) ->
-  socket.emit('news', { hello: 'world' })
-  socket.on('my other event', (data) -> 
-    console.log(data)))
+# state of all current games
+# there are no games right now, but eventually,
+# the key of each game is the ID of the player.
+games = {}
 
-# app.listen app.get('port'), ->
-#   console.log 'listening on port %d', app.get('port')
+# namespaces
+players = io.of('/players')
+admins = io.of('/admin')
+
+players
+.on('connection', (socket) ->
+
+	# player socket provides us with their data 
+	socket.on('login', (data) ->
+
+		# we store this in our object
+		games[data.subject_id] = {
+			subject_id: data.subject_id
+			station_num: data.station_num}
+		console.log 'games:', games
+
+		# now we let the admins know about the state of the games
+		admins.emit(games)))
+
+# admin namespace
+admins
+.on('connection', (socket) -> 
+
+	# when admin connects,
+	# give her the state of the games
+	socket.emit('games', games)
+
+	# when the admin emits a turn event
+	# we pass that turn on to everyone in the player namespace
+	socket.on('turn', (turn) -> players.emit(turn)))

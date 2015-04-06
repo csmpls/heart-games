@@ -2,8 +2,10 @@
 . .
 
 webpage that shows API calls + button to make them  
+	list of calls -> div w call + a button to make it
 	calls come over ('admin' namespace)
 	server messages go out to everyone for now
+	refactor
 	
 try below and "log" output
 
