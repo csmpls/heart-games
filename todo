@@ -1,48 +1,55 @@
 
 . .
+. . + .
+	.
 
-webpage that shows API calls + button to make them  
-	list of calls -> div w call + a button to make it
-	calls come over ('admin' namespace)
-	server messages go out to everyone for now
-	refactor
-	
-try below and "log" output
+
+. . 
+	.
+	. . . 
+.
+
+
+	a 'header' with bank, subject, station	
+	views have real buttons
+	and data <- back
+
+server maintains this games state
+a 'join' view / routine - admin starts game
+
+
+	food for thoughts
+	turns should look the same when they are sent + received - server shouldnt alter turns at all
+	so, it should send another payload (summary, bank data) at the right times
+
+"start game" stream
+streams of "turns"
+
+
+
 
 try tape
 	http://www.macwright.org/2014/03/11/tape-is-cool.html
 	https://github.com/substack/faucet
 
-views get added..  
-	(is there a prototypical view?
-	 but dont make your life too hard)
-template for the main view + 'hardcoded' station #id
-	(no join view no for now no -> j hard-code `user-id`)
-
-views socket their data back to the server
-	in admin, we can see who is connected + their last API call 
-	(no storing state in server for now)
-
-a place to enter your ID
 
 
 specs:
 	enter ID, it says "waiting for opponent"
 	i show him the admin interface - your ID is there + your current status
 	i press a button that changes his status
-	he moves
-	we repeat. 
-	i show him i can change the view real time at will.
-
+	he moves we repeat.
+	i show him i can change the view real time 
 
 
 
 next time ->
-	sockets get assigned to GAMES.
-	send_turn = when both A+Bs turns have been submitted
-	somehow, server keeps track of +```current```+ game state!
-	then save turn in a db then forget the turn
-
+	turns get stored in state
+	bots play turns, and a way to visualize that
+	save turn in a db then forget the turn
+	all the games in separate rooms
+	server emits a Start Game message
+	calculate game stuff, validate user inputs
 
 
 

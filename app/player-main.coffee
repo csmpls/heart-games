@@ -1,6 +1,16 @@
-example_view = require './lib/view.coffee'
+Bacon = require 'baconjs'
 $ = require 'jquery'
-io = require './lib/socket.io.js'
+player_sockets = require './lib/player_sockets.coffee'
+
+example_view = require './lib/view.coffee'
+cooperateDefectView = require './lib/CooperateDefectView.coffee'
+entrustView = require './lib/EntrustView.coffee'
+turnSummaryView = require './lib/TurnSummaryView.coffee'
+
+# helper functions to filter turnStream
+readyForNextTurn = (turn) -> turn.turnType == 'readyForNextTurn'
+entrustTurn = (turn) -> turn.turnType == 'entrust' 
+cooperateDefectTurn = (turn) -> turn.turnType == 'cooperateDefect'
 
 init = ->
 
@@ -11,13 +21,33 @@ init = ->
 	console.log 'main app launching'
 	example_view.setup()
 
-	socket = io('http://localhost:' + port + '/players')
+	# setup socket
+	socket = player_sockets.setup(port)
 
-	#login
+	# emit login event
 	socket.emit('login', {
 		subject_id:subject_id
 		station_num: station_num })
-	
+
+
+	# a stream of turn messages from the server
+	turnStream = Bacon.fromEventTarget(socket, 'turn')
+
+	# when opponent's "ready" for the next turn msg comes in, 
+	turnStream.filter(readyForNextTurn)
+		# show the entrust view
+		.onValue((turn) -> entrustView.setup(turn.turnData))
+
+	# when opponent's "entrust" turn comes in, 
+	turnStream.filter(entrustTurn)
+		# show the cooperate/defect view
+		.onValue((turn) -> cooperateDefectView.setup(turn.turnData))
+
+	# when opponent's "cooperate/defect" turn message comes in,
+	turnStream.filter(cooperateDefectTurn)
+		# show the summary view
+		.onValue((turn) -> turnSummaryView.setup(turn.turnData))
+
 	console.log 'main app done+launched'
 
 # launch the app

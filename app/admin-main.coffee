@@ -12,14 +12,25 @@ people = {} # currently connected people - no one's here, for now
 apiCalls =  {
 
 	1: {
-		turn: 'entrust'
-		points: 5
+		turnType: 'entrust'
+		turnData:
+			decision: 'enturst'
+			pointsEntrusted: 5
+			bank: 10
 	}
 
 	, 2: {
-		turn: 'cooperateDefect'
-		decision:'cooperate'
-		points: 10
+		turnType: 'cooperateDefect'
+		turnData:
+			decision:'cooperate'
+			turnSummary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
+			bank: 10
+	}
+
+	, 3: {
+		turnType: 'readyForNextTurn'
+		turnData:
+			bank: 10
 	}
 }
 
@@ -43,7 +54,8 @@ callMaker = (call, id) ->
 currentGamesDiv = (games) ->
 	_.template('''
 			<% _.forEach(games, function(game) { %>
-				<p>subject: <%= game.subject_id %></p>
+				<p>subject: <%= game.subject_id %> 
+				- connected? <%= game.subject_is_connected %> </p>
 			<% }) %>
 		''')(games:games)
 
@@ -57,18 +69,19 @@ init = ->
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
+		console.log 'got games'
 		$('#currentGames').html(currentGamesDiv(games)))
+
 
 	# setup API call buttons
 	_.forEach(apiCalls, (call, key) ->
 		# add a div for each API call
 		callMakerDiv = callMaker(call, key)
 		$('#callMakers').append(callMakerDiv)
-		# clicking the div
-		# will emit the api call in the div
+		# clicking a div will emit its api call 
 		$('#' + key).asEventStream('click')
 			.onValue( () -> 
-				socket.emit('admin', apiCalls[key])))
+				socket.emit('turn', apiCalls[key])))
 
 		# socket.emit('new userlist', { my: 'data' }))
 
