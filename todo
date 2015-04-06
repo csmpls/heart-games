@@ -3,27 +3,36 @@
 . . + .
 	.
 
-
 . . 
 	.
 	. . . 
 .
 
-
 	a 'header' with bank, subject, station	
 	views have real buttons
+	wait for turn when submit
 	and data <- back
 
 server maintains this games state
-a 'join' view / routine - admin starts game
+a 'join' view / routine 
+assign join to a 'game' + visualize
+pair me with a bot, simple one for now + visualize what the bot does
 
-
-	food for thoughts
-	turns should look the same when they are sent + received - server shouldnt alter turns at all
-	so, it should send another payload (summary, bank data) at the right times
+	food for thoughts:
+	players turns should look the same when they are sent + received - server shouldnt mutate players turns at all
+	so, servers payload != turn,but is 'interpreted' turn including 'bank' and 'summary', and so on.
 
 "start game" stream
 streams of "turns"
+refactor
+
+
+
+adminscreenspecs:
+	42 - [current_turn]
+		[last_turn: {player:whatever, bot:whatever}]
+		[player:waiting]
+		[bot: {whatever}]
 
 
 

@@ -18,7 +18,7 @@ init = ->
 	subject_id = 911
 	station_num = 420 
 
-	console.log 'main app launching'
+	# console.log 'main app launching'
 	example_view.setup()
 
 	# setup socket
@@ -48,7 +48,7 @@ init = ->
 		# show the summary view
 		.onValue((turn) -> turnSummaryView.setup(turn.turnData))
 
-	console.log 'main app done+launched'
+	console.log 'player app launched ok'
 
 # launch the app
 $(document).ready(() ->
