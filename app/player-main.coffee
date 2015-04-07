@@ -15,8 +15,8 @@ cooperateDefectTurn = (turn) -> turn.turnType == 'cooperateDefect'
 init = ->
 
 	port = 3000
-	subject_id = 911
-	station_num = 420 
+	subject_id = 1
+	station_num = 42 
 
 	# console.log 'main app launching'
 	example_view.setup()

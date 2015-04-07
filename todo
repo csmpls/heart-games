@@ -1,4 +1,33 @@
 
+specs:
+
+	ID / station / bank / 
+
+	total points == points in this round
+	updates live
+
+	total points -> bank after each round
+
+	we want to know all their decisions
+	including their bank
+
+	for each round: 
+			1 row:
+				unique ID
+				station #
+				round #
+				how much did i entrust
+				how much did bot entrust
+				did i c or d
+				did bot c or d
+				1/0 condition variables
+				heartrate value
+				bank value
+
+	survey module in the same system (after everything)
+
+
+
 . .
 . . + .
 	.
@@ -27,7 +56,6 @@ streams of "turns"
 refactor
 
 
-
 adminscreenspecs:
 	42 - [current_turn]
 		[last_turn: {player:whatever, bot:whatever}]
@@ -35,12 +63,9 @@ adminscreenspecs:
 		[bot: {whatever}]
 
 
-
-
 try tape
 	http://www.macwright.org/2014/03/11/tape-is-cool.html
 	https://github.com/substack/faucet
-
 
 
 specs:
@@ -49,7 +74,6 @@ specs:
 	i press a button that changes his status
 	he moves we repeat.
 	i show him i can change the view real time 
-
 
 
 next time ->
