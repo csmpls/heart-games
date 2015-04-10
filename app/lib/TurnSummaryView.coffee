@@ -2,16 +2,19 @@
 $ = require 'jquery'
 _ = require 'lodash'
 
-turnSummaryView = (turnSummary, bank) ->
+# TODO update bank 
+turnSummaryView = (summary, bank) ->
 	_.template('''
-		<p> <%= turnSummary %> </p>
+		<p> <%= summary %> </p>
 
-		<p> your bank is <%= bank %> </p>
-
-		<p>READY FOR NEXT TURN</p>
+		<button id = "readyButton">Ready for the next turn.</button>
 		''')(
-		turnSummary: turnSummary 
-		bank: bank)
+		summary: summary)
 
-exports.setup = (cooperateDefectTurn) ->
-	$('#content').html(turnSummaryView(cooperateDefectTurn.turnSummary, cooperateDefectTurn.bank))
+exports.setup = (turnSummary) ->
+	$('#content').html(turnSummaryView(turnSummary.summary, turnSummary.bank))
+
+	readyForNextRound = $('#readyButton').asEventStream('click')
+	
+	# a stream of clicks on the 'ready' button
+	readyForNextRound

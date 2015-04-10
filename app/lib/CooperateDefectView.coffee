@@ -1,21 +1,47 @@
 
-$ = require 'jquery'
 _ = require 'lodash'
+$ = require 'jquery'
+baconModel = require 'bacon.model'
+bacon$ = require 'bacon.jquery'
+Bacon = require 'baconjs'
 
-cooperateDefectView = (decision, pointsEntrusted, bank) ->
+cooperateDefectView = (decision, pointsEntrusted) ->
 	_.template('''
 
 		<p>your partner decided to <%= decision %> 
 		with <%= pointsEntrusted %></p>
 
-		<p> your bank is now <%= bank %> </p>
+		<button id="cooperateButton">Cooperate</button>
 
-		now you can COOPERATE or DEFECT
+		<button id="defectButton">Defect</button>
+
 		''')(
 		decision: decision
-		pointsEntrusted: pointsEntrusted
-		bank: bank)
+		pointsEntrusted: pointsEntrusted)
 
-# we display this view when we get an Entrust turn
-exports.setup = (entrustTurn) ->
-	$('#content').html(cooperateDefectView(entrustTurn.decision, entrustTurn.pointsEntrusted, entrustTurn.bank))
+setup = (opponentEntrustTurn) ->
+
+	# put view html in #content 
+	$('#content').html(cooperateDefectView(opponentEntrustTurn.decision, opponentEntrustTurn.pointsEntrusted))
+
+	# streams of the two buttons
+	cooperate = $('#cooperateButton').asEventStream('click')
+		.map('cooperate')
+	defect = $('#defectButton').asEventStream('click')
+		.map('defect')
+
+	# merge button streams into decision
+	decision = cooperate.merge(defect).toProperty()
+
+	# create a stream of turns
+	# these are objects we can send as json to the server
+	cooperateDefectTurns = Bacon.combineTemplate({
+		decision: decision
+	}).sampledBy(decision)
+
+	# return a stream of turns 
+	# (turns taken when user presses a button)
+	cooperateDefectTurns
+
+exports.setup = setup 
+

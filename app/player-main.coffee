@@ -6,11 +6,7 @@ example_view = require './lib/view.coffee'
 cooperateDefectView = require './lib/CooperateDefectView.coffee'
 entrustView = require './lib/EntrustView.coffee'
 turnSummaryView = require './lib/TurnSummaryView.coffee'
-
-# helper functions to filter turnStream
-readyForNextTurn = (turn) -> turn.turnType == 'readyForNextTurn'
-entrustTurn = (turn) -> turn.turnType == 'entrust' 
-cooperateDefectTurn = (turn) -> turn.turnType == 'cooperateDefect'
+waitingView = require './lib/WaitingView.coffee'
 
 init = ->
 
@@ -29,24 +25,40 @@ init = ->
 		subject_id:subject_id
 		station_num: station_num })
 
-
-	# a stream of turn messages from the server
-	turnStream = Bacon.fromEventTarget(socket, 'turn')
-
-	# when opponent's "ready" for the next turn msg comes in, 
-	turnStream.filter(readyForNextTurn)
-		# show the entrust view
-		.onValue((turn) -> entrustView.setup(turn.turnData))
+	# when opponent's "ready for next round" message comes in, 
+	opponentReadyForNextRoundStream = Bacon.fromEventTarget(socket, 'opponentReadyForNextRound')
+	# start the round by showing the entrust view
+	opponentReadyForNextRoundStream.onValue(() ->
+			entrustTurns = entrustView.setup()
+			# on every enturst turn
+			entrustTurns.onValue((playerTurn) -> 
+				# emit the turn, 
+				socket.emit('entrustTurn',playerTurn)
+				# & display a waiting screen
+				waitingView.waitingFor('opponent')))
 
 	# when opponent's "entrust" turn comes in, 
-	turnStream.filter(entrustTurn)
-		# show the cooperate/defect view
-		.onValue((turn) -> cooperateDefectView.setup(turn.turnData))
+	opoponentEntrustTurnStream = Bacon.fromEventTarget(socket, 'opponentEntrustTurn')
+	# show the cooperate/defect view
+	opoponentEntrustTurnStream.onValue((entrustTurn) ->
+			cooperateDefectTurns = cooperateDefectView.setup(entrustTurn)
+			cooperateDefectTurns.onValue((playerTurn) ->
+				# emit cooperate/defect turns 
+				socket.emit('cooperateDefectTurn',playerTurn)
+				# & display waiting screen
+				waitingView.waitingFor('opponent')))
 
 	# when opponent's "cooperate/defect" turn message comes in,
-	turnStream.filter(cooperateDefectTurn)
-		# show the summary view
-		.onValue((turn) -> turnSummaryView.setup(turn.turnData))
+	# the server sends us a summary of the turn.
+	turnSummaryStream = Bacon.fromEventTarget(socket, 'turnSummary').log()
+	# show the summary view
+	turnSummaryStream.onValue((turnSummary) ->
+			readyForNextRound = turnSummaryView.setup(turnSummary)
+			readyForNextRound.onValue((readyMessage) ->
+				# emit 'ready' message 
+				socket.emit('readyForNextRound')
+				# & display waiting screen
+				waitingView.waitingFor('opponent to begin next round')))
 
 	console.log 'player app launched ok'
 

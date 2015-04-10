@@ -4,6 +4,8 @@ exports.setup = (port) ->
 
 	socket = io('http://localhost:' + port + '/players')
 
-	socket.on('turn', (turn) -> turn)
+	socket.on('opponentReadyforNextRound', (ready) -> ready)
+	socket.on('opponentEntrustTurn', (entrustTurn) -> entrustTurn)
+	socket.on('turnSummary', (summary) -> summary)
 		
 	socket

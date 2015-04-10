@@ -12,24 +12,21 @@ people = {} # currently connected people - no one's here, for now
 apiCalls =  {
 
 	1: {
-		turnType: 'entrust'
-		turnData:
-			decision: 'enturst'
-			pointsEntrusted: 5
-			bank: 10
+		route: 'opponentReadyForNextRound'
+		data: null 
 	}
 
 	, 2: {
-		turnType: 'cooperateDefect'
-		turnData:
+		route: 'opponentEntrustTurn'
+		data:
 			decision:'cooperate'
-			turnSummary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
-			bank: 10
+			pointsEntrusted: 5
 	}
 
 	, 3: {
-		turnType: 'readyForNextTurn'
-		turnData:
+		route: 'turnSummary'
+		data:
+			summary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
 			bank: 10
 	}
 }
@@ -69,7 +66,6 @@ init = ->
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
-		console.log 'got games'
 		$('#currentGames').html(currentGamesDiv(games)))
 
 
@@ -81,7 +77,7 @@ init = ->
 		# clicking a div will emit its api call 
 		$('#' + key).asEventStream('click')
 			.onValue( () -> 
-				socket.emit('turn', apiCalls[key])))
+				socket.emit(apiCalls[key].route, apiCalls[key].data)))
 
 		# socket.emit('new userlist', { my: 'data' }))
 

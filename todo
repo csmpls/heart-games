@@ -1,7 +1,69 @@
+. .
+. . + .
+	.
+
+. . 
+	.
+	. . . 
+.
+
+.  .
+investigate sanity of how youre showing views (in memory)
+	. . . 
+
+save game state
+send it to /admin on every move
+
+pair me with a bot, see this in the admin panel
+communicate turns between me and bot
+
+
+	
+a 'join' view / routine 
+a header ('id/station/bank') + 'points' in this round
+
+"start game" from admin 
+bots are a prototypical series of actions; 'brains' gaussian distributions
+something interesting about when to display heightened heartrates
+remember to stop the game after `n` rounds
+
+	entrust amount should be a number dial
+
+refactor
+validate user inputs
+	ajax to check id uniquness  on  join
+	'entrust amount' should be w/i range
+	'entrust nothing' 
+
+order some arduino parts
+
+survey is part of this:
+	ONE object with all the questions
+	yields form AND schema for storing it
+
+try tape
+	http://www.macwright.org/2014/03/11/tape-is-cool.html
+	https://github.com/substack/faucet
+
+remember visions ->
+	bots play turns, and a way to visualize that
+	games is current state - old turns, save then forget them
+	server emits a Start Game message
+
+
+
+
+adminscreenspecs:
+	[id] - [station] - [round #]
+		[player:waiting..]
+		[bot: {turn}]
+
+
+
 
 specs:
 
-	ID / station / bank / 
+	ID / station / bank 
 
 	total points == points in this round
 	updates live
@@ -23,90 +85,37 @@ specs:
 				1/0 condition variables
 				heartrate value
 				bank value
+				TIME beginning/end
 
 	survey module in the same system (after everything)
 
 
 
-. .
-. . + .
-	.
+the client/server API :  
 
-. . 
-	.
-	. . . 
-.
+	from server
+		opponentReadyForNextTurn:
+		opponentEntrustTurn:
+			&decision: entrust
+			&pointsEntrusted: 5
+		turnSummary:
+			summary: whatever whatever 
+			bank: 50
 
-	a 'header' with bank, subject, station	
-	views have real buttons
-	wait for turn when submit
-	and data <- back
-
-server maintains this games state
-a 'join' view / routine 
-assign join to a 'game' + visualize
-pair me with a bot, simple one for now + visualize what the bot does
-
-	food for thoughts:
-	players turns should look the same when they are sent + received - server shouldnt mutate players turns at all
-	so, servers payload != turn,but is 'interpreted' turn including 'bank' and 'summary', and so on.
-
-"start game" stream
-streams of "turns"
-refactor
+	to server
+		cooperateTurn:
+			decision: cooperate
+		entrustTurn:
+			&decision: entrust
+			&pointsEntrusted: 5
+		readyForNextTurn:
 
 
-adminscreenspecs:
-	42 - [current_turn]
-		[last_turn: {player:whatever, bot:whatever}]
-		[player:waiting]
-		[bot: {whatever}]
+game state:
 
+	id: { 
+		human:{bank, points, entrustTurn, cooperateDefectTurn, stationNum}
+		, computer:{bank, points, entrustTurn, cooperateDefectTurn } 
+		, round: round_num
+	}
 
-try tape
-	http://www.macwright.org/2014/03/11/tape-is-cool.html
-	https://github.com/substack/faucet
-
-
-specs:
-	enter ID, it says "waiting for opponent"
-	i show him the admin interface - your ID is there + your current status
-	i press a button that changes his status
-	he moves we repeat.
-	i show him i can change the view real time 
-
-
-next time ->
-	turns get stored in state
-	bots play turns, and a way to visualize that
-	save turn in a db then forget the turn
-	all the games in separate rooms
-	server emits a Start Game message
-	calculate game stuff, validate user inputs
-
-
-
-
-
-# once the game starts,
-# we start listening for opponents turns
-startGameStream
-
-	# (note that the server won't send opponent turns
-	# until both our and the opponent's turn has been submitted)
-	.onValue((v) ->
-
-		# when opponent's "ready" for the next turn msg comes in, 
-		# show the entrust view
-		turnStream.filter(readyForNextTurn)
-			.onValue((v) -> showEntrustView(v))
-
-		# when opponent's "entrust" turn comes in, 
-		# show the cooperate/defect view
-		turnStream.filter(entrustTurn)
-			.onValue((v) -> showCooperateView(v))
-
-		# when opponent's "cooperate/defect" turn message comes in,
-		# show the summary view
-		turnStream.filter(cooperateDefectTurn)
-			.onValue((v) -> showSummaryView(v)))
