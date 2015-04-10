@@ -88,7 +88,7 @@ io.of('/admin')
 		players_ns.emit('opponentEntrustTurn', turn))
 
 	# this turn is an interpration
-	socket.on('turnSummary', (summary) -> 
+	socket.on('roundSummary', (summary) -> 
 		console.log 'admin S U M M A R Y ',summary 
-		players_ns.emit('turnSummary', summary)))
+		players_ns.emit('roundSummary', summary)))
 

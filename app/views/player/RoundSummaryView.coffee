@@ -3,7 +3,7 @@ $ = require 'jquery'
 _ = require 'lodash'
 
 # TODO update bank 
-turnSummaryView = (summary, bank) ->
+roundSummaryView = (summary, bank) ->
 	_.template('''
 		<p> <%= summary %> </p>
 
@@ -11,8 +11,8 @@ turnSummaryView = (summary, bank) ->
 		''')(
 		summary: summary)
 
-exports.setup = (turnSummary) ->
-	$('#content').html(turnSummaryView(turnSummary.summary, turnSummary.bank))
+exports.setup = (roundSummary) ->
+	$('#content').html(roundSummaryView(roundSummary.summary, roundSummary.bank))
 
 	readyForNextRound = $('#readyButton').asEventStream('click')
 	

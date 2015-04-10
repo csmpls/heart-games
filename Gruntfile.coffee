@@ -5,12 +5,12 @@ module.exports = (grunt) ->
 		coffeeify: 
 			player: 
 				files: [
-					src: ['app/lib/*.coffee', 'app/player-main.coffee'],
+					src: ['app/views/player/*.coffee', 'app/lib/*.coffee', 'app/player-main.coffee'],
 					dest: 'built-app/player_bundle.js'
 				]
 			admin: 
 				files: [
-					src: ['app/lib/*.coffee', 'app/admin-main.coffee'],
+					src: ['app/views/admin/*.coffee', 'app/lib/*.coffee', 'app/admin-main.coffee'],
 					dest: 'built-app/admin_bundle.js'
 				]
 		copy:
@@ -40,7 +40,7 @@ module.exports = (grunt) ->
 					script: 'server.coffee'
 		watch:
 			coffeeify:
-				files: ['app/lib/*.coffee', 'app/player-main.coffee', 'app/admin-main.coffee']
+				files: ['app/views/**/*.coffee', 'app/lib/*.coffee', 'app/player-main.coffee', 'app/admin-main.coffee']
 				tasks: ['coffeeify:player', 'coffeeify:admin']
 			copy:
 				files: ['app/player.html', 'app/admin.html', 'app/assets/*']

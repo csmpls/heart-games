@@ -4,7 +4,9 @@ io = require './lib/socket.io.js'
 # Bacon = require 'baconjs'
 bacon$ = require 'bacon.jquery'
 baconmodel = require 'bacon.model'
-stringifyObject = require 'stringify-object'
+
+currentGamesView = require './views/admin/CurrentGamesView.coffee'
+apiCallMakerView = require './views/admin/APICallMakerView.coffee'
 
 # ---- config
 port = 3000
@@ -24,7 +26,7 @@ apiCalls =  {
 	}
 
 	, 3: {
-		route: 'turnSummary'
+		route: 'roundSummary'
 		data:
 			summary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
 			bank: 10
@@ -32,64 +34,21 @@ apiCalls =  {
 }
 
 
-# ---- views
-
-# takes an object
-# returns a div with that object in it
-callMaker = (call, id) ->
-	_.template('''
-		<div class = "callMaker" id = "<%= id %>">
-			<%= call %>
-		</div>
-		''')(
-		call:stringifyObject(call)
-		id: id
-		)
-
-# takes object of currently connected people
-# returns div of currently connected people
-currentGamesDiv = (games) ->
-	_.template('''
-			<% _.forEach(games, function(game) { %>
-				<p>subject: <%= game.subject_id %> 
-				- connected? <%= game.subject_is_connected %> </p>
-			<% }) %>
-		''')(games:games)
-
-
 # ---- application
 init = ->
 
 	socket = io('http://localhost:' + port + '/admin')
 
-	console.log 'main app launching'
-
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
-		$('#currentGames').html(currentGamesDiv(games)))
+		currentGamesView.setup(games))
 
+	apiCallMakerView.setup(apiCalls, socket)
 
-	# setup API call buttons
-	_.forEach(apiCalls, (call, key) ->
-		# add a div for each API call
-		callMakerDiv = callMaker(call, key)
-		$('#callMakers').append(callMakerDiv)
-		# clicking a div will emit its api call 
-		$('#' + key).asEventStream('click')
-			.onValue( () -> 
-				socket.emit(apiCalls[key].route, apiCalls[key].data)))
+	# socket.emit('new userlist', { my: 'data' }))
 
-		# socket.emit('new userlist', { my: 'data' }))
-
-	console.log 'main app done+launched'
+	console.log 'admin app launched ok'
 
 # launch the app
 $(document).ready(() ->
 	init())
-
-
-
-
-
-
-

@@ -6,28 +6,37 @@
 	.
 	. . . 
 .
-
 .  .
 investigate sanity of how youre showing views (in memory)
 	. . . 
 
-save game state
-send it to /admin on every move
+game state object
+. . .
+calculate how much to give to each player
+refactor?
+send state to /admin on every move
 
-pair me with a bot, see this in the admin panel
-communicate turns between me and bot
+server gives starter points at the beginning of each round
+and we see that + bank in the UI 
 
-
+	make a simple bot that connects (!) at servers bequest
+	see this in the admin panel
+	i want to see its moves and watch the game state
 	
-a 'join' view / routine 
-a header ('id/station/bank') + 'points' in this round
 
+
+	lets make conditions
+	lets make bot brains
+		bots are a prototypical series of actions
+		 	'brains' are gaussian distributions
+
+	a header ('id/station/bank') + 'points' in this round
+	a 'join' view / routine 
 "start game" from admin 
-bots are a prototypical series of actions; 'brains' gaussian distributions
+	entrust amount should be a number dial
 something interesting about when to display heightened heartrates
 remember to stop the game after `n` rounds
 
-	entrust amount should be a number dial
 
 refactor
 validate user inputs
@@ -35,7 +44,11 @@ validate user inputs
 	'entrust amount' should be w/i range
 	'entrust nothing' 
 
+
+
 order some arduino parts
+
+
 
 survey is part of this:
 	ONE object with all the questions
@@ -58,6 +71,17 @@ adminscreenspecs:
 		[player:waiting..]
 		[bot: {turn}]
 
+
+
+game state:
+
+	id: { 
+		human:{bank, points, entrustTurn, cooperateDefectTurn, readyForNextRound}
+		, computer:{bank, points, entrustTurn, cooperateDefectTurn, readyForNextRound} 
+		, round: roundNum
+		, station: stationNum
+		, socket: socket 
+	}
 
 
 
@@ -98,7 +122,7 @@ the client/server API :
 		opponentEntrustTurn:
 			&decision: entrust
 			&pointsEntrusted: 5
-		turnSummary:
+		roundSummary:
 			summary: whatever whatever 
 			bank: 50
 
@@ -108,14 +132,5 @@ the client/server API :
 		entrustTurn:
 			&decision: entrust
 			&pointsEntrusted: 5
-		readyForNextTurn:
-
-
-game state:
-
-	id: { 
-		human:{bank, points, entrustTurn, cooperateDefectTurn, stationNum}
-		, computer:{bank, points, entrustTurn, cooperateDefectTurn } 
-		, round: round_num
-	}
+		readyForNextRound:
 
