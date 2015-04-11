@@ -49,7 +49,7 @@ module.exports = (grunt) ->
 				files: ['app/styles/*.scss']
 				tasks: ['sass:compile']
 			express:
-				files: ['server.coffee']
+				files: ['server.coffee', 'lib/*']
 				tasks: ['express:dev']
 
 					
