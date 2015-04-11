@@ -7,36 +7,38 @@
 	. . . 
 .
 .  .
-investigate sanity of how youre showing views (in memory)
+investigate sanity of how youre showing views (on memory)
 	. . . 
 
-game state object
 . . .
-calculate how much to give to each player
-refactor?
-send state to /admin on every move
+.
+a function that checks if both actions have been submitted
+that routine emits to client + sets the bot in motion
+wire up turn calculations
+.
+.
 
-server gives starter points at the beginning of each round
-and we see that + bank in the UI 
+refactor
+	move server-only libs to lib/
+	rename app/ to webapp
+	delete vestigal libs
+ .. 	
 
-	make a simple bot that connects (!) at servers bequest
-	see this in the admin panel
-	i want to see its moves and watch the game state
-	
+			a header ('id/station/bank') + 'points' in this round
+a 'join' view / routine 
 
+	server gives starter points at the beginning of each round
+	and we see that + bank in the UI 
+
+"start game" from admin 
+	entrust amount should be a number dial
+	remember to stop the game after `n` rounds
+something interesting about when to display heightened heartrates
 
 	lets make conditions
 	lets make bot brains
 		bots are a prototypical series of actions
 		 	'brains' are gaussian distributions
-
-	a header ('id/station/bank') + 'points' in this round
-	a 'join' view / routine 
-"start game" from admin 
-	entrust amount should be a number dial
-something interesting about when to display heightened heartrates
-remember to stop the game after `n` rounds
-
 
 refactor
 validate user inputs
@@ -115,9 +117,19 @@ specs:
 
 
 
+FAQ: 
+	when does bot get paired with a user? 
+		on login
+
+	when is the bots "play" launched?
+		wherever a turn is handled		
+
+
+
+
 the client/server API :  
 
-	from server
+	from server to player web frontend
 		opponentReadyForNextTurn:
 		opponentEntrustTurn:
 			&decision: entrust
@@ -126,7 +138,8 @@ the client/server API :
 			summary: whatever whatever 
 			bank: 50
 
-	to server
+	to server from player frontend
+	and from bot
 		cooperateTurn:
 			decision: cooperate
 		entrustTurn:
