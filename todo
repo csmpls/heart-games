@@ -33,15 +33,11 @@ investigate sanity of how youre showing views (on memory)
 	server gives starter points at the beginning of each round
 and we see those changes
 
-refactor
-
-
 a 'join' view / routine .. test it
-	entrust amount should be a number dial
-	remember to stop the game after `n` rounds
 
 server 'start game' message
 	first hook for bot action
+	remember to stop the game after `n` rounds (server.coffee var)
 
 	lets make conditions
 	lets make bot brains
@@ -51,6 +47,7 @@ server 'start game' message
 display heartrates
 
 validate user inputs
+	entrust amount should be a number dial
 	'entrust amount' should be w/i range
 	'entrust nothing' -> 0
 	login with existing id == retrieve your game state ?

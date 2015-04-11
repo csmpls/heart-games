@@ -87,7 +87,7 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 
 		# if next round is 'readyForNextRound',
 		# its time to save our data + reset
-		if nextTurn == 'readyForNextRound'
+		if round.currentTurn  == 'readyForNextRound'
 			# TODO save turn data here
 			# reset round data 
 			nextRound(round
