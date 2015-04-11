@@ -15,7 +15,7 @@ init = ->
 	station_num = 42 
 
 	# console.log 'main app launching'
-	example_view.setup()
+	# example_view.setup()
 
 	# setup socket
 	socket = player_sockets.setup(port)
