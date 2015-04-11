@@ -11,42 +11,52 @@ investigate sanity of how youre showing views (on memory)
 	. . . 
 
 . . .
-.
-a function that checks if both actions have been submitted
-that routine emits to client + sets the bot in motion
-wire up turn calculations
-.
-.
+.  .   
 
-refactor
-	move server-only libs to lib/
-	rename app/ to webapp
-	delete vestigal libs
+.
+	.
+ 	.	
+ 	.
+ 	
+	calculate bank change on every ruond
+		.
+		.
+. .
+
+.
+	.
+	.
+	.
  .. 	
 
 			a header ('id/station/bank') + 'points' in this round
-a 'join' view / routine 
-
 	server gives starter points at the beginning of each round
-	and we see that + bank in the UI 
+and we see those changes
 
-"start game" from admin 
+refactor
+
+
+a 'join' view / routine .. test it
 	entrust amount should be a number dial
 	remember to stop the game after `n` rounds
-something interesting about when to display heightened heartrates
+
+server 'start game' message
+	first hook for bot action
 
 	lets make conditions
 	lets make bot brains
 		bots are a prototypical series of actions
 		 	'brains' are gaussian distributions
 
-refactor
+display heartrates
+
 validate user inputs
-	ajax to check id uniquness  on  join
 	'entrust amount' should be w/i range
-	'entrust nothing' 
+	'entrust nothing' -> 0
+	login with existing id == retrieve your game state ?
 
 
+log all the data
 
 order some arduino parts
 
@@ -124,6 +134,12 @@ FAQ:
 	when is the bots "play" launched?
 		wherever a turn is handled		
 
+	when is turn reset/data stored?
+		in checkRoundCompletion()
+
+	when is bank calculated?
+		in freshRound()
+
 
 
 
@@ -147,3 +163,52 @@ the client/server API :
 			&pointsEntrusted: 5
 		readyForNextRound:
 
+
+
+
+
+
+
+
+
+	# ---- DEBUG ------
+	# we're controlling the bot's movements by hand
+	# ---- DBUG -------
+
+	# socket.on('botReadyForNextRound', (data) -> 
+	# 	# this is how the bot acts:
+	# 	round = getRound(data.subject_id)
+	# 	# setup entrust turn
+	# 	round.bot.playEntrustTurn(round, pushGamesToAdmins, checkRoundCompletion) )
+		
+
+	# socket.on('botEntrustTurn', (data) -> 
+	# 	round = getRound(data.subject_id)
+	# 	# setup cooperate/defect turn
+	# 	round.bot.playCooperateDefectTurn(round, pushGamesToAdmins, checkRoundCompletion) )
+		
+
+	# socket.on('botCooperateDefectTurn', (data) -> 
+	# 	round = getRound(data.subject_id)
+	# 	# setup "ready for next round" message
+	# 	round.bot.playReadyForNextRound(round, pushGamesToAdmins, checkRoundCompletion) ))
+
+
+
+	# ---- DEBUG ------
+	# We're faking the server's messages
+	# when /admin emits a turn event
+	# we pass that turn on to everyone in the player namespace
+	# ---- DBUG -------
+
+	# socket.on('opponentReadyForNextRound', (turn) -> 
+	# 	console.log 'admin ready 4 next round'
+	# 	players_ns.emit('opponentReadyForNextRound')) 
+
+	# socket.on('opponentEntrustTurn', (turn) -> 
+	# 	console.log 'admin entrust T U R N ', turn
+	# 	players_ns.emit('opponentEntrustTurn', turn))
+
+	# socket.on('roundSummary', (summary) -> 
+	# 	console.log 'admin S U M M A R Y ',summary 
+	# 	players_ns.emit('roundSummary', summary)))
