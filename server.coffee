@@ -65,7 +65,7 @@ players_ns
 		# we set the current turn manually
 		round = games[data.subject_id]
 		round.currentTurn = 'entrustTurn'
-		# tell the bot to play an entrust turn
+		# # tell the bot to play an entrust turn
 		round.bot.playEntrustTurn(round, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion)
 		# let admins know about the state of the games
 		pushGamesToAdmins())

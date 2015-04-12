@@ -7,8 +7,32 @@ playerBot = require './playerBot.coffee'
 POINTS_ON_NEW_ROUND = 10
 
 
+
+
 # returns true if both turns have been played
 bothTurnsPlayed = (turn1, turn2) -> if turn1 and turn2 then true else false
+
+# returns {botTurn, humanTurn}
+getEntrustTurns = (round) ->
+	return {
+		botTurn: round.botState.entrustTurn
+		, humanTurn: round.humanState.entrustTurn }
+
+# returns {botTurn, humanTurn}
+getCooperateDefectTurns = (round) ->
+	return {
+		humanTurn: round.humanState.cooperateDefectTurn
+		botTurn: round.botState.cooperateDefectTurn }
+
+# returns {botTurn, humanTurn}
+getReadyForNextRoundTurns = (round) ->
+	return { 
+		humanTurn: round.humanState.readyForNextRound
+		botTurn: round.botState.readyForNextRound }
+
+
+
+
 
 # takes object data: {subject_id, station_num, humanBank, botBank}
 # returns an object representing a round
@@ -35,6 +59,10 @@ getFreshActorState = (bankAmount) ->
 		readyForNextRound: null
 		bank: bankAmount }
 
+
+
+
+
 # actor's earnings from a round
 getRoundEarnings = (actorState, opponentState) ->
 	# if opponent defected:
@@ -51,6 +79,10 @@ getBankAmounts = (round) ->
 	return {
 		botBank: round.botState.bank + getRoundEarnings(round.botState, round.humanState), 
 		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) }
+
+
+
+
 
 entrustTurnSummary = (subject, pointsEntrusted, directObject) ->
 	if pointsEntrusted == 0
@@ -86,14 +118,16 @@ getHumanSummary = (humanState, botState) ->
 
 
 
+
 # resets the round 
 # + iterates round_num
 # TODO: calculate bank amounts
-nextRound = (round, banks) ->
+setNextRoundState = (round, banks) ->
 	round.currentTurn = null
 	round.botState = getFreshActorState(banks.botBank)
 	round.humanState = getFreshActorState(banks.humanBank)
 	round.round_num = round.round_num+1
+
 
 # this function checks if a round is done
 # if it is, it
@@ -103,50 +137,62 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 
 	# entrust turn
 	if round.currentTurn == 'entrustTurn'
-		humanTurn = round.humanState.entrustTurn
-		botTurn = round.botState.entrustTurn
-		# we send the client their opponent's entrust turn
-		clientMessage = 'opponentEntrustTurn'
-		clientPayload = botTurn
-		nextTurn = 'cooperateDefectTurn'
-		nextBotTurnFn = round.bot.playCooperateDefectTurn
+		turns = getEntrustTurns(round)
+		startNextRoundFn = startCooperateDefectTurn 
 
 	# c or d turn
 	if round.currentTurn == 'cooperateDefectTurn'
-		humanTurn = round.humanState.cooperateDefectTurn
-		botTurn = round.botState.cooperateDefectTurn
-		# we send the client a summary of the round
-		clientMessage = 'roundSummary'
-		nextTurn = 'readyForNextRound'
-		nextBotTurnFn = round.bot.playReadyForNextRound
+		turns = getCooperateDefectTurns(round)
+		startNextRoundFn = startReadyForNextRoundTurn
 
 	# ready for next round message
 	if round.currentTurn == 'readyForNextRound'
-		humanTurn = round.humanState.readyForNextRound
-		botTurn = round.botState.readyForNextRound
-		# we send the client the points they can use during the next round
-		clientMessage = 'opponentReadyForNextRound'
-		clientPayload = {points:POINTS_ON_NEW_ROUND}
-		nextTurn = 'entrustTurn'
-		nextBotTurnFn = round.bot.playEntrustTurn
+		turns = getReadyForNextRoundTurns(round)	
+		startNextRoundFn = startEntrustTurn
 
-	if bothTurnsPlayed(humanTurn, botTurn)
+	# if both turns have been played, 
+	# start the next turn
+	if bothTurnsPlayed(turns.humanTurn, turns.botTurn)
+		startNextRoundFn(round, emitToSubject, pushGamesToAdmins)
+			
 
-		# if round is cooperateDefectRound
-		if round.currentTurn == 'cooperateDefectTurn'
-		# we get the turn summary for the (human) player
-			clientPayload = 
+# TODO save/log round data here
+startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
+	# RESET ROUND STATE
+	banks = getBankAmounts(round)
+	setNextRoundState(round, banks)
+
+	# send the client the points they can use during the next round
+	clientMessage = 'opponentReadyForNextRound'
+	clientPayload = {points: POINTS_ON_NEW_ROUND}
+	nextTurn = 'entrustTurn'
+	nextBotTurnFn = round.bot.playEntrustTurn
+
+	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
+
+
+startCooperateDefectTurn = (round, emitToSubject, pushGamesToAdmins) ->
+	# we send the client the bot's entrust turn
+	clientMessage = 'opponentEntrustTurn'
+	clientPayload = getEntrustTurns(round).botTurn
+	nextTurn = 'cooperateDefectTurn'
+	nextBotTurnFn = round.bot.playCooperateDefectTurn
+
+	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
+
+
+startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
+	# we send the client a summary of the round
+	clientMessage = 'roundSummary'
+	nextTurn = 'readyForNextRound'
+	nextBotTurnFn = round.bot.playReadyForNextRound
+	clientPayload = 
 				{summary: getHumanSummary(round.humanState, round.botState)
 				, bank: getBankAmounts(round).humanBank}
 
-		# if next round is 'readyForNextRound',
-		# its time to save our data + reset
-		if round.currentTurn  == 'readyForNextRound'
-			# TODO save turn data here
-			banks = getBankAmounts(round)
-			# start next round
-			nextRound(round, banks)
+	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 
+startTurn = (round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins) ->
 		# emit bot's turn to human
 		emitToSubject(round.subject_id, clientMessage, clientPayload)
 		# start bot going on next turn
@@ -160,3 +206,4 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 
 exports.initializeNewGame = initializeNewGame
 exports.checkRoundCompletion = checkRoundCompletion
+exports.startEntrustTurn = startEntrustTurn
