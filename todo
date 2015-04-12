@@ -14,15 +14,11 @@ investigate sanity of how youre showing views (on memory)
 .  .   
 
 .
-	.
- 	.	
- 	.
- 	
-	calculate bank change on every ruond
-		.
-		.
-. .
-
+	. . . . .
+				.
+turn summaries 
+		. . .
+stop the game after `n` rounds (var in server)
 .
 	.
 	.
@@ -32,19 +28,20 @@ investigate sanity of how youre showing views (on memory)
 			a header ('id/station/bank') + 'points' in this round
 	server gives starter points at the beginning of each round
 and we see those changes
+	match screenshots as closely as possible..
+
+
+							display heartrates <- bot 
+
 
 a 'join' view / routine .. test it
-
 server 'start game' message
 	first hook for bot action
-	remember to stop the game after `n` rounds (server.coffee var)
 
 	lets make conditions
 	lets make bot brains
 		bots are a prototypical series of actions
 		 	'brains' are gaussian distributions
-
-display heartrates
 
 validate user inputs
 	entrust amount should be a number dial
@@ -68,44 +65,15 @@ try tape
 	https://github.com/substack/faucet
 
 remember visions ->
-	bots play turns, and a way to visualize that
+	.
 	games is current state - old turns, save then forget them
 	server emits a Start Game message
 
 
 
 
-adminscreenspecs:
-	[id] - [station] - [round #]
-		[player:waiting..]
-		[bot: {turn}]
 
-
-
-game state:
-
-	id: { 
-		human:{bank, points, entrustTurn, cooperateDefectTurn, readyForNextRound}
-		, computer:{bank, points, entrustTurn, cooperateDefectTurn, readyForNextRound} 
-		, round: roundNum
-		, station: stationNum
-		, socket: socket 
-	}
-
-
-
-specs:
-
-	ID / station / bank 
-
-	total points == points in this round
-	updates live
-
-	total points -> bank after each round
-
-	we want to know all their decisions
-	including their bank
-
+data collection specs:
 	for each round: 
 			1 row:
 				unique ID
@@ -120,7 +88,6 @@ specs:
 				bank value
 				TIME beginning/end
 
-	survey module in the same system (after everything)
 
 
 

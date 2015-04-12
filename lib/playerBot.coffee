@@ -1,7 +1,7 @@
 
 getEntrustDecision = -> return 'entrust'
 getPointsEntrusted = () -> return 3
-getCooperateDefectDecision = -> return 'defect'
+getCooperateDefectDecision = -> return 'cooperate'
 
 getEntrustDelay = -> return 100
 getCooperateDefectDelay = -> return 1000

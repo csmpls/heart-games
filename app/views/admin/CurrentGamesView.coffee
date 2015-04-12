@@ -22,7 +22,7 @@ currentGamesDiv = (games) ->
 				cooperate: <%= game.botState.cooperateDefectTurn%><br>
 				ready: <%= game.botState.readyForNextRound %><br>
 
-				<p> HUMAN: (bank: <%= game.botState.bank %>) <br>
+				<p> HUMAN: (bank: <%= game.humanState.bank %>) <br>
 				entrust: <%= game.humanState.entrustTurn %><br>
 				cooperate: <%= game.humanState.cooperateDefectTurn %><br>
 				ready: <%= game.humanState.readyForNextRound %><br>

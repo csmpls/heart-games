@@ -1,15 +1,9 @@
+_ = require 'lodash'
 
 playerBot = require './playerBot.coffee'
 
 # returns true if both turns have been played
 bothTurnsPlayed = (turn1, turn2) -> if turn1 and turn2 then true else false
-
-# function takes a round
-# returns an object {humanBank, botBank}
-getBankAmounts = (round) ->
-	botBank = round.botState.bank + 1
-	humanBank = round.humanState.bank + 2
-	return {botBank: botBank, humanBank: humanBank}
 
 # takes object data: {subject_id, station_num, humanBank, botBank}
 # returns an object representing a round
@@ -26,17 +20,62 @@ initializeNewGame = (data) ->
 		# bot game state
 		botState: getFreshActorState(0)
 		# human game state 
-		humanState: getFreshActorState(0)
-	}
+		humanState: getFreshActorState(0) }
 
 # the state of an actor (on new round)
-getFreshActorState = (bank) ->
+getFreshActorState = (bankAmount) ->
 	return { 
 		entrustTurn: null
 		cooperateDefectTurn: null
 		readyForNextRound: null
-		bank: bank
-	}
+		bank: bankAmount }
+
+# actor's earnings from a round
+getRoundEarnings = (actorState, opponentState) ->
+	# if opponent defected:
+	if opponentState.cooperateDefectTurn.decision == 'defect'
+		# subtract amount actor entrusted to opponent
+		return -actorState.entrustTurn.pointsEntrusted
+	# if opponent cooperated,
+	# double amount actor entrusted to opponent
+	return 2*actorState.entrustTurn.pointsEntrusted
+
+# function takes a round
+# returns an object {botBank, humanBank}
+getBankAmounts = (round) ->
+	return {
+		botBank: round.botState.bank + getRoundEarnings(round.botState, round.humanState), 
+		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) }
+
+entrustTurnSummary = (subject, pointsEntrusted, directObject) ->
+	_.template('<%=subject%> entrusted <%=pointsEntrusted%> points to <%=directObject%>.')(
+		subject: subject
+		pointsEntrusted: pointsEntrusted
+		directObject: directObject)
+
+cooperateDefectTurnSummary = (subject, decision, directObject) ->
+	if decision == 'cooperate'
+		decision = 'returned'
+	else
+		decision = 'kept'
+	return _.template('<%=subject%> <%=decision%> the points <%=directObject%> entrusted.')(
+		subject: subject
+		decision: decision
+		directObject: directObject)
+
+roundEarningsSummary = (earnings) ->
+	_.template('<%= earnings %> points have been added to your bank.')(earnings:earnings)
+
+getHumanSummary = (humanState, botState) ->
+	return '<p>' + entrustTurnSummary('You', humanState.entrustTurn.pointsEntrusted, 'your partner', ) + 
+	cooperateDefectTurnSummary('Your partner', botState.cooperateDefectTurn.decision, 'you') + '</p>' +
+
+	'<p>' + entrustTurnSummary('Your partner', botState.entrustTurn.pointsEntrusted, 'you', ) + 
+	cooperateDefectTurnSummary('You', humanState.cooperateDefectTurn.decision, 'your partner') + '</p>' +	
+
+	'<p>' + roundEarningsSummary(getRoundEarnings(humanState, botState)) + '</p>'
+
+
 
 # resets the round 
 # + iterates round_num
@@ -53,7 +92,6 @@ nextRound = (round, banks) ->
 # (2) starts the bot on playing its next move
 checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 
-
 	# entrust turn
 	if round.currentTurn == 'entrustTurn'
 		humanTurn = round.humanState.entrustTurn
@@ -68,8 +106,6 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 		humanTurn = round.humanState.cooperateDefectTurn
 		botTurn = round.botState.cooperateDefectTurn
 		clientMessage = 'roundSummary'
-		# TODO
-		clientPayload = {summary: 'this is a test summary for now.', bank:10}
 		nextTurn = 'readyForNextRound'
 		nextBotTurnFn = round.bot.playReadyForNextRound
 
@@ -82,17 +118,22 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 		nextTurn = 'entrustTurn'
 		nextBotTurnFn = round.bot.playEntrustTurn
 
-
 	if bothTurnsPlayed(humanTurn, botTurn)
+
+		# if round is cooperateDefectRound
+		if round.currentTurn == 'cooperateDefectTurn'
+		# we get the turn summary for the (human) player
+			clientPayload = 
+				{summary: getHumanSummary(round.humanState, round.botState)
+				, bank: getBankAmounts(round).humanBank}
 
 		# if next round is 'readyForNextRound',
 		# its time to save our data + reset
 		if round.currentTurn  == 'readyForNextRound'
 			# TODO save turn data here
-			# reset round data 
-			nextRound(round
-				# calculate bank amounts for both parties
-				, getBankAmounts(round))
+			banks = getBankAmounts(round)
+			# start next round
+			nextRound(round, banks)
 
 		# emit bot's turn to human
 		emitToSubject(round.subject_id, clientMessage, clientPayload)
@@ -102,7 +143,6 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 		round.currentTurn = nextTurn
 		# update admins
 		pushGamesToAdmins()
-
 
 
 
