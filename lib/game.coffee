@@ -48,7 +48,11 @@ getBankAmounts = (round) ->
 		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) }
 
 entrustTurnSummary = (subject, pointsEntrusted, directObject) ->
-	_.template('<%=subject%> entrusted <%=pointsEntrusted%> points to <%=directObject%>.')(
+	if pointsEntrusted == 0
+		pointsEntrusted = 'nothing'
+	else:
+		pointsEntrusted += ' points'
+	_.template('<%=subject%> entrusted <%=pointsEntrusted%> to <%=directObject%>. ')(
 		subject: subject
 		pointsEntrusted: pointsEntrusted
 		directObject: directObject)
@@ -58,13 +62,13 @@ cooperateDefectTurnSummary = (subject, decision, directObject) ->
 		decision = 'returned'
 	else
 		decision = 'kept'
-	return _.template('<%=subject%> <%=decision%> the points <%=directObject%> entrusted.')(
+	return _.template('<%=subject%> <%=decision%> the points <%=directObject%> entrusted. ')(
 		subject: subject
 		decision: decision
 		directObject: directObject)
 
 roundEarningsSummary = (earnings) ->
-	_.template('<%= earnings %> points have been added to your bank.')(earnings:earnings)
+	_.template('<%= earnings %> points have been added to your bank. ')(earnings:earnings)
 
 getHumanSummary = (humanState, botState) ->
 	return '<p>' + entrustTurnSummary('You', humanState.entrustTurn.pointsEntrusted, 'your partner', ) + 
