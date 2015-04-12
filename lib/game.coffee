@@ -2,6 +2,11 @@ _ = require 'lodash'
 
 playerBot = require './playerBot.coffee'
 
+# configuration
+
+POINTS_ON_NEW_ROUND = 10
+
+
 # returns true if both turns have been played
 bothTurnsPlayed = (turn1, turn2) -> if turn1 and turn2 then true else false
 
@@ -100,6 +105,7 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 	if round.currentTurn == 'entrustTurn'
 		humanTurn = round.humanState.entrustTurn
 		botTurn = round.botState.entrustTurn
+		# we send the client their opponent's entrust turn
 		clientMessage = 'opponentEntrustTurn'
 		clientPayload = botTurn
 		nextTurn = 'cooperateDefectTurn'
@@ -109,6 +115,7 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 	if round.currentTurn == 'cooperateDefectTurn'
 		humanTurn = round.humanState.cooperateDefectTurn
 		botTurn = round.botState.cooperateDefectTurn
+		# we send the client a summary of the round
 		clientMessage = 'roundSummary'
 		nextTurn = 'readyForNextRound'
 		nextBotTurnFn = round.bot.playReadyForNextRound
@@ -117,8 +124,9 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 	if round.currentTurn == 'readyForNextRound'
 		humanTurn = round.humanState.readyForNextRound
 		botTurn = round.botState.readyForNextRound
+		# we send the client the points they can use during the next round
 		clientMessage = 'opponentReadyForNextRound'
-		clientPayload = true
+		clientPayload = {points:POINTS_ON_NEW_ROUND}
 		nextTurn = 'entrustTurn'
 		nextBotTurnFn = round.bot.playEntrustTurn
 

@@ -15,8 +15,8 @@ investigate sanity of how youre showing views (on memory)
 
 .
 	. . . . .
-				.
-turn summaries 
+				. .
+colored words on turn summaries
 		. . .
 stop the game after `n` rounds (var in server)
 .
@@ -25,23 +25,23 @@ stop the game after `n` rounds (var in server)
 	.
  .. 	
 
-			a header ('id/station/bank') + 'points' in this round
+ 		.
 	server gives starter points at the beginning of each round
-and we see those changes
+
 	match screenshots as closely as possible..
 
-
-							display heartrates <- bot 
-
-
-a 'join' view / routine .. test it
 server 'start game' message
 	first hook for bot action
 
-	lets make conditions
+a 'join' view / routine .. test it
+
+	question:
+		if someone entrusts 0 points to you, what does it do?
+
+	lets make conditions (just 50/50 hi/lo heartrate 4 now)
+display heartrates <- bot 
 	lets make bot brains
-		bots are a prototypical series of actions
-		 	'brains' are gaussian distributions
+'brains' can be gaussian distributions
 
 validate user inputs
 	entrust amount should be a number dial
@@ -66,6 +66,7 @@ try tape
 
 remember visions ->
 	.
+	an easy config file for bots
 	games is current state - old turns, save then forget them
 	server emits a Start Game message
 
@@ -111,6 +112,7 @@ the client/server API :
 
 	from server to player web frontend
 		opponentReadyForNextTurn:
+			points: 10
 		opponentEntrustTurn:
 			&decision: entrust
 			&pointsEntrusted: 5

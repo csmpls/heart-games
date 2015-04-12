@@ -8,6 +8,7 @@ entrustView = require './views/player/EntrustView.coffee'
 roundSummaryView = require './views/player/RoundSummaryView.coffee'
 waitingView = require './views/player/WaitingView.coffee'
 headerBarView = require './views/player/HeaderBarView.coffee'
+pointsThisRoundView = require './views/player/PointsThisRoundView.coffee'
 
 init = ->
 
@@ -28,11 +29,19 @@ init = ->
 
 	# when opponent's "ready for next round" message comes in, 
 	opponentReadyForNextRoundStream = Bacon.fromEventTarget(socket, 'opponentReadyForNextRound')
-	# start the round by showing the entrust view
-	opponentReadyForNextRoundStream.onValue(() ->
+	opponentReadyForNextRoundStream.onValue((nextTurn) ->
+		# start the round by showing the entrust view
 		entrustTurns = entrustView.setup()
+		# and replenish our points for this round
+		# this value comes from the server
+		points_this_round = nextTurn.points
+		pointsThisRoundView.setup(points_this_round)
 		# on every enturst turn
 		entrustTurns.onValue((playerTurn) -> 
+			# update 'points this round' 
+			points_this_round -= playerTurn.pointsEntrusted
+			# and points this round display
+			pointsThisRoundView.setup(points_this_round)
 			# emit the turn, 
 			socket.emit('entrustTurn', playerTurn)
 			# & display a waiting screen

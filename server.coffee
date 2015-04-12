@@ -61,7 +61,7 @@ players_ns
 		# TODO: this will be started by a start message
 		# --
 		# send a message to get them going
-		socket.emit("opponentReadyForNextRound")
+		socket.emit("opponentReadyForNextRound", {points:10})
 		# we set the current turn manually
 		round = games[data.subject_id]
 		round.currentTurn = 'entrustTurn'
