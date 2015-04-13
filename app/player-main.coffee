@@ -27,9 +27,12 @@ init = ->
 	# setup header (bank starts at 0)
 	headerBarView.setup(subject_id, station_num, 0)
 
+	# show that we're waiting for the administrator to start the game
+	waitingView.waitingFor('the experimenter to start the game')
+
 	# when opponent's "ready for next round" message comes in, 
-	opponentReadyForNextRoundStream = Bacon.fromEventTarget(socket, 'opponentReadyForNextRound')
-	opponentReadyForNextRoundStream.onValue((nextTurn) ->
+	startEntrustTurnStream = Bacon.fromEventTarget(socket, 'startEntrustTurn')
+	startEntrustTurnStream.onValue((nextTurn) ->
 		# start the round by showing the entrust view
 		entrustTurns = entrustView.setup()
 		# and replenish our points for this round
@@ -48,9 +51,9 @@ init = ->
 			waitingView.waitingFor('opponent')))
 
 	# when opponent's "entrust" turn comes in, 
-	opoponentEntrustTurnStream = Bacon.fromEventTarget(socket, 'opponentEntrustTurn')
+	startCooperateDefectTurnStream = Bacon.fromEventTarget(socket, 'startCooperateDefectTurn')
 	# show the cooperate/defect view
-	opoponentEntrustTurnStream.onValue((entrustTurn) ->
+	startCooperateDefectTurnStream.onValue((entrustTurn) ->
 		cooperateDefectTurns = cooperateDefectView.setup(entrustTurn)
 		cooperateDefectTurns.onValue((playerTurn) ->
 			# emit cooperate/defect turns 

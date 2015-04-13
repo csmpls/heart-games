@@ -3,6 +3,7 @@ express = require "express"
 app = express()
 server = require('http').Server(app);
 io = require('socket.io')(server);
+_ = require 'lodash'
 
 game = require './lib/game.coffee'
 
@@ -54,21 +55,7 @@ players_ns
 			station_num: data.station_num })
 		# put the socket in a room named after their subject id
 		socket.join(data.subject_id)
-		players_ns.in(data.subject_id).emit('server says', 'hii')
-
-		# ---
-		# START GAME
-		# TODO: this will be started by a start message
-		# --
-		# send a message to get them going
-		socket.emit("opponentReadyForNextRound", {points:10})
-		# we set the current turn manually
-		round = games[data.subject_id]
-		round.currentTurn = 'entrustTurn'
-		# # tell the bot to play an entrust turn
-		round.bot.playEntrustTurn(round, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion)
-		# let admins know about the state of the games
-		pushGamesToAdmins())
+		players_ns.in(data.subject_id).emit('server says', 'hii'))
 
 	# handle player turns
 	socket.on('readyForNextRound', () -> 
@@ -110,7 +97,26 @@ io.of('/admin')
 
 	# when admin connects,
 	# give her the state of the games
-	socket.emit('games', games))
+	socket.emit('games', games)
+
+	# when admin decides to start the game
+	socket.on('startGame', () ->
+
+		# START EVERYONE'S GAME
+		_.forEach(games, (round) ->
+			# we set the current turn manually
+			# round = games[data.subject_id]
+			round.currentTurn = 'entrustTurn'
+			# # tell the bot to play an entrust turn
+			round.bot.playEntrustTurn(round, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion))
+
+		# send a message to get them going
+		players_ns.emit("startEntrustTurn", {points:10})
+
+		# let admins know about the state of the games
+		pushGamesToAdmins() ))
+
+	
 
 
 

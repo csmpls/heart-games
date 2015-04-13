@@ -11,9 +11,9 @@ cooperateDefectView = (decision, pointsEntrusted) ->
 		<p>your partner decided to <%= decision %> 
 		with <%= pointsEntrusted %></p>
 
-		<button id="cooperateButton">Cooperate</button>
+		<button id="cooperateButton">Return</button>
 
-		<button id="defectButton">Defect</button>
+		<button id="defectButton">Keep</button>
 
 		''')(
 		decision: decision

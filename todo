@@ -111,11 +111,11 @@ FAQ:
 the client/server API :  
 
 	from server to player web frontend
-		opponentReadyForNextTurn:
+		startEntrustTurn:
 			points: 10
-		opponentEntrustTurn:
-			&decision: entrust
-			&pointsEntrusted: 5
+		startCooperateDefectTurn:
+			&decision: entrust  # <- this is opponent's entrust turn
+			&pointsEntrusted: 5 # <- this is opponent's entrust turn
 		roundSummary:
 			summary: whatever whatever 
 			bank: 50

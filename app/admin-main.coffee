@@ -36,22 +36,22 @@ people = {} # currently connected people - no one's here, for now
 apiCalls =  {
 
 	1: {
-		route: 'botReadyForNextRound'
+		route: 'startGame'
 		data: 
-			subject_id: 1 
+			null
 	},
 
-	2: {
-		route: 'botEntrustTurn'
-		data: 
-			subject_id: 1 
-	},
+	# 2: {
+	# 	route: 'botEntrustTurn'
+	# 	data: 
+	# 		subject_id: 1 
+	# },
 
-	3: {
-		route: 'botCooperateDefectTurn'
-		data: 
-			subject_id: 1 
-	}
+	# 3: {
+	# 	route: 'botCooperateDefectTurn'
+	# 	data: 
+	# 		subject_id: 1 
+	# }
 }
 
 

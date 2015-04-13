@@ -7,7 +7,7 @@ roundSummaryView = (summary, bank) ->
 	_.template('''
 		<p> <%= summary %> </p>
 
-		<button id = "readyButton">Ready for the next turn.</button>
+		<button id = "readyButton">OK</button>
 		''')(
 		summary: summary)
 

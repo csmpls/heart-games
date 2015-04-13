@@ -7,8 +7,8 @@ exports.setup = (port) ->
 	socket.on('server says', (msg) -> 
 		console.log 'server says', msg)
 
-	socket.on('opponentReadyforNextRound', (ready) -> ready)
-	socket.on('opponentEntrustTurn', (entrustTurn) -> entrustTurn)
+	socket.on('startEntrustTurn', (data) -> data)
+	socket.on('startCooperateDefectTurn', (data) -> data)
 	socket.on('turnSummary', (summary) -> summary)
 		
 	socket
