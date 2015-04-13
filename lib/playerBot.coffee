@@ -1,14 +1,31 @@
 
+randomInRange = require 'random-number-in-range'
+globalBotConfig = require('./config.coffee').globalBotConfig
+
+##
+## probability-based decisions
+##
 getEntrustDecision = -> return 'entrust'
 getPointsEntrusted = () -> return 3
 getCooperateDefectDecision = -> return 'cooperate'
 
-getEntrustDelay = -> return 100
-getCooperateDefectDelay = -> return 1000
-getReadyDelay = -> return 1000
+getEntrustDelay = -> 
+	randomInRange(
+		globalBotConfig.ENTRUST_TURN_TIME_MIN
+		, globalBotConfig.ENTRUST_TURN_TIME_MAX )
+getCooperateDefectDelay = -> 
+	randomInRange(
+		globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MIN
+		, globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MAX )
+getReadyDelay = -> 
+	randomInRange(
+		globalBotConfig.READY_NEXT_ROUND_TIME_MIN 
+		, globalBotConfig.READY_NEXT_ROUND_TIME_MAX )
 
-# setTimeout helper function
-# puts callback last
+
+##
+## lower-level playing functions
+## 
 delay = (ms, func) -> setTimeout func, ms
 
 generateEntrustTurn = (round)-> 
@@ -32,7 +49,6 @@ getTimeoutDelay = (turn) ->
 
 	if turn == 'readyForNextRound'
 		return getReadyDelay()
-
 
 module.exports = 
 

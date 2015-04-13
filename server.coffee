@@ -6,6 +6,7 @@ io = require('socket.io')(server);
 _ = require 'lodash'
 
 game = require './lib/game.coffee'
+fiftyFiftyChance = require './lib/fiftyFiftyChance.coffee'
 
 port = 3000
 publicDir = "#{__dirname}/built-app"
@@ -42,13 +43,14 @@ pushGamesToAdmins = -> admins_ns.emit('games', games)
 emitToSubject = (subject_id, message, payload) ->
 	players_ns.in(subject_id).emit(message, payload)
 
-startNewGame = (socket, subject_id, station_num) ->
+startNewGame = (socket, subject_id, station_num, elevatedHeartrateCondition) ->
 	# save player's id in their socket
 	socket.subject_id = subject_id
 	# we store login data in our games state
 	games[subject_id] = game.initializeNewGame({
 		subject_id: subject_id
-		station_num: station_num })
+		station_num: station_num 
+		elevated_heartrate_condition: elevatedHeartrateCondition})
 	# put the socket in a room named after their subject id
 	socket.join(subject_id)
 
@@ -61,8 +63,12 @@ players_ns
 
 	#  player login
 	socket.on('login', (data) ->
+		# pick conditions
+		# (these are true or false)
+		elevatedHeartrateCondition = fiftyFiftyChance() 
+		console.log elevatedHeartrateCondition
 		# start a new game for this user
-		startNewGame(socket, data.subject_id, data.station_num)	
+		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
 		# send them a test message 
 		players_ns.in(data.subject_id).emit('server says', 'hii'))
 

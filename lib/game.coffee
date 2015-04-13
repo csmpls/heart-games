@@ -1,6 +1,7 @@
 _ = require 'lodash'
 
 playerBot = require './playerBot.coffee'
+generateHeartrates = require './generateHeartrates.coffee'
 
 # configuration
 
@@ -45,6 +46,7 @@ initializeNewGame = (data) ->
 		# save the socket
 		subject_id: data.subject_id
 		station_num: data.station_num
+		elevated_heartrate_condition: data.elevated_heartrate_condition
 		subject_is_connected: true
 		round_num: 0
 		currentTurn: null
@@ -125,14 +127,32 @@ cooperateDefectTurnSummary = (subject, decision, directObject) ->
 roundEarningsSummary = (earnings) ->
 	_.template('<%= earnings %> points have been added to your bank. ')(earnings:earnings)
 
-getHumanSummary = (humanState, botState) ->
+# returns {mean, std, interpretation}
+getOpponentHeartrate = (elevatedHeartrateCondition) ->
+	if elevatedHeartrateCondition
+		return {
+			mean: generateHeartrates.elevatedHeartrateMean()
+			std: generateHeartrates.elevatedHeartrateStd()
+			interpretation: generateHeartrates.elevatedHeartrateInterpretation() }
+	else
+		return {
+			mean: generateHeartrates.normalHeartrateMean()
+			std: generateHeartrates.normalHeartrateStd()
+			interpretation: generateHeartrates.normalHeartrateInterpretation() }
+
+
+generateRoundSummary = (round) ->
+
+	humanState = round.humanState
+	botState = round.botState
+
 	return '<p>' + entrustTurnSummary('You', humanState.entrustTurn.pointsEntrusted, 'your partner', ) +
 	cooperateDefectTurnSummary('Your partner', botState.cooperateDefectTurn.decision, 'you') + '</p>' +
 
 	'<p>' + entrustTurnSummary('Your partner', botState.entrustTurn.pointsEntrusted, 'you', ) +
 	cooperateDefectTurnSummary('You', humanState.cooperateDefectTurn.decision, 'your partner') + '</p>' +
 
-	'<p>' + roundEarningsSummary(getRoundEarnings(humanState, botState)) + '</p>'
+	'<p>' + roundEarningsSummary(getRoundEarnings(humanState, botState)) + '</p>' 
 
 
 
@@ -193,13 +213,15 @@ startCooperateDefectTurn = (round, emitToSubject, pushGamesToAdmins) ->
 
 
 startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
+	console.log 'heyyyyyy', round
 	# we send the client a summary of the round
 	clientMessage = 'roundSummary'
 	nextTurn = 'readyForNextRound'
 	nextBotTurnFn = round.bot.playReadyForNextRound
 	clientPayload = 
-				{summary: getHumanSummary(round.humanState, round.botState)
-				, bank: getBankAmounts(round).humanBank}
+				{summary: generateRoundSummary(round)
+				, bank: getBankAmounts(round).humanBank
+				opponentHeartrate: getOpponentHeartrate(round.elevated_heartrate_condition) }
 
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 

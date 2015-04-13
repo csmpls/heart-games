@@ -15,6 +15,7 @@ currentGamesDiv = (games) ->
 				<p>
 				current turn: <%= game.currentTurn %>
 				round: <%= game.round_num%>
+				elevated HR condition?: <%= game.elevated_heartrate_condition %>
 				</p>
 
 				<p> BOT: (bank: <%= game.botState.bank %>) <br>

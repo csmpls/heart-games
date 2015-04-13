@@ -7,9 +7,8 @@
 	. . . 
 .
 .  .
-investigate sanity of how youre showing views (on memory)
+investigate sanity on memory) of how youre changing views
 	. . . 
-
 . . .
 .  .   
 
@@ -17,31 +16,38 @@ investigate sanity of how youre showing views (on memory)
 	. . . . .
 				. .
 colored words on turn summaries
-		. . .
 stop the game after `n` rounds (var in server)
 .
 	.
 	.
 	.
  .. 	
-
  		.
 .
-
 	.		
 
 . . . .
 	.
 
+												lets make conditions (just 50/50 hi/lo heartrate 4 now)
+a file with a config - probabilities of getting a condition
+and the probabilities associated with a heartrate condition
+call it on login() and pass it to new_game()
+where its stored in our game object
+'mark in the conditions config file where each fn is called..'
+
+				display heartrates <- bot 
+
+sketch out bot brains for coye
+
+						'''log all the data'''
 
 	question:
 		if someone entrusts 0 points to you, what should it show the opponent?
+		prelims reading list?
 
 
-	lets make conditions (just 50/50 hi/lo heartrate 4 now)
-display heartrates <- bot 
-	lets make bot brains
-'brains' can be gaussian distributions
+
 
 
 a 'join' view / routine .. test it
@@ -58,7 +64,6 @@ validate user inputs
 	login with existing id == retrieve your game state ?
 
 
-log all the data
 
 order some arduino parts
 
@@ -127,6 +132,7 @@ the client/server API :
 		roundSummary:
 			summary: whatever whatever 
 			bank: 50
+			opponentHeartrate: {mean:, std:, interpretation:}
 
 	to server from player frontend
 	and from bot
