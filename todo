@@ -28,25 +28,21 @@ stop the game after `n` rounds (var in server)
 
 . . . .
 	.
-
-												lets make conditions (just 50/50 hi/lo heartrate 4 now)
-a file with a config - probabilities of getting a condition
-and the probabilities associated with a heartrate condition
-call it on login() and pass it to new_game()
-where its stored in our game object
-'mark in the conditions config file where each fn is called..'
-
-				display heartrates <- bot 
-
-sketch out bot brains for coye
+. .
+.
+.
+.
+ .
 
 						'''log all the data'''
 
 	question:
 		if someone entrusts 0 points to you, what should it show the opponent?
+
+		elevated hr condition --> more a prob of WHEN hr will be elevated
+		so, when will it be elevated?
+
 		prelims reading list?
-
-
 
 
 

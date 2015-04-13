@@ -18,3 +18,11 @@ body {
 		cursor: pointer;
 	}
 }
+
+#heartrateGraph{
+	width:180px;
+	height:270px;
+	background-image:url('assets/gradient.jpg');
+	background-size: 180px 250px;
+	background-repeat: no-repeat;
+}
