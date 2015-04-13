@@ -26,7 +26,7 @@ app.get("/admin", (req, res) ->
 
 
 
-# players namespace
+
 admins_ns = io.of('/admin')
 players_ns = io.of('/players')
 
@@ -42,19 +42,28 @@ pushGamesToAdmins = -> admins_ns.emit('games', games)
 emitToSubject = (subject_id, message, payload) ->
 	players_ns.in(subject_id).emit(message, payload)
 
+startNewGame = (socket, subject_id, station_num) ->
+	# save player's id in their socket
+	socket.subject_id = subject_id
+	# we store login data in our games state
+	games[subject_id] = game.initializeNewGame({
+		subject_id: subject_id
+		station_num: station_num })
+	# put the socket in a room named after their subject id
+	socket.join(subject_id)
+
+
+
+# handle sockets
+
 players_ns
 .on('connection', (socket) ->
 
 	#  player login
 	socket.on('login', (data) ->
-		# save player's id in their socket
-		socket.subject_id = data.subject_id
-		# we store login data in our games state
-		games[data.subject_id] = game.initializeNewGame({
-			subject_id: data.subject_id
-			station_num: data.station_num })
-		# put the socket in a room named after their subject id
-		socket.join(data.subject_id)
+		# start a new game for this user
+		startNewGame(socket, data.subject_id, data.station_num)	
+		# send them a test message 
 		players_ns.in(data.subject_id).emit('server says', 'hii'))
 
 	# handle player turns
@@ -101,18 +110,14 @@ io.of('/admin')
 
 	# when admin decides to start the game
 	socket.on('startGame', () ->
-
-		# START EVERYONE'S GAME
+		# start everyone's game
 		_.forEach(games, (round) ->
 			# we set the current turn manually
-			# round = games[data.subject_id]
 			round.currentTurn = 'entrustTurn'
 			# # tell the bot to play an entrust turn
 			round.bot.playEntrustTurn(round, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion))
-
 		# send a message to get them going
 		players_ns.emit("startEntrustTurn", {points:10})
-
 		# let admins know about the state of the games
 		pushGamesToAdmins() ))
 
