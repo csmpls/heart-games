@@ -2,6 +2,7 @@ _ = require 'lodash'
 playerBot = require './playerBot.coffee'
 generateBotHeartrate = require './generateBotHeartrate.coffee'
 generateRoundSummary = require './generateRoundSummary.coffee'
+saveTrustGameRound = require './saveTrustGameRound.coffee'
 
 # configuration
 
@@ -135,8 +136,10 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 		# startNextRoundFn(round, emitToSubject, pushGamesToAdmins)
 			
 
-# TODO save/log round data here
 startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
+
+	# save round data to a postgres database
+	saveTrustGameRound.saveTrustGameRound(round)
 
 	# store the user's moves this round with the bot
 	# the bot uses the user's moves this round to make decisions next round

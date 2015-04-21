@@ -7,6 +7,7 @@ _ = require 'lodash'
 
 game = require './modules/game.coffee'
 fiftyFiftyChance = require './modules/fiftyFiftyChance.coffee'
+saveTrustGameRound = require './modules/saveTrustGameRound.coffee'
 
 port = 19235
 publicDir = "#{__dirname}/built-app"
@@ -26,6 +27,8 @@ app.get("/admin", (req, res) ->
 		path.join(publicDir, 'admin.html')))
 
 
+# make sure the game 'rounds' database is initialized ok
+saveTrustGameRound.syncTrustGameRoundModel()
 
 
 admins_ns = io.of('/admin')
@@ -38,9 +41,9 @@ games = {}
 # subjectID: { 
 #	subject_id
 #   station_num
+#	round_num						<- what round subject is on
 #	elevated_heartrate_condition
 #	subject_is_connected
-#	round_num						<- what round subject is on
 #	currentTurn						<- entrust, cooperateDefect, readyForNextRound
 #	bot 							<- an object, see modules/playerBot.coffee
 #	botState 						 

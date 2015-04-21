@@ -1,0 +1,24 @@
+
+body {
+	font-size:14pt;
+}
+
+.callMaker {
+	background-color:#ccc;
+	color:#222;
+	padding: 10px;
+	margin:15px;
+}
+
+.callMaker:hover {
+	background-color: #fff;
+	cursor: pointer;
+}
+
+#heartrateGraph{
+	width:180px;
+	height:270px;
+	background-image:url('gradient.jpg');
+	background-size: 180px 250px;
+	background-repeat: no-repeat;
+}

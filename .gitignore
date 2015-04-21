@@ -7,3 +7,4 @@ built-app/
 bin/
 lib/
 run/
+db_config.coffee

@@ -40,12 +40,11 @@ stop the game after `n` rounds (var in server)
 . .
 .
 	. . .
-
-
-
-log all the data
+.
 
 make sure these are real sockets
+
+
 
 
 validate user inputs
@@ -67,6 +66,8 @@ a 'join' view / routine .. test it
 front-end stylez '
 	(colored words)
 
+minify js
+get rid of all client log statements
 .
 
 survey is part of this:
@@ -81,17 +82,17 @@ survey is part of this:
 data collection specs:
 	for each round: 
 			1 row:
-				unique ID
-				station #
-				round #
-				how much did i entrust
-				how much did bot entrust
-				did i c or d
-				did bot c or d
-				1/0 condition variables
-				heartrate value
-				bank value
-				TIME beginning/end
+				unique ID                      INTEGER
+				station #                      INTEGER
+				round #                        INTEGER
+				how much did i entrust         INTEGER
+				how much did bot entrust       INTEGER
+				did i c or d                   BOOLEAN
+				did bot c or d                 BOOLEAN
+				1/0 condition variables        INTEGER
+				bank value                     INTEGER
+
+				***TIME beginning/end
 
 
 
