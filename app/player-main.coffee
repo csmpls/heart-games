@@ -47,18 +47,19 @@ init = ->
 
 	startEntrustTurnStream = Bacon.fromEventTarget(socket, 'startEntrustTurn')
 	startEntrustTurnStream.onValue((nextTurn) ->
-		# start the round by showing the entrust view
-		entrustTurns = entrustView.setup()
-		# and replenish our points for this round
+		# replenish our points for this round
 		# this value comes from the server
-		points_this_round = nextTurn.points
-		pointsThisRoundView.setup(points_this_round)
+		pointsThisRound = nextTurn.points
+		pointsThisRoundView.setup(pointsThisRound)
+		# and start the round by showing the entrust view
+		entrustTurns = entrustView.setup(pointsThisRound)
+
 		# on every enturst turn
 		entrustTurns.onValue((playerTurn) -> 
 			# update 'points this round' 
-			points_this_round -= playerTurn.pointsEntrusted
+			pointsThisRound -= playerTurn.pointsEntrusted
 			# and points this round display
-			pointsThisRoundView.setup(points_this_round)
+			pointsThisRoundView.setup(pointsThisRound)
 			# emit the turn, 
 			socket.emit('entrustTurn', playerTurn)
 			# & display a waiting screen

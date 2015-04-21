@@ -15,8 +15,8 @@ investigate sanity on memory) of how youre changing views
 .
 	. . . . .
 				. .
-colored words on turn summaries
-stop the game after `n` rounds (var in server)
+stop the game after `n` rounds (config var)
+turn "new points on round" to a config var, too
 .
 	.
 	.
@@ -40,16 +40,13 @@ stop the game after `n` rounds (var in server)
 . .
 .
 	. . .
+. .
+
+.
+	.  .  . .
 .
 
-make sure these are real sockets
-
-validate user inputs
-	entrust amount should be a number dial
-	'entrust amount' should be w/i range
-
-if someone entrusts 0 points to you, what should it show the opponent?
-
+check bot behavior
 
 
 a 'join' view / routine .. test it
@@ -60,15 +57,21 @@ a 'join' view / routine .. test it
 
 
 
-
-front-end stylez '
-	(colored words)
-
 make a clear admin UI so i can see when to advance
 
+
+front-end stylez '
+	/* application-specific styles */
+	solarized /* global theme styles */
+	(colored words)
 minify js
 get rid of all client log statements
 .
+
+
+a script here: forhowtorun the  user   test    
+
+
 
 survey is part of this:
 	ONE object with all the questions
