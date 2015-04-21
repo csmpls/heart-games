@@ -9,7 +9,7 @@ game = require './modules/game.coffee'
 fiftyFiftyChance = require './modules/fiftyFiftyChance.coffee'
 saveTrustGameRound = require './modules/saveTrustGameRound.coffee'
 
-port = 19235
+port = 29087
 publicDir = "#{__dirname}/built-app"
 app.use(express.static(publicDir))
 
@@ -86,7 +86,9 @@ players_ns
 		elevatedHeartrateCondition = fiftyFiftyChance() 
 		# start a new game for this user
 		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
-		# send them a test message 
+		# let the admins know about the new game
+		admins_ns.emit('games', games)
+		# send the new player a test message 
 		players_ns.in(data.subject_id).emit('server says', 'hii'))
 
 	# handle player turns
