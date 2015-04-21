@@ -1,5 +1,9 @@
 node_modules/
 built-app/
+.Trash-1000/
 .*.swp
 .DS_Store
 .sass-cache*
+bin/
+lib/
+run/

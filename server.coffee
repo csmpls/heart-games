@@ -5,10 +5,10 @@ server = require('http').Server(app);
 io = require('socket.io')(server);
 _ = require 'lodash'
 
-game = require './lib/game.coffee'
-fiftyFiftyChance = require './lib/fiftyFiftyChance.coffee'
+game = require './modules/game.coffee'
+fiftyFiftyChance = require './modules/fiftyFiftyChance.coffee'
 
-port = 3000
+port = 19235
 publicDir = "#{__dirname}/built-app"
 app.use(express.static(publicDir))
 
@@ -66,7 +66,6 @@ players_ns
 		# pick conditions
 		# (these are true or false)
 		elevatedHeartrateCondition = fiftyFiftyChance() 
-		console.log elevatedHeartrateCondition
 		# start a new game for this user
 		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
 		# send them a test message 
@@ -121,7 +120,7 @@ io.of('/admin')
 			# we set the current turn manually
 			round.currentTurn = 'entrustTurn'
 			# # tell the bot to play an entrust turn
-			round.bot.playEntrustTurn(round, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion))
+			round.bot.playEntrustTurn(round, round.bot.humanStateLastRound, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion))
 		# send a message to get them going
 		players_ns.emit("startEntrustTurn", {points:10})
 		# let admins know about the state of the games

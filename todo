@@ -34,16 +34,21 @@ stop the game after `n` rounds (var in server)
 .
  .
 
+.
+	.
+	.
+	TODO: 'noise' on tit for tat?
+
+condition: heartrate is elevated, or not when partner screws you over
+
+game continues 'after everyones done' (when i press a button)
+
 						'''log all the data'''
 
-	question:
-		if someone entrusts 0 points to you, what should it show the opponent?
+front-end stylez (colored words)
 
-		elevated hr condition --> more a prob of WHEN hr will be elevated
-		so, when will it be elevated?
 
-		prelims reading list?
-
+if someone entrusts 0 points to you, what should it show the opponent?
 
 
 a 'join' view / routine .. test it
@@ -57,7 +62,7 @@ validate user inputs
 	entrust amount should be a number dial
 	'entrust amount' should be w/i range
 	'entrust nothing' -> 0
-	login with existing id == retrieve your game state ?
+
 
 
 
@@ -69,15 +74,6 @@ survey is part of this:
 	ONE object with all the questions
 	yields form AND schema for storing it
 
-try tape
-	http://www.macwright.org/2014/03/11/tape-is-cool.html
-	https://github.com/substack/faucet
-
-remember visions ->
-	.
-	an easy config file for bots
-	games is current state - old turns, save then forget them
-	.
 
 
 
@@ -146,45 +142,3 @@ the client/server API :
 
 
 
-
-	# ---- DEBUG ------
-	# we're controlling the bot's movements by hand
-	# ---- DBUG -------
-
-	# socket.on('botReadyForNextRound', (data) -> 
-	# 	# this is how the bot acts:
-	# 	round = getRound(data.subject_id)
-	# 	# setup entrust turn
-	# 	round.bot.playEntrustTurn(round, pushGamesToAdmins, checkRoundCompletion) )
-		
-
-	# socket.on('botEntrustTurn', (data) -> 
-	# 	round = getRound(data.subject_id)
-	# 	# setup cooperate/defect turn
-	# 	round.bot.playCooperateDefectTurn(round, pushGamesToAdmins, checkRoundCompletion) )
-		
-
-	# socket.on('botCooperateDefectTurn', (data) -> 
-	# 	round = getRound(data.subject_id)
-	# 	# setup "ready for next round" message
-	# 	round.bot.playReadyForNextRound(round, pushGamesToAdmins, checkRoundCompletion) ))
-
-
-
-	# ---- DEBUG ------
-	# We're faking the server's messages
-	# when /admin emits a turn event
-	# we pass that turn on to everyone in the player namespace
-	# ---- DBUG -------
-
-	# socket.on('opponentReadyForNextRound', (turn) -> 
-	# 	console.log 'admin ready 4 next round'
-	# 	players_ns.emit('opponentReadyForNextRound')) 
-
-	# socket.on('opponentEntrustTurn', (turn) -> 
-	# 	console.log 'admin entrust T U R N ', turn
-	# 	players_ns.emit('opponentEntrustTurn', turn))
-
-	# socket.on('roundSummary', (summary) -> 
-	# 	console.log 'admin S U M M A R Y ',summary 
-	# 	players_ns.emit('roundSummary', summary)))

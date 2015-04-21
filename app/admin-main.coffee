@@ -9,7 +9,7 @@ currentGamesView = require './views/admin/CurrentGamesView.coffee'
 apiCallMakerView = require './views/admin/APICallMakerView.coffee'
 
 # ---- config
-port = 3000
+socketURL = 'http://trust.coolworld.me/admin'
 people = {} # currently connected people - no one's here, for now
 # apiCalls =  {
 
@@ -58,7 +58,7 @@ apiCalls =  {
 # ---- application
 init = ->
 
-	socket = io('http://localhost:' + port + '/admin')
+	socket = io(socketURL)
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
@@ -88,7 +88,7 @@ init = ->
 # ---- application
 init = ->
 
-	socket = io('http://localhost:' + port + '/admin')
+	socket = io(socketURL)
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->

@@ -27,10 +27,7 @@ module.exports = (grunt) ->
 				dest: 'built-app/assets/'
 				flatten: true
 				filter: 'isFile'
-		sass:
-			compile:
-				files:
-					'built-app/style.css': 'app/styles/main.scss'
+
 		express:
 			dev:
 				options:
@@ -49,13 +46,12 @@ module.exports = (grunt) ->
 				files: ['app/styles/*.scss']
 				tasks: ['sass:compile']
 			express:
-				files: ['server.coffee', 'lib/*']
+				files: ['server.coffee', 'modules/*']
 				tasks: ['express:dev']
 
 					
 	grunt.loadNpmTasks 'grunt-coffeeify'
 	grunt.loadNpmTasks 'grunt-contrib-copy'
-	grunt.loadNpmTasks 'grunt-contrib-sass'
 	grunt.loadNpmTasks 'grunt-express-server'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
-	grunt.registerTask 'default', ['coffeeify', 'copy', 'sass']
+	grunt.registerTask 'default', ['coffeeify', 'copy']

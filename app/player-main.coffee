@@ -12,12 +12,12 @@ pointsThisRoundView = require './views/player/PointsThisRoundView.coffee'
 
 init = ->
 
-	port = 3000
+	socketURL = 'http://trust.coolworld.me/players'
 	subject_id = 1
 	station_num = 42 
 
 	# setup socket
-	socket = player_sockets.setup(port)
+	socket = player_sockets.setup(socketURL)
 
 	# emit login event
 	socket.emit('login', {

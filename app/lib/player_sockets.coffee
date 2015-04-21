@@ -1,8 +1,8 @@
 io = require './socket.io.js'
 
-exports.setup = (port) ->
+exports.setup = (socketURL) ->
 
-	socket = io('http://localhost:' + port + '/players')
+	socket = io(socketURL)
 
 	socket.on('server says', (msg) -> 
 		console.log 'server says', msg)
