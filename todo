@@ -44,15 +44,13 @@ stop the game after `n` rounds (var in server)
 
 make sure these are real sockets
 
-
-
-
 validate user inputs
 	entrust amount should be a number dial
 	'entrust amount' should be w/i range
-	'entrust nothing' -> 0
 
 if someone entrusts 0 points to you, what should it show the opponent?
+
+
 
 a 'join' view / routine .. test it
 	joining depends on server response
@@ -65,6 +63,8 @@ a 'join' view / routine .. test it
 
 front-end stylez '
 	(colored words)
+
+make a clear admin UI so i can see when to advance
 
 minify js
 get rid of all client log statements
@@ -80,21 +80,20 @@ survey is part of this:
 
 
 data collection specs:
-	for each round: 
-			1 row:
-				unique ID                      INTEGER
-				station #                      INTEGER
-				round #                        INTEGER
-				how much did i entrust         INTEGER
-				how much did bot entrust       INTEGER
-				did i c or d                   BOOLEAN
-				did bot c or d                 BOOLEAN
-				1/0 condition variables        INTEGER
-				bank value                     INTEGER
-
-				***TIME beginning/end
+	for each round - 1 row:
+	unique ID
+	station #
+	round #
+	how much did i entrust
+	how much did bot entrust
+	did i c or d
+	did bot c or d
+	1/0 condition variables
+	bank value   
 
 
+***TIME beginning/end
+***HR data from the monitors
 
 
 FAQ: 
@@ -112,22 +111,22 @@ FAQ:
 
 
 
-
 the client/server API :  
 
-	from server to player web frontend
+	from server to web frontend
+
 		startEntrustTurn:
 			points: 10
 		startCooperateDefectTurn:
-			&decision: entrust  # <- this is opponent's entrust turn
-			&pointsEntrusted: 5 # <- this is opponent's entrust turn
+			&decision: entrust  
+			&pointsEntrusted: 5 
 		roundSummary:
 			summary: whatever whatever 
 			bank: 50
 			opponentHeartrate: {mean:, std:, interpretation:}
 
-	to server from player frontend
-	and from bot
+	to server from player , and from bot
+
 		cooperateTurn:
 			decision: cooperate
 		entrustTurn:

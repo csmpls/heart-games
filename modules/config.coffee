@@ -1,6 +1,3 @@
-
-
-
 #
 # GLOBAL BOT CONFIG
 # these apply to all bots
@@ -8,16 +5,16 @@
 globalBotConfig = 
 
 	# time to do entrust turn (ms)
-	ENTRUST_TURN_TIME_MIN: 1000
+	ENTRUST_TURN_TIME_MIN: 20 
 	ENTRUST_TURN_TIME_MAX: 2000 
 
 	# time to do cooperate defect turn
-	COOPERATE_DEFECT_TURN_TIME_MIN: 1000
+	COOPERATE_DEFECT_TURN_TIME_MIN: 20 
 	COOPERATE_DEFECT_TURN_TIME_MAX: 2000
 
 	# time to proceed to the next round
-	READY_NEXT_ROUND_TIME_MIN: 1000
-	READY_NEXT_ROUND_TIME_MAX: 3000
+	READY_NEXT_ROUND_TIME_MIN: 20 
+	READY_NEXT_ROUND_TIME_MAX: 2000 
 
 #
 # HEARTRATE CONDITION CONFIG
