@@ -34,22 +34,26 @@ stop the game after `n` rounds (var in server)
 .
  .
 
-.
-	.
+. .
 	.
 	TODO: 'noise' on tit for tat?
+. .
+.
+	. . .
 
-condition: heartrate is elevated, or not when partner screws you over
 
-game continues 'after everyones done' (when i press a button)
 
-						'''log all the data'''
+log all the data
 
-front-end stylez (colored words)
+make sure these are real sockets
 
+
+validate user inputs
+	entrust amount should be a number dial
+	'entrust amount' should be w/i range
+	'entrust nothing' -> 0
 
 if someone entrusts 0 points to you, what should it show the opponent?
-
 
 a 'join' view / routine .. test it
 	joining depends on server response
@@ -58,17 +62,12 @@ a 'join' view / routine .. test it
 		if not, give that games state...somehow...)
 
 
-validate user inputs
-	entrust amount should be a number dial
-	'entrust amount' should be w/i range
-	'entrust nothing' -> 0
 
 
+front-end stylez '
+	(colored words)
 
-
-order some arduino parts
-
-
+.
 
 survey is part of this:
 	ONE object with all the questions

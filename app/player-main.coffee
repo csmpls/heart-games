@@ -1,8 +1,6 @@
 Bacon = require 'baconjs'
 $ = require 'jquery'
 player_sockets = require './lib/player_sockets.coffee'
-
-example_view = require './lib/view.coffee'
 cooperateDefectView = require './views/player/CooperateDefectView.coffee'
 entrustView = require './views/player/EntrustView.coffee'
 roundSummaryView = require './views/player/RoundSummaryView.coffee'
@@ -12,17 +10,28 @@ pointsThisRoundView = require './views/player/PointsThisRoundView.coffee'
 
 init = ->
 
+	# config
 	socketURL = 'http://trust.coolworld.me/players'
-	subject_id = 1
+	subject_id = 0
 	station_num = 42 
 
 	# setup socket
 	socket = player_sockets.setup(socketURL)
 
+
+	#
+	# login
+	# 
+
 	# emit login event
 	socket.emit('login', {
 		subject_id:subject_id
 		station_num: station_num })
+
+
+	#
+	# setup game view
+	#
 
 	# setup header (bank starts at 0)
 	headerBarView.setup(subject_id, station_num, 0)
@@ -30,7 +39,12 @@ init = ->
 	# show that we're waiting for the administrator to start the game
 	waitingView.waitingFor('the experimenter to start the game')
 
-	# when opponent's "ready for next round" message comes in, 
+
+
+	#
+	# entrust turn
+	#
+
 	startEntrustTurnStream = Bacon.fromEventTarget(socket, 'startEntrustTurn')
 	startEntrustTurnStream.onValue((nextTurn) ->
 		# start the round by showing the entrust view
@@ -48,9 +62,13 @@ init = ->
 			# emit the turn, 
 			socket.emit('entrustTurn', playerTurn)
 			# & display a waiting screen
-			waitingView.waitingFor('opponent')))
+			waitingView.waitingFor('all players')))
 
-	# when opponent's "entrust" turn comes in, 
+
+	#
+	#  cooperate/defect turn
+	#
+
 	startCooperateDefectTurnStream = Bacon.fromEventTarget(socket, 'startCooperateDefectTurn')
 	# show the cooperate/defect view
 	startCooperateDefectTurnStream.onValue((entrustTurn) ->
@@ -59,7 +77,12 @@ init = ->
 			# emit cooperate/defect turns 
 			socket.emit('cooperateDefectTurn', playerTurn)
 			# & display waiting screen
-			waitingView.waitingFor('opponent')))
+			waitingView.waitingFor('all players')))
+
+
+	#
+	# round summary turn
+	#
 
 	# when opponent's "cooperate/defect" turn message comes in,
 	# the server sends us a summary of the turn.
@@ -73,7 +96,7 @@ init = ->
 			# emit 'ready' message 
 			socket.emit('readyForNextRound')
 			# & display waiting screen
-			waitingView.waitingFor('opponent to begin next round')))
+			waitingView.waitingFor('all players')))
 
 	console.log 'player app launched ok'
 

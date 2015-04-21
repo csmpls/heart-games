@@ -32,9 +32,24 @@ admins_ns = io.of('/admin')
 players_ns = io.of('/players')
 
 # state of all current games
-# there are no games right now, but eventually,
-# the key of each game is the ID of the player.
+# each round is key'd by the subject's ID (e.g. subject 3 is 3: {gamestate..})
 games = {}
+# each round object looks like this:
+# subjectID: { 
+#	subject_id
+#   station_num
+#	elevated_heartrate_condition
+#	subject_is_connected
+#	round_num						<- what round subject is on
+#	currentTurn						<- entrust, cooperateDefect, readyForNextRound
+#	bot 							<- an object, see modules/playerBot.coffee
+#	botState 						 
+#	humanState 						<- these States describe the player's actions through the game
+# }										contains 4 things: 
+#										- bank   (an integer, this gets updated after readyForNextRound) 
+#										- entrustTurn: {decision, pointsEntrusted} ('entrust', 'entrustNothing')
+#										- cooperateDefectTurn: {decision} ('cooperate'/'defect')
+#										
 
 getRound = (subject_id) -> games[subject_id]
 
@@ -112,6 +127,11 @@ io.of('/admin')
 	# when admin connects,
 	# give her the state of the games
 	socket.emit('games', games)
+
+	# this is the message that lets players advance from turn to turn
+	socket.on('okToAdvance', () ->
+		_.forEach(games, (round) ->
+			round.startNextTurnFn()))
 
 	# when admin decides to start the game
 	socket.on('startGame', () ->

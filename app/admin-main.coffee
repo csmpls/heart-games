@@ -11,27 +11,7 @@ apiCallMakerView = require './views/admin/APICallMakerView.coffee'
 # ---- config
 socketURL = 'http://trust.coolworld.me/admin'
 people = {} # currently connected people - no one's here, for now
-# apiCalls =  {
 
-# 	1: {
-# 		route: 'opponentReadyForNextRound'
-# 		data: null 
-# 	}
-
-# 	, 2: {
-# 		route: 'opponentEntrustTurn'
-# 		data:
-# 			decision:'cooperate'
-# 			pointsEntrusted: 5
-# 	}
-
-# 	, 3: {
-# 		route: 'roundSummary'
-# 		data:
-# 			summary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
-# 			bank: 10
-# 	}
-# }
 
 apiCalls =  {
 
@@ -41,17 +21,11 @@ apiCalls =  {
 			null
 	},
 
-	# 2: {
-	# 	route: 'botEntrustTurn'
-	# 	data: 
-	# 		subject_id: 1 
-	# },
-
-	# 3: {
-	# 	route: 'botCooperateDefectTurn'
-	# 	data: 
-	# 		subject_id: 1 
-	# }
+	2: {
+		route: 'okToAdvance'
+		data: 
+			null
+	},
 }
 
 
@@ -70,20 +44,6 @@ init = ->
 
 	console.log 'admin app launched ok'
 
-# 	, 2: {
-# 		route: 'opponentEntrustTurn'
-# 		data:
-# 			decision:'cooperate'
-# 			pointsEntrusted: 5
-# 	}
-
-# 	, 3: {
-# 		route: 'roundSummary'
-# 		data:
-# 			summary: 'You entrusted your partner with 3 points. Your partner entrusted you with 5 points. Your partner cooperated with you, giving you 6 points.'
-# 			bank: 10
-# 	}
-# }
 
 # ---- application
 init = ->

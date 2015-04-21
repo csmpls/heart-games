@@ -76,8 +76,6 @@ setNextRoundState = (round, banks) ->
 
 
 
-
-
 #
 #  earnings/bank calculations
 #
@@ -114,22 +112,27 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 	# entrust turn
 	if round.currentTurn == 'entrustTurn'
 		turns = getEntrustTurns(round)
-		startNextRoundFn = startCooperateDefectTurn 
+		startNextTurnFn = startCooperateDefectTurn 
 
 	# c or d turn
 	if round.currentTurn == 'cooperateDefectTurn'
 		turns = getCooperateDefectTurns(round)
-		startNextRoundFn = startReadyForNextRoundTurn
+		startNextTurnFn = startReadyForNextRoundTurn
 
 	# ready for next round message
 	if round.currentTurn == 'readyForNextRound'
 		turns = getReadyForNextRoundTurns(round)	
-		startNextRoundFn = startEntrustTurn
+		startNextTurnFn = startEntrustTurn
 
 	# if both turns have been played, 
-	# start the next turn
 	if bothTurnsPlayed(turns.humanTurn, turns.botTurn)
-		startNextRoundFn(round, emitToSubject, pushGamesToAdmins)
+		# store the 'start next turn' fn 
+		# so that the game can launch it
+		# when the admin says to
+		round.startNextTurnFn = () -> startNextTurnFn(round, emitToSubject, pushGamesToAdmins)
+
+	# start the next turn
+		# startNextRoundFn(round, emitToSubject, pushGamesToAdmins)
 			
 
 # TODO save/log round data here
