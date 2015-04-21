@@ -23,7 +23,6 @@ exports.setup = (roundSummary) ->
 	$('#content').html(roundSummaryView(roundSummary.summary))
 
 	# add heartrate to the view
-	console.log roundSummary
 	hr = roundSummary.opponentHeartrate
 	generateHeartrateGraph(hr.mean, hr.std, hr.interpretation, 'graphContainer')
 

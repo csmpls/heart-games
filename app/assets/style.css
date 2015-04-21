@@ -1,6 +1,18 @@
 
+/* application-specific styles */
+
 body {
 	font-size:14pt;
+}
+
+/* admin interface */
+.isConnected {
+	display: block;
+	float: left;
+	margin-right: 10px;
+	background-color: green;
+	color: green;
+	width: 30px;
 }
 
 .callMaker {
@@ -14,6 +26,8 @@ body {
 	background-color: #fff;
 	cursor: pointer;
 }
+
+/* player interface */
 
 #heartrateGraph{
 	width:180px;
