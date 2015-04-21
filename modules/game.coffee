@@ -1,6 +1,6 @@
 _ = require 'lodash'
 playerBot = require './playerBot.coffee'
-generateHeartrates = require './generateHeartrates.coffee'
+generateBotHeartrate = require './generateBotHeartrate.coffee'
 generateRoundSummary = require './generateRoundSummary.coffee'
 
 # configuration
@@ -97,21 +97,8 @@ getRoundEarnings = (actorState, opponentState) ->
 getBankAmounts = (round) ->
 	return {
 		botBank: round.botState.bank + getRoundEarnings(round.botState, round.humanState), 
-		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) }
-
-
-# returns {mean, std, interpretation}
-getOpponentHeartrate = (elevatedHeartrateCondition) ->
-	if elevatedHeartrateCondition
-		return {
-			mean: generateHeartrates.elevatedHeartrateMean()
-			std: generateHeartrates.elevatedHeartrateStd()
-			interpretation: generateHeartrates.elevatedHeartrateInterpretation() }
-	else
-		return {
-			mean: generateHeartrates.normalHeartrateMean()
-			std: generateHeartrates.normalHeartrateStd()
-			interpretation: generateHeartrates.normalHeartrateInterpretation() }
+		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) 
+	}
 
 
 #
@@ -184,7 +171,7 @@ startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
 				{summary: generateRoundSummary(round
 					, getRoundEarnings(round.humanState, round.botState))
 				, bank: getBankAmounts(round).humanBank
-				opponentHeartrate: getOpponentHeartrate(round.elevated_heartrate_condition) }
+				opponentHeartrate: generateBotHeartrate(round.humanState, round.elevated_heartrate_condition) }
 
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 
