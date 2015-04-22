@@ -22,7 +22,7 @@ app.get("/", (req, res) ->
 	res.sendFile(
 		path.join(publicDir, 'player.html')))
 
-app.get("/admin", (req, res) ->
+app.get("/niceguys", (req, res) ->
 	res.sendFile(
 		path.join(publicDir, 'admin.html')))
 
@@ -96,9 +96,7 @@ players_ns
 		# start a new game for this user
 		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
 		# let the admins know about the new game
-		admins_ns.emit('games', games)
-		# send the new player a test message 
-		players_ns.in(data.subject_id).emit('server says', 'hii'))
+		admins_ns.emit('games', games))
 
 	# handle player turns
 	socket.on('readyForNextRound', () -> 

@@ -25,15 +25,14 @@ init = ->
 	# 
 	loginStream = loginView.setup()
 
-	loginStream.log('logins....')
-
 	# on a login event,
 	loginStream.onValue((loginData) ->
 
 		# emit login event
 		socket.emit('login', loginData)
 
-		# and setup the rest of this program: 
+		# ,and setup the rest of this program: 
+
 		#
 		# main view + header
 		#
@@ -43,7 +42,6 @@ init = ->
 
 		# show that we're waiting for the administrator to start the game
 		waitingView.waitingFor('the experimenter to start the game')
-
 
 
 		#
@@ -70,7 +68,6 @@ init = ->
 				# & display a waiting screen
 				waitingView.waitingFor('all players')))
 
-
 		#
 		#  cooperate/defect turn
 		#
@@ -84,7 +81,6 @@ init = ->
 				socket.emit('cooperateDefectTurn', playerTurn)
 				# & display waiting screen
 				waitingView.waitingFor('all players')))
-
 
 		#
 		# round summary turn
@@ -103,8 +99,6 @@ init = ->
 				socket.emit('readyForNextRound')
 				# & display waiting screen
 				waitingView.waitingFor('all players'))))
-
-	console.log 'player app launched ok'
 
 # launch the app
 $(document).ready(() ->

@@ -35,6 +35,10 @@ module.exports = (grunt) ->
 					debug: true
 					opts: ['node_modules/coffee-script/bin/coffee']
 					script: 'server.coffee'
+
+		uglify:
+			production:
+				files: 'built-app/player_bundle.js': ['built-app/player_bundle.js']
 		watch:
 			coffeeify:
 				files: ['app/views/**/*.coffee', 'app/lib/*.coffee', 'app/player-main.coffee', 'app/admin-main.coffee']
@@ -53,5 +57,6 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-coffeeify'
 	grunt.loadNpmTasks 'grunt-contrib-copy'
 	grunt.loadNpmTasks 'grunt-express-server'
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.registerTask 'default', ['coffeeify', 'copy']
