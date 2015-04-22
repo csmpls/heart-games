@@ -5,11 +5,17 @@ $ = require 'jquery'
 headerBarView = (subject_id, station_num, bank) ->
 	_.template('''
 
-		Your subject id: <%= subject_id %>
+		<div class = "headerDiv">
+			Subject ID: <%= subject_id %>
+		</div>
 
-		Station: <%= station_num %>
+		<div class = "headerDiv">
+			Station: <%= station_num %>
+		</div>
 
-		Bank: <%= bank %>	
+		<div class = "headerDiv">
+			Bank: <%= bank %>	
+			</div>
 
 		''')(
 		subject_id: subject_id

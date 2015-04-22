@@ -87,7 +87,7 @@ init = ->
 
 	# when opponent's "cooperate/defect" turn message comes in,
 	# the server sends us a summary of the turn.
-	roundSummaryStream = Bacon.fromEventTarget(socket, 'roundSummary').log()
+	roundSummaryStream = Bacon.fromEventTarget(socket, 'roundSummary')
 	roundSummaryStream.onValue((roundSummary) ->
 		# update the header bar
 		headerBarView.setup(subject_id, station_num, roundSummary.bank)

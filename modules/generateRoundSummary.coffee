@@ -2,16 +2,16 @@ _ = require 'lodash'
 
 
 entrustTurnSummary = (subject, pointsEntrusted, directObject) ->
-	_.template('<%=subject%> entrusted <%=pointsEntrusted%> to <%=directObject%>. ')(
+	_.template('<%=subject%> <span class="goodThing"> entrusted </span> <%=pointsEntrusted%> points to <%=directObject%>. ')(
 		subject: subject
 		pointsEntrusted: pointsEntrusted
 		directObject: directObject)
 
 cooperateDefectTurnSummary = (subject, decision, directObject) ->
 	if decision == 'cooperate'
-		decision = 'returned'
+		decision = '<span class="goodThing"> returned </span>'
 	else
-		decision = 'kept'
+		decision = '<span class="badThing"> kept </span>'
 	return _.template('<%=subject%> <%=decision%> the points <%=directObject%> entrusted. ')(
 		subject: subject
 		decision: decision
@@ -22,13 +22,13 @@ roundEarningsSummary = (earnings) ->
 
 getFirstParagraph = (youEntrusted, yourPartnerDecided) -> 
 	if youEntrusted == 0
-		return '<p> You entrusted nothing to your partner. </p>'
+		return '<p> You entrusted <span class="badThing"> nothing </span> to your partner. </p>'
 	return '<p>' + entrustTurnSummary('You', youEntrusted, 'your partner', ) +
 	cooperateDefectTurnSummary('Your partner', yourPartnerDecided, 'you') + '</p>' 
 
 getSecondParagraph = (yourPartnerEntrusted, youDecided) ->
 	if yourPartnerEntrusted == 0
-		return '<p>Your partner entrusted you with nothing.</p>'
+		return '<p>Your partner entrusted you with <span class="badThing"> nothing </span>.</p>'
 	return '<p>' + entrustTurnSummary('Your partner', yourPartnerEntrusted, 'you', ) +
 	cooperateDefectTurnSummary('You', youDecided, 'your partner') + '</p>' 
 

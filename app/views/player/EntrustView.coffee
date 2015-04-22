@@ -11,9 +11,11 @@ entrustView = () ->
 	_.template('''
 		<p>how many points would you like to entrust to your partner?</p>
 
-		<button id = "entrustLess">-</button>
-		<div id="pointsToEntrustDiv"> 0 </div>
-		<button id = "entrustMore">+</button>
+		<div id = "pointsToEntrustPanel">
+			<button id = "entrustLess">-</button>
+			<div id="pointsToEntrustDiv"> 0 </div>
+			<button id = "entrustMore">+</button>
+		</div>
 
 		<br>
 
@@ -35,6 +37,7 @@ setup = (pointsThisRound) ->
 	$('#content').html(entrustView())
 
 	$entrustButton = $('#entrustButton')
+	$entrustNothingButton = $('#entrustNothingButton')
 	$pointsToEntrustDiv = $('#pointsToEntrustDiv')
 
 	setEnabled($entrustButton,false)
@@ -61,10 +64,15 @@ setup = (pointsThisRound) ->
 		.map((points) -> if points > 0 then true else false)
 		.assign(setEnabled, $entrustButton)
 
+	# disable entrustNothing button when pointsToEntrustProp > 0
+	pointsToEntrustProp
+		.map((points) -> if points > 0 then false else true)
+		.assign(setEnabled, $entrustNothingButton)
+
 
 	# streams of the two buttons
 	entrust = $entrustButton.asEventStream('click')
-	entrustNothing = $('#entrustNothingButton').asEventStream('click')
+	entrustNothing = $entrustNothingButton.asEventStream('click')
 
 	# these are objects we can send as json to the server
 	entrustTurns = Bacon.combineTemplate({
@@ -79,7 +87,6 @@ setup = (pointsThisRound) ->
 	}).sampledBy(entrustNothing)
 
 	turns = entrustNothingTurns.merge(entrustTurns)
-	turns.log('turn...')
 
 	# return a stream of turns 
 	turns

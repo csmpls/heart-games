@@ -18,7 +18,7 @@ opponentEntrustedNothingView = ->
 opponentEntrustePointsView = (pointsEntrusted) ->
 	_.template('''
 
-		Your partner entrusted you with <%= pointsEntrusted %>
+		<p>Your partner entrusted you with <%= pointsEntrusted %></p>
 
 		<button id="cooperateButton">Return</button>
 

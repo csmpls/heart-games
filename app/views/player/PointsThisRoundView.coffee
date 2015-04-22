@@ -2,7 +2,7 @@ _ = require 'lodash'
 $ = require 'jquery'
 
 pointsViewTemplate = (points) ->
-	_.template('points this round: <br> <%= points %>')(points:points)
+	_.template('Your Points: <%= points %>')(points:points)
 
 setup = (points) -> $('#pointsSidebar').html(pointsViewTemplate(points))
 

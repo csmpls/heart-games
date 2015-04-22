@@ -45,8 +45,7 @@ turn "new points on round" to a config var, too
 .
 	.  .  . .
 .
-
-check bot behavior
+.
 
 
 a 'join' view / routine .. test it
@@ -56,14 +55,11 @@ a 'join' view / routine .. test it
 		if not, give that games state...somehow...)
 
 
+....
 
-make a clear admin UI so i can see when to advance
+. .
+	.
 
-
-front-end stylez '
-	/* application-specific styles */
-	solarized /* global theme styles */
-	(colored words)
 minify js
 get rid of all client log statements
 .

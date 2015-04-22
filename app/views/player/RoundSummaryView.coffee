@@ -7,13 +7,20 @@ generateHeartrateGraph = require '../../lib/GenerateHeartrateGraph.coffee'
 # TODO update bank 
 roundSummaryView = (summary) ->
 	_.template('''
-		<p> <%= summary %> </p>
 
-		<p> Your partner's heartrate during the last round: </p>
+		<div id="summary">
+			<div id = "roundSummary">
+				<%= summary %> </p>
+			</div>
 
-		<div id = "graphContainer"> </div>
+			<div id = "heartrateSummary">
+				<div id = "graphContainer"> </div>
+			</div>
+		</div>
 
-		<button id = "readyButton">OK</button>
+		<div id = "readyButtonDiv">
+			<button id = "readyButton">OK</button>
+		</div>
 		''')(
 		summary: summary)
 

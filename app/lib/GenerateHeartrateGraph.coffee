@@ -27,9 +27,9 @@ getGlobalChartOptions = () ->
 
 heartrateGraphTemplate = (interpretation) ->
 	_.template(
-		"<h3>Partner's average heartrate during last turn</h3>" +
+		"<p><b>Partner's average heartrate during last turn</b>" +
 		'<canvas id="heartrateGraph" width="170px" height="270px"></canvas>' +
-		'<br> <%= interpretation %> ')(interpretation: interpretation)	
+		'<br> <%= interpretation %></p> ')(interpretation: interpretation)	
 
 
 # our export is a function that takes a mean and standard deviation
