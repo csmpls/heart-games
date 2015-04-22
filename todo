@@ -48,20 +48,19 @@ turn "new points on round" to a config var, too
 .
 
 
-a 'join' view / routine .. test it
-	joining depends on server response
+.
 	(what happens when i join a game that already exists?
 		if the player is connected, go awaay
 		if not, give that games state...somehow...)
-
 
 ....
 
 . .
 	.
+.
 
 minify js
-get rid of all client log statements
+make sure no client log statements
 .
 
 

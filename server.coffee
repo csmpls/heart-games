@@ -76,11 +76,20 @@ startNewGame = (socket, subject_id, station_num, elevatedHeartrateCondition) ->
 
 # handle sockets
 
+# if subject has a game, returns that game 
+doesUserHaveGame = (id) ->
+	try
+		games[data.subject_id]
+	catch
+		false
+
+
 players_ns
 .on('connection', (socket) ->
 
 	#  player login
 	socket.on('login', (data) ->
+
 		# pick conditions
 		# (these are true or false)
 		elevatedHeartrateCondition = fiftyFiftyChance() 
@@ -137,6 +146,11 @@ io.of('/admin')
 	socket.on('okToAdvance', () ->
 		_.forEach(games, (round) ->
 			round.startNextTurnFn()))
+
+	# this is the message that clears all the admin games
+	socket.on('clearGames', () -> 
+		games = {}
+		pushGamesToAdmins())
 
 	# when admin decides to start the game
 	socket.on('startGame', () ->

@@ -26,6 +26,12 @@ apiCalls =  {
 		data: 
 			null
 	},
+
+	3: {
+		route: 'clearGames'
+		data: 
+			null
+	}
 }
 
 
