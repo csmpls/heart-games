@@ -15,8 +15,8 @@ investigate sanity on memory) of how youre changing views
 .
 	. . . . .
 				. .
-stop the game after `n` rounds (config var)
-turn "new points on round" to a config var, too
+turn "new points on round" to a config var
+the word "points" as well..
 .
 	.
 	.
@@ -59,16 +59,9 @@ turn "new points on round" to a config var, too
 	.
 .
 
-minify js
-make sure no client log statements
-.
+. . .  
 
-
-a script here: forhowtorun the  user   test    
-
-
-
-survey is part of this:
+survey is part of this
 	ONE object with all the questions
 	yields form AND schema for storing it
 
