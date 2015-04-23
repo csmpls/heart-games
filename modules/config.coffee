@@ -1,3 +1,10 @@
+
+# config about the game 
+game = 
+
+	# num of points players get on new round
+	POINTS_ON_NEW_ROUND: 10
+
 #
 # GLOBAL BOT CONFIG
 # these apply to all bots
@@ -39,3 +46,4 @@ heartrateConditionConfig =
 
 exports.globalBotConfig = globalBotConfig
 exports.heartrateConditionConfig = heartrateConditionConfig
+exports.game = game

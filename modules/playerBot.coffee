@@ -1,18 +1,22 @@
 
 randomInRange = require 'random-number-in-range'
-globalBotConfig = require('./config.coffee').globalBotConfig
+config = require('./config.coffee')
+
+
+giveOrTake = (value, amount, lowerBound, upperBound) ->
+	result = value + randomInRange(-1*amount, amount+1)
+	if result < lowerBound
+		return lowerBound
+	if result > upperBound
+		return upperBound
+	return result
 
 ##
 ## probability-based decisions
 ##
 getEntrustDecision = (lastRound) -> 
-	# if this is the first round
-	if not lastRound
-		# entrust
-		return 'entrust'
-	# otherwise,
-	# do whatever the opponent did last time
-	return lastRound.entrustTurn.decision
+	# always entrust
+	return 'entrust'
 
 getPointsEntrusted = (lastRound) -> 
 	# if this is the first round
@@ -20,8 +24,10 @@ getPointsEntrusted = (lastRound) ->
 		# enturst 1
 		return 1
 	# otherwise
-	#, do whatever the player did last time
-	return lastRound.entrustTurn.pointsEntrusted
+	#, do whatever the player did last time,
+	# give or take 1 point
+	pointsToEntrust = giveOrTake(lastRound.entrustTurn.pointsEntrusted, 1, 0, config.game.POINTS_ON_NEW_ROUND)
+	return pointsToEntrust
 
 getCooperateDefectDecision = (lastRound) -> 
 	# if this is the first round
@@ -34,16 +40,16 @@ getCooperateDefectDecision = (lastRound) ->
 
 getEntrustDelay = -> 
 	randomInRange(
-		globalBotConfig.ENTRUST_TURN_TIME_MIN
-		, globalBotConfig.ENTRUST_TURN_TIME_MAX )
+		config.globalBotConfig.ENTRUST_TURN_TIME_MIN
+		, config.globalBotConfig.ENTRUST_TURN_TIME_MAX )
 getCooperateDefectDelay = -> 
 	randomInRange(
-		globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MIN
-		, globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MAX )
+		config.globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MIN
+		, config.globalBotConfig.COOPERATE_DEFECT_TURN_TIME_MAX )
 getReadyDelay = -> 
 	randomInRange(
-		globalBotConfig.READY_NEXT_ROUND_TIME_MIN 
-		, globalBotConfig.READY_NEXT_ROUND_TIME_MAX )
+		config.globalBotConfig.READY_NEXT_ROUND_TIME_MIN 
+		, config.globalBotConfig.READY_NEXT_ROUND_TIME_MAX )
 
 
 ##

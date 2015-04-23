@@ -3,10 +3,7 @@ playerBot = require './playerBot.coffee'
 generateBotHeartrate = require './generateBotHeartrate.coffee'
 generateRoundSummary = require './generateRoundSummary.coffee'
 saveTrustGameRound = require './saveTrustGameRound.coffee'
-
-# configuration
-
-POINTS_ON_NEW_ROUND = 10
+config = require './config.coffee'
 
 
 #
@@ -138,9 +135,6 @@ checkRoundCompletion = (round, emitToSubject, pushGamesToAdmins) ->
 
 startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
 
-	# save round data to a postgres database
-	saveTrustGameRound.saveTrustGameRound(round)
-
 	# store the user's moves this round with the bot
 	# the bot uses the user's moves this round to make decisions next round
 	round.bot.humanStateLastRound = round.humanState
@@ -151,7 +145,7 @@ startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
 
 	# send the client the points they can use during the next round
 	clientMessage = 'startEntrustTurn'
-	clientPayload = {points: POINTS_ON_NEW_ROUND}
+	clientPayload = {points: config.game.POINTS_ON_NEW_ROUND}
 	nextTurn = 'entrustTurn'
 	nextBotTurnFn = round.bot.playEntrustTurn
 
@@ -169,6 +163,10 @@ startCooperateDefectTurn = (round, emitToSubject, pushGamesToAdmins) ->
 
 
 startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
+
+	# save round data to a postgres database
+	saveTrustGameRound.saveTrustGameRound(round)
+
 	# we send the client a summary of the round
 	clientMessage = 'roundSummary'
 	nextTurn = 'readyForNextRound'

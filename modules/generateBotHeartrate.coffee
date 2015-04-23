@@ -12,20 +12,18 @@ heartrateConfig = require('./config.coffee').heartrateConditionConfig
 
 generateBotHeartrate = (humanPlayerState, elevatedHeartrateCondition) ->
 
-	didHumanScrewMeOver = humanPlayerState.cooperateDefectTurn.decision == 'defect'
+	didHumanScrewMeOver = didPlayerDefect(humanPlayerState)
 
-	if didHumanScrewMeOver and elevatedHeartrateCondition
-		# return an elevated heartrate
-		return {
-			mean: elevatedHeartrateMean()
-			std: elevatedHeartrateStd()
-			interpretation: elevatedHeartrateInterpretation() }
+	# condition 2: always return an elevated heartrate 
+	if elevatedHeartrateCondition == 2
+		return generateElevatedHeartrate()
 
-	# return a normal heartrate
-	return {
-		mean: normalHeartrateMean()
-		std: normalHeartrateStd()
-		interpretation: normalHeartrateInterpretation() }
+	# condition 1: return an elevated heartrate if the human screwed the bot over
+	if didHumanScrewMeOver and elevatedHeartrateCondition == 1
+		return generateElevatedHeartrate() 
+
+	# condition 0: always return a normal heartrate
+	return  generateNormalHeartrate() 
 
 ###
 given the last round (humanPlayerState), and the subject's condition (elevatedHeartrateCondition), this function generates the heartrate that the player sees after the round is over.
@@ -35,6 +33,22 @@ for starters, we just elevate the heartrate whenever player screws over the othe
 returns {mean, std, interpretation}
 
 ###
+
+didPlayerDefect = (playerState) -> playerState.cooperateDefectTurn.decision == 'defect'
+
+generateElevatedHeartrate = ->
+	return {
+		mean: elevatedHeartrateMean()
+		std: elevatedHeartrateStd()
+		interpretation: elevatedHeartrateInterpretation() 
+	}
+
+generateNormalHeartrate = ->
+	return {
+		mean: normalHeartrateMean()
+		std: normalHeartrateStd()
+		interpretation: normalHeartrateInterpretation() 
+	}
 
 elevatedHeartrateMean = ->
 	randomInRange(

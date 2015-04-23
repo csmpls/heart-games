@@ -24,8 +24,6 @@ getPointsEntrusted = (state) -> Number(state.entrustTurn.pointsEntrusted)
 
 getCooperateDecisionAsBoolean = (state) -> if state.cooperateDefectTurn.decision == 'cooperate' then true else false
 
-getBooleanAsOneOrZero = (bool) -> if bool is true then 1 else 0
-
 saveTrustGameRound = (round) ->
 
 	TrustGameRound.create({
@@ -36,7 +34,7 @@ saveTrustGameRound = (round) ->
 		bot_entrusted: getPointsEntrusted(round.botState)
 		human_cooperated: getCooperateDecisionAsBoolean(round.humanState)
 		bot_cooperated: getCooperateDecisionAsBoolean(round.botState)
-		elevated_heartrate_condition: getBooleanAsOneOrZero(round.elevated_heartrate_condition)
+		elevated_heartrate_condition: round.elevated_heartrate_condition
 		human_bank: round.humanState.bank
 		bot_bank: round.botState.bank
 		})

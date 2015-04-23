@@ -61,19 +61,26 @@ turn "new points on round" to a config var, the word "points" as well..
 
 . . .  
 
-SAVE ROUND ON READYFORNEXTTURN ..... AKA ASAP
+.
 
-bot: after first turn (entrust 1)A entrust last amount + random(-1,1)
-(btwn 0 and CONFIG.POINTS_ON_NEW_ROUND) 
+.
+.
 
-bot: always entrust
 
-conditions 0, 1, 2
-2, where heartrate is always elevated
+'okToAdvance' gets broadcast TO SPECIFIC ROOMS!  appears on admin view
 
+'ARE YOU SURE!' dialog when start or clear is clicked!
+
+BUG: if you startGame, but some people haven't started or are offline, startNextTurnFn isn't defined
+
+
+
+
+test hr condition 0,1,2
 
 play 30 rounds and send the csv to coye
 
+make a survey app...pluggable
 
 make a spreadsheet for user ids and payments
 

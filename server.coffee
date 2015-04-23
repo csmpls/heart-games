@@ -4,9 +4,9 @@ app = express()
 server = require('http').Server(app);
 io = require('socket.io')(server);
 _ = require 'lodash'
+randomInRange = require 'random-number-in-range'
 
 game = require './modules/game.coffee'
-fiftyFiftyChance = require './modules/fiftyFiftyChance.coffee'
 saveTrustGameRound = require './modules/saveTrustGameRound.coffee'
 
 port = 29087
@@ -90,9 +90,8 @@ players_ns
 	#  player login
 	socket.on('login', (data) ->
 
-		# pick conditions
-		# (these are true or false)
-		elevatedHeartrateCondition = fiftyFiftyChance() 
+		# pick HR condition (0,1,2)
+		elevatedHeartrateCondition = randomInRange(0,3)
 		# start a new game for this user
 		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
 		# let the admins know about the new game

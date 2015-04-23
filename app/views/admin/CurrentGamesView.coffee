@@ -22,7 +22,8 @@ currentGamesDiv = (games) ->
 				<br>
 
 				<small>
-				(station <%= game.station_num %>, 
+				(station <%= game.station_num %>
+				-
 				<%= game.elevated_heartrate_condition %>)
 				</small>
 
@@ -37,8 +38,8 @@ currentGamesDiv = (games) ->
 
 				<% if (game.currentTurn == 'entrustTurn') { %>
 
-					<% if (game.humanState.entrustTurn && <%= game.botState.bank %>) { %>
-						<span class = "bothDone" [x]></span>
+					<% if (game.humanState.entrustTurn &&  game.botState.entrustTurn ) { %>
+						<span class = "bothDone"><%= game.subject_id %></span>
 					<% } %>
 
 				<% } %>
@@ -46,7 +47,7 @@ currentGamesDiv = (games) ->
 				<% if (game.currentTurn == 'cooperateDefectTurn') { %>
 
 					<% if (game.humanState.cooperateDefectTurn && game.botState.cooperateDefectTurn) { %>
-						<span class = "bothDone" [x]></span>
+						<span class = "bothDone"><%= game.subject_id %></span>
 					<% } %>
 
 				<% } %>
@@ -54,7 +55,7 @@ currentGamesDiv = (games) ->
 				<% if (game.currentTurn == 'readyForNextRound') { %>
 
 					<% if (game.humanState.readyForNextRound && game.botState.readyForNextRound) { %>
-						<span class = "bothDone" [x]></span>
+						<span class = "bothDone"><%= game.subject_id %></span>
 					<% } %>
 
 				<% } %>
