@@ -1,0 +1,2631 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'ngrok' ]
+2 info using npm@2.5.0
+3 info using node@v0.12.0
+4 verbose node symlink /usr/local/bin/node
+5 silly cache add args [ 'ngrok', null ]
+6 verbose cache add spec ngrok
+7 silly cache add parsed spec { raw: 'ngrok',
+7 silly cache add   scope: null,
+7 silly cache add   name: 'ngrok',
+7 silly cache add   rawSpec: '',
+7 silly cache add   spec: '*',
+7 silly cache add   type: 'range' }
+8 verbose addNamed ngrok@*
+9 silly addNamed semver.valid null
+10 silly addNamed semver.validRange *
+11 silly addNameRange { name: 'ngrok', range: '*', hasData: false }
+12 silly mapToRegistry name ngrok
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/ngrok
+16 verbose addNameRange registry:https://registry.npmjs.org/ngrok not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/ngrok
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 9:25:52 AM
+20 verbose request id 14dbb8d13a19ae0c
+21 verbose etag "9C0JQBVFEUYWMVX2V5UWZM2Q3"
+22 http request GET https://registry.npmjs.org/ngrok
+23 http 304 https://registry.npmjs.org/ngrok
+24 silly get cb [ 304,
+24 silly get   { date: 'Thu, 16 Apr 2015 16:25:54 GMT',
+24 silly get     server: 'Apache',
+24 silly get     via: '1.1 varnish',
+24 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:54 GMT',
+24 silly get     'cache-control': 'max-age=60',
+24 silly get     etag: '"9C0JQBVFEUYWMVX2V5UWZM2Q3"',
+24 silly get     age: '0',
+24 silly get     'x-served-by': 'cache-lax1426-LAX',
+24 silly get     'x-cache': 'MISS',
+24 silly get     'x-cache-hits': '0',
+24 silly get     'x-timer': 'S1429201554.230499,VS0,VE185',
+24 silly get     vary: 'Accept',
+24 silly get     'content-length': '0',
+24 silly get     'keep-alive': 'timeout=10, max=50',
+24 silly get     connection: 'Keep-Alive' } ]
+25 verbose etag https://registry.npmjs.org/ngrok from cache
+26 verbose get saving ngrok to /Users/ffff/.npm/registry.npmjs.org/ngrok/.cache.json
+27 silly addNameRange number 2 { name: 'ngrok', range: '*', hasData: true }
+28 silly addNameRange versions [ 'ngrok',
+28 silly addNameRange   [ '0.1.0',
+28 silly addNameRange     '0.1.1',
+28 silly addNameRange     '0.1.2',
+28 silly addNameRange     '0.1.3',
+28 silly addNameRange     '0.1.4',
+28 silly addNameRange     '0.1.5',
+28 silly addNameRange     '0.1.6',
+28 silly addNameRange     '0.1.7',
+28 silly addNameRange     '0.1.8',
+28 silly addNameRange     '0.1.9',
+28 silly addNameRange     '0.1.91',
+28 silly addNameRange     '0.1.92',
+28 silly addNameRange     '0.1.93',
+28 silly addNameRange     '0.1.94',
+28 silly addNameRange     '0.1.95',
+28 silly addNameRange     '0.1.96',
+28 silly addNameRange     '0.1.97',
+28 silly addNameRange     '0.1.98',
+28 silly addNameRange     '0.1.99' ] ]
+29 verbose addNamed ngrok@0.1.99
+30 silly addNamed semver.valid 0.1.99
+31 silly addNamed semver.validRange 0.1.99
+32 silly cache afterAdd ngrok@0.1.99
+33 verbose afterAdd /Users/ffff/.npm/ngrok/0.1.99/package/package.json not in flight; writing
+34 verbose afterAdd /Users/ffff/.npm/ngrok/0.1.99/package/package.json written
+35 silly install resolved [ { name: 'ngrok',
+35 silly install resolved     version: '0.1.99',
+35 silly install resolved     description: 'node wrapper for ngrok',
+35 silly install resolved     main: 'index.js',
+35 silly install resolved     scripts:
+35 silly install resolved      { test: 'node ./node_modules/mocha/bin/_mocha',
+35 silly install resolved        postinstall: 'node ./postinstall.js',
+35 silly install resolved        postupdate: 'node ./postinstall.js' },
+35 silly install resolved     repository: { type: 'git', url: 'git://github.com/bubenshchykov/ngrok.git' },
+35 silly install resolved     keywords: [ 'ngrok', 'localhost', 'tunneling', 'localtunnel', 'webhook' ],
+35 silly install resolved     author: { name: 'bubenshchykov' },
+35 silly install resolved     license: 'BSD-2-Clause',
+35 silly install resolved     bugs: { url: 'https://github.com/bubenshchykov/ngrok/issues' },
+35 silly install resolved     devDependencies: { mocha: '~1.14.0', chai: '~1.8.1', request: '~2.27.0' },
+35 silly install resolved     dependencies: { 'decompress-zip': '0.1.0' },
+35 silly install resolved     bin: { ngrok: './bin/ngrok' },
+35 silly install resolved     homepage: 'https://github.com/bubenshchykov/ngrok',
+35 silly install resolved     _id: 'ngrok@0.1.99',
+35 silly install resolved     dist:
+35 silly install resolved      { shasum: 'b9fd7007bb4968a23fa90e0ea53e38fecab96435',
+35 silly install resolved        tarball: 'http://registry.npmjs.org/ngrok/-/ngrok-0.1.99.tgz' },
+35 silly install resolved     _from: 'ngrok@*',
+35 silly install resolved     _npmVersion: '1.4.3',
+35 silly install resolved     _npmUser: { name: 'bubenshchykov', email: 'a.bubenshchykov@gmail.com' },
+35 silly install resolved     maintainers: [ [Object] ],
+35 silly install resolved     directories: {},
+35 silly install resolved     _shasum: 'b9fd7007bb4968a23fa90e0ea53e38fecab96435',
+35 silly install resolved     _resolved: 'https://registry.npmjs.org/ngrok/-/ngrok-0.1.99.tgz',
+35 silly install resolved     readme: 'ERROR: No README data found!' } ]
+36 info install ngrok@0.1.99 into /usr/local/lib
+37 info installOne ngrok@0.1.99
+38 verbose installOne of ngrok to /usr/local/lib not in flight; installing
+39 verbose lock using /Users/ffff/.npm/_locks/ngrok-d1c70c9c77ebe6b2.lock for /usr/local/lib/node_modules/ngrok
+40 silly install write writing ngrok 0.1.99 to /usr/local/lib/node_modules/ngrok
+41 silly cache addNamed cb ngrok@0.1.99
+42 verbose unbuild lib/node_modules/ngrok
+43 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok
+44 verbose tar unpack /Users/ffff/.npm/ngrok/0.1.99/package.tgz
+45 verbose tar unpacking to /usr/local/lib/node_modules/ngrok
+46 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok
+47 silly gunzTarPerm modes [ '755', '644' ]
+48 silly gunzTarPerm extractEntry package.json
+49 silly gunzTarPerm extractEntry .npmignore
+50 silly gunzTarPerm extractEntry README.md
+51 silly gunzTarPerm extractEntry index.js
+52 silly gunzTarPerm extractEntry postinstall.js
+53 silly gunzTarPerm extractEntry .travis.yml
+54 silly gunzTarPerm extractEntry bin/ngrok
+55 silly gunzTarPerm extractEntry test/chai.js
+56 silly gunzTarPerm extractEntry test/ngrok.eventemitter.spec.js
+57 silly gunzTarPerm extractEntry test/ngrok.spec.js
+58 silly gunzTarPerm extractEntry test/mocha.opts
+59 info preinstall ngrok@0.1.99
+60 silly prepareForInstallMany adding decompress-zip@0.1.0 from ngrok dependencies
+61 silly cache add args [ 'decompress-zip@0.1.0', null ]
+62 verbose cache add spec decompress-zip@0.1.0
+63 silly cache add parsed spec { raw: 'decompress-zip@0.1.0',
+63 silly cache add   scope: null,
+63 silly cache add   name: 'decompress-zip',
+63 silly cache add   rawSpec: '0.1.0',
+63 silly cache add   spec: '0.1.0',
+63 silly cache add   type: 'version' }
+64 verbose addNamed decompress-zip@0.1.0
+65 silly addNamed semver.valid 0.1.0
+66 silly addNamed semver.validRange 0.1.0
+67 silly mapToRegistry name decompress-zip
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry uri https://registry.npmjs.org/decompress-zip
+71 verbose addNameVersion registry:https://registry.npmjs.org/decompress-zip not in flight; fetching
+72 verbose request uri https://registry.npmjs.org/decompress-zip
+73 verbose request no auth needed
+74 info attempt registry request try #1 at 9:25:53 AM
+75 verbose etag "21ZY7CN5XQBWKGG6N55LJU4GM"
+76 http request GET https://registry.npmjs.org/decompress-zip
+77 http 304 https://registry.npmjs.org/decompress-zip
+78 silly get cb [ 304,
+78 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+78 silly get     server: 'Apache',
+78 silly get     via: '1.1 varnish',
+78 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:50 GMT',
+78 silly get     'cache-control': 'max-age=60',
+78 silly get     etag: '"21ZY7CN5XQBWKGG6N55LJU4GM"',
+78 silly get     age: '11',
+78 silly get     'x-served-by': 'cache-lax1426-LAX',
+78 silly get     'x-cache': 'HIT',
+78 silly get     'x-cache-hits': '3',
+78 silly get     'x-timer': 'S1429201555.200003,VS0,VE0',
+78 silly get     vary: 'Accept',
+78 silly get     'content-length': '0',
+78 silly get     'keep-alive': 'timeout=10, max=50',
+78 silly get     connection: 'Keep-Alive' } ]
+79 verbose etag https://registry.npmjs.org/decompress-zip from cache
+80 verbose get saving decompress-zip to /Users/ffff/.npm/registry.npmjs.org/decompress-zip/.cache.json
+81 silly cache afterAdd decompress-zip@0.1.0
+82 verbose afterAdd /Users/ffff/.npm/decompress-zip/0.1.0/package/package.json not in flight; writing
+83 verbose afterAdd /Users/ffff/.npm/decompress-zip/0.1.0/package/package.json written
+84 silly install resolved [ { name: 'decompress-zip',
+84 silly install resolved     version: '0.1.0',
+84 silly install resolved     description: 'Extract files from a ZIP archive',
+84 silly install resolved     main: 'lib/decompress-zip.js',
+84 silly install resolved     scripts: { test: 'grunt test' },
+84 silly install resolved     bin: { 'decompress-zip': 'bin/decompress-zip' },
+84 silly install resolved     repository:
+84 silly install resolved      { type: 'git',
+84 silly install resolved        url: 'https://github.com/bower/decompress-zip.git' },
+84 silly install resolved     engines: { node: '>=0.10.0' },
+84 silly install resolved     keywords:
+84 silly install resolved      [ 'zip',
+84 silly install resolved        'unzip',
+84 silly install resolved        'tar',
+84 silly install resolved        'untar',
+84 silly install resolved        'compress',
+84 silly install resolved        'decompress',
+84 silly install resolved        'archive',
+84 silly install resolved        'extract',
+84 silly install resolved        'zlib' ],
+84 silly install resolved     author: { name: 'Bower team' },
+84 silly install resolved     licenses: [ [Object] ],
+84 silly install resolved     dependencies:
+84 silly install resolved      { binary: '^0.3.0',
+84 silly install resolved        'graceful-fs': '^3.0.0',
+84 silly install resolved        mkpath: '^0.1.0',
+84 silly install resolved        nopt: '^3.0.1',
+84 silly install resolved        q: '^1.1.2',
+84 silly install resolved        'readable-stream': '^1.1.8',
+84 silly install resolved        touch: '0.0.3' },
+84 silly install resolved     devDependencies:
+84 silly install resolved      { chai: '^1.10.0',
+84 silly install resolved        glob: '^4.3.2',
+84 silly install resolved        grunt: '^0.4.1',
+84 silly install resolved        'grunt-cli': '^0.1.13',
+84 silly install resolved        'grunt-contrib-jshint': '^0.10.0',
+84 silly install resolved        'grunt-contrib-watch': '^0.6.1',
+84 silly install resolved        'grunt-exec': '^0.4.2',
+84 silly install resolved        'grunt-simple-mocha': '^0.4.0',
+84 silly install resolved        istanbul: '^0.3.5',
+84 silly install resolved        mocha: '^2.1.0',
+84 silly install resolved        request: '^2.51.0',
+84 silly install resolved        tmp: '0.0.24' },
+84 silly install resolved     gitHead: '2280a68c81f0b9b5c159fa16988c891ff4bd2984',
+84 silly install resolved     bugs: { url: 'https://github.com/bower/decompress-zip/issues' },
+84 silly install resolved     homepage: 'https://github.com/bower/decompress-zip',
+84 silly install resolved     _id: 'decompress-zip@0.1.0',
+84 silly install resolved     _shasum: 'bce60c11664f2d660fca4bcf634af6de5d6c14c7',
+84 silly install resolved     _from: 'decompress-zip@0.1.0',
+84 silly install resolved     _npmVersion: '2.1.16',
+84 silly install resolved     _nodeVersion: '0.10.32',
+84 silly install resolved     _npmUser: { name: 'sindresorhus', email: 'sindresorhus@gmail.com' },
+84 silly install resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object] ],
+84 silly install resolved     dist:
+84 silly install resolved      { shasum: 'bce60c11664f2d660fca4bcf634af6de5d6c14c7',
+84 silly install resolved        tarball: 'http://registry.npmjs.org/decompress-zip/-/decompress-zip-0.1.0.tgz' },
+84 silly install resolved     directories: {},
+84 silly install resolved     _resolved: 'https://registry.npmjs.org/decompress-zip/-/decompress-zip-0.1.0.tgz',
+84 silly install resolved     readme: 'ERROR: No README data found!' } ]
+85 info install decompress-zip@0.1.0 into /usr/local/lib/node_modules/ngrok
+86 info installOne decompress-zip@0.1.0
+87 verbose installOne of decompress-zip to /usr/local/lib/node_modules/ngrok not in flight; installing
+88 verbose lock using /Users/ffff/.npm/_locks/decompress-zip-60899257d90ef12e.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+89 silly install write writing decompress-zip 0.1.0 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+90 silly cache addNamed cb decompress-zip@0.1.0
+91 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip
+92 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+93 verbose tar unpack /Users/ffff/.npm/decompress-zip/0.1.0/package.tgz
+94 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+95 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+96 silly gunzTarPerm modes [ '755', '644' ]
+97 silly gunzTarPerm extractEntry package.json
+98 silly gunzTarPerm extractEntry .npmignore
+99 silly gunzTarPerm extractEntry README.md
+100 silly gunzTarPerm extractEntry Gruntfile.js
+101 silly gunzTarPerm extractEntry download-test-assets.js
+102 silly gunzTarPerm extractEntry .jshintrc
+103 silly gunzTarPerm extractEntry .travis.yml
+104 silly gunzTarPerm extractEntry .editorconfig
+105 silly gunzTarPerm extractEntry bin/decompress-zip
+106 silly gunzTarPerm extractEntry .gitattributes
+107 silly gunzTarPerm modified mode [ '.gitattributes', 438, 420 ]
+108 silly gunzTarPerm extractEntry lib/decompress-zip.js
+109 silly gunzTarPerm extractEntry lib/extractors.js
+110 silly gunzTarPerm extractEntry lib/file-details.js
+111 silly gunzTarPerm extractEntry lib/signatures.js
+112 silly gunzTarPerm extractEntry lib/structures.js
+113 silly gunzTarPerm extractEntry test/test.js
+114 info preinstall decompress-zip@0.1.0
+115 silly prepareForInstallMany adding binary@^0.3.0 from decompress-zip dependencies
+116 silly prepareForInstallMany adding graceful-fs@^3.0.0 from decompress-zip dependencies
+117 silly prepareForInstallMany adding mkpath@^0.1.0 from decompress-zip dependencies
+118 silly prepareForInstallMany adding nopt@^3.0.1 from decompress-zip dependencies
+119 silly prepareForInstallMany adding q@^1.1.2 from decompress-zip dependencies
+120 silly prepareForInstallMany adding readable-stream@^1.1.8 from decompress-zip dependencies
+121 silly prepareForInstallMany adding touch@0.0.3 from decompress-zip dependencies
+122 silly cache add args [ 'binary@^0.3.0', null ]
+123 verbose cache add spec binary@^0.3.0
+124 silly cache add args [ 'graceful-fs@^3.0.0', null ]
+125 verbose cache add spec graceful-fs@^3.0.0
+126 silly cache add parsed spec { raw: 'binary@^0.3.0',
+126 silly cache add   scope: null,
+126 silly cache add   name: 'binary',
+126 silly cache add   rawSpec: '^0.3.0',
+126 silly cache add   spec: '>=0.3.0 <0.4.0',
+126 silly cache add   type: 'range' }
+127 verbose addNamed binary@>=0.3.0 <0.4.0
+128 silly addNamed semver.valid null
+129 silly addNamed semver.validRange >=0.3.0 <0.4.0
+130 silly addNameRange { name: 'binary', range: '>=0.3.0 <0.4.0', hasData: false }
+131 silly mapToRegistry name binary
+132 silly mapToRegistry using default registry
+133 silly mapToRegistry registry https://registry.npmjs.org/
+134 silly mapToRegistry uri https://registry.npmjs.org/binary
+135 verbose addNameRange registry:https://registry.npmjs.org/binary not in flight; fetching
+136 silly cache add parsed spec { raw: 'graceful-fs@^3.0.0',
+136 silly cache add   scope: null,
+136 silly cache add   name: 'graceful-fs',
+136 silly cache add   rawSpec: '^3.0.0',
+136 silly cache add   spec: '>=3.0.0 <4.0.0',
+136 silly cache add   type: 'range' }
+137 verbose addNamed graceful-fs@>=3.0.0 <4.0.0
+138 silly addNamed semver.valid null
+139 silly addNamed semver.validRange >=3.0.0 <4.0.0
+140 silly addNameRange { name: 'graceful-fs', range: '>=3.0.0 <4.0.0', hasData: false }
+141 silly mapToRegistry name graceful-fs
+142 silly mapToRegistry using default registry
+143 silly mapToRegistry registry https://registry.npmjs.org/
+144 silly mapToRegistry uri https://registry.npmjs.org/graceful-fs
+145 verbose addNameRange registry:https://registry.npmjs.org/graceful-fs not in flight; fetching
+146 silly cache add args [ 'mkpath@^0.1.0', null ]
+147 verbose cache add spec mkpath@^0.1.0
+148 silly cache add parsed spec { raw: 'mkpath@^0.1.0',
+148 silly cache add   scope: null,
+148 silly cache add   name: 'mkpath',
+148 silly cache add   rawSpec: '^0.1.0',
+148 silly cache add   spec: '>=0.1.0 <0.2.0',
+148 silly cache add   type: 'range' }
+149 verbose addNamed mkpath@>=0.1.0 <0.2.0
+150 silly addNamed semver.valid null
+151 silly addNamed semver.validRange >=0.1.0 <0.2.0
+152 silly addNameRange { name: 'mkpath', range: '>=0.1.0 <0.2.0', hasData: false }
+153 silly mapToRegistry name mkpath
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/mkpath
+157 verbose addNameRange registry:https://registry.npmjs.org/mkpath not in flight; fetching
+158 silly cache add args [ 'nopt@^3.0.1', null ]
+159 verbose cache add spec nopt@^3.0.1
+160 silly cache add parsed spec { raw: 'nopt@^3.0.1',
+160 silly cache add   scope: null,
+160 silly cache add   name: 'nopt',
+160 silly cache add   rawSpec: '^3.0.1',
+160 silly cache add   spec: '>=3.0.1 <4.0.0',
+160 silly cache add   type: 'range' }
+161 verbose addNamed nopt@>=3.0.1 <4.0.0
+162 silly addNamed semver.valid null
+163 silly addNamed semver.validRange >=3.0.1 <4.0.0
+164 silly addNameRange { name: 'nopt', range: '>=3.0.1 <4.0.0', hasData: false }
+165 silly mapToRegistry name nopt
+166 silly mapToRegistry using default registry
+167 silly mapToRegistry registry https://registry.npmjs.org/
+168 silly mapToRegistry uri https://registry.npmjs.org/nopt
+169 verbose addNameRange registry:https://registry.npmjs.org/nopt not in flight; fetching
+170 silly cache add args [ 'q@^1.1.2', null ]
+171 verbose cache add spec q@^1.1.2
+172 silly cache add parsed spec { raw: 'q@^1.1.2',
+172 silly cache add   scope: null,
+172 silly cache add   name: 'q',
+172 silly cache add   rawSpec: '^1.1.2',
+172 silly cache add   spec: '>=1.1.2 <2.0.0',
+172 silly cache add   type: 'range' }
+173 verbose addNamed q@>=1.1.2 <2.0.0
+174 silly addNamed semver.valid null
+175 silly addNamed semver.validRange >=1.1.2 <2.0.0
+176 silly addNameRange { name: 'q', range: '>=1.1.2 <2.0.0', hasData: false }
+177 silly mapToRegistry name q
+178 silly mapToRegistry using default registry
+179 silly mapToRegistry registry https://registry.npmjs.org/
+180 silly mapToRegistry uri https://registry.npmjs.org/q
+181 verbose addNameRange registry:https://registry.npmjs.org/q not in flight; fetching
+182 silly cache add args [ 'readable-stream@^1.1.8', null ]
+183 verbose cache add spec readable-stream@^1.1.8
+184 silly cache add parsed spec { raw: 'readable-stream@^1.1.8',
+184 silly cache add   scope: null,
+184 silly cache add   name: 'readable-stream',
+184 silly cache add   rawSpec: '^1.1.8',
+184 silly cache add   spec: '>=1.1.8 <2.0.0',
+184 silly cache add   type: 'range' }
+185 verbose addNamed readable-stream@>=1.1.8 <2.0.0
+186 silly addNamed semver.valid null
+187 silly addNamed semver.validRange >=1.1.8 <2.0.0
+188 silly addNameRange { name: 'readable-stream',
+188 silly addNameRange   range: '>=1.1.8 <2.0.0',
+188 silly addNameRange   hasData: false }
+189 silly mapToRegistry name readable-stream
+190 silly mapToRegistry using default registry
+191 silly mapToRegistry registry https://registry.npmjs.org/
+192 silly mapToRegistry uri https://registry.npmjs.org/readable-stream
+193 verbose addNameRange registry:https://registry.npmjs.org/readable-stream not in flight; fetching
+194 silly cache add args [ 'touch@0.0.3', null ]
+195 verbose cache add spec touch@0.0.3
+196 silly cache add parsed spec { raw: 'touch@0.0.3',
+196 silly cache add   scope: null,
+196 silly cache add   name: 'touch',
+196 silly cache add   rawSpec: '0.0.3',
+196 silly cache add   spec: '0.0.3',
+196 silly cache add   type: 'version' }
+197 verbose addNamed touch@0.0.3
+198 silly addNamed semver.valid 0.0.3
+199 silly addNamed semver.validRange 0.0.3
+200 silly mapToRegistry name touch
+201 silly mapToRegistry using default registry
+202 silly mapToRegistry registry https://registry.npmjs.org/
+203 silly mapToRegistry uri https://registry.npmjs.org/touch
+204 verbose addNameVersion registry:https://registry.npmjs.org/touch not in flight; fetching
+205 verbose request uri https://registry.npmjs.org/graceful-fs
+206 verbose request no auth needed
+207 info attempt registry request try #1 at 9:25:53 AM
+208 verbose etag "ASUQXR8VIAJ72TTU8SR5Q4DOJ"
+209 http request GET https://registry.npmjs.org/graceful-fs
+210 verbose request uri https://registry.npmjs.org/binary
+211 verbose request no auth needed
+212 info attempt registry request try #1 at 9:25:53 AM
+213 verbose etag "2JWREEDTJY6GR6DQJ5ATHTK2Z"
+214 http request GET https://registry.npmjs.org/binary
+215 verbose request uri https://registry.npmjs.org/mkpath
+216 verbose request no auth needed
+217 info attempt registry request try #1 at 9:25:53 AM
+218 verbose etag "DHY5NCCU17756W1H2P14ZYIPG"
+219 http request GET https://registry.npmjs.org/mkpath
+220 verbose request uri https://registry.npmjs.org/nopt
+221 verbose request no auth needed
+222 info attempt registry request try #1 at 9:25:53 AM
+223 verbose etag "CP2XOOC524J3F2IKB32MWTE1L"
+224 http request GET https://registry.npmjs.org/nopt
+225 verbose request uri https://registry.npmjs.org/q
+226 verbose request no auth needed
+227 info attempt registry request try #1 at 9:25:53 AM
+228 verbose etag "1I433I4DQCAV22HZSP3ZNV7TG"
+229 http request GET https://registry.npmjs.org/q
+230 verbose request uri https://registry.npmjs.org/touch
+231 verbose request no auth needed
+232 info attempt registry request try #1 at 9:25:53 AM
+233 verbose etag "BZ27R72CQ7316RETIA3TJIR48"
+234 http request GET https://registry.npmjs.org/touch
+235 verbose request uri https://registry.npmjs.org/readable-stream
+236 verbose request no auth needed
+237 info attempt registry request try #1 at 9:25:53 AM
+238 verbose etag "32FILY7NIYUJ856MT6RLM79TM"
+239 http request GET https://registry.npmjs.org/readable-stream
+240 http 304 https://registry.npmjs.org/binary
+241 silly get cb [ 304,
+241 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+241 silly get     server: 'Apache',
+241 silly get     via: '1.1 varnish',
+241 silly get     'last-modified': 'Thu, 16 Apr 2015 16:13:08 GMT',
+241 silly get     'cache-control': 'max-age=60',
+241 silly get     etag: '"2JWREEDTJY6GR6DQJ5ATHTK2Z"',
+241 silly get     age: '25',
+241 silly get     'x-served-by': 'cache-lax1431-LAX',
+241 silly get     'x-cache': 'HIT',
+241 silly get     'x-cache-hits': '67',
+241 silly get     'x-timer': 'S1429201555.335495,VS0,VE0',
+241 silly get     vary: 'Accept',
+241 silly get     'content-length': '0',
+241 silly get     'keep-alive': 'timeout=10, max=50',
+241 silly get     connection: 'Keep-Alive' } ]
+242 verbose etag https://registry.npmjs.org/binary from cache
+243 verbose get saving binary to /Users/ffff/.npm/registry.npmjs.org/binary/.cache.json
+244 http 304 https://registry.npmjs.org/graceful-fs
+245 silly get cb [ 304,
+245 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+245 silly get     server: 'Apache',
+245 silly get     via: '1.1 varnish',
+245 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:43 GMT',
+245 silly get     'cache-control': 'max-age=60',
+245 silly get     etag: '"ASUQXR8VIAJ72TTU8SR5Q4DOJ"',
+245 silly get     age: '17',
+245 silly get     'x-served-by': 'cache-lax1430-LAX',
+245 silly get     'x-cache': 'HIT',
+245 silly get     'x-cache-hits': '2',
+245 silly get     'x-timer': 'S1429201555.338626,VS0,VE0',
+245 silly get     vary: 'Accept',
+245 silly get     'content-length': '0',
+245 silly get     'keep-alive': 'timeout=10, max=50',
+245 silly get     connection: 'Keep-Alive' } ]
+246 verbose etag https://registry.npmjs.org/graceful-fs from cache
+247 verbose get saving graceful-fs to /Users/ffff/.npm/registry.npmjs.org/graceful-fs/.cache.json
+248 http 304 https://registry.npmjs.org/mkpath
+249 silly get cb [ 304,
+249 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+249 silly get     server: 'Apache',
+249 silly get     via: '1.1 varnish',
+249 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+249 silly get     'cache-control': 'max-age=60',
+249 silly get     etag: '"DHY5NCCU17756W1H2P14ZYIPG"',
+249 silly get     age: '25',
+249 silly get     'x-served-by': 'cache-lax1424-LAX',
+249 silly get     'x-cache': 'HIT',
+249 silly get     'x-cache-hits': '1',
+249 silly get     'x-timer': 'S1429201555.337810,VS0,VE0',
+249 silly get     vary: 'Accept',
+249 silly get     'content-length': '0',
+249 silly get     'keep-alive': 'timeout=10, max=50',
+249 silly get     connection: 'Keep-Alive' } ]
+250 verbose etag https://registry.npmjs.org/mkpath from cache
+251 verbose get saving mkpath to /Users/ffff/.npm/registry.npmjs.org/mkpath/.cache.json
+252 http 304 https://registry.npmjs.org/q
+253 silly get cb [ 304,
+253 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+253 silly get     server: 'Apache',
+253 silly get     via: '1.1 varnish',
+253 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:23 GMT',
+253 silly get     'cache-control': 'max-age=60',
+253 silly get     etag: '"1I433I4DQCAV22HZSP3ZNV7TG"',
+253 silly get     age: '35',
+253 silly get     'x-served-by': 'cache-lax1423-LAX',
+253 silly get     'x-cache': 'HIT',
+253 silly get     'x-cache-hits': '2',
+253 silly get     'x-timer': 'S1429201555.339979,VS0,VE0',
+253 silly get     vary: 'Accept',
+253 silly get     'content-length': '0',
+253 silly get     'keep-alive': 'timeout=10, max=50',
+253 silly get     connection: 'Keep-Alive' } ]
+254 verbose etag https://registry.npmjs.org/q from cache
+255 verbose get saving q to /Users/ffff/.npm/registry.npmjs.org/q/.cache.json
+256 http 304 https://registry.npmjs.org/nopt
+257 silly get cb [ 304,
+257 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+257 silly get     server: 'Apache',
+257 silly get     via: '1.1 varnish',
+257 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+257 silly get     'cache-control': 'max-age=60',
+257 silly get     etag: '"CP2XOOC524J3F2IKB32MWTE1L"',
+257 silly get     age: '60',
+257 silly get     'x-served-by': 'cache-lax1432-LAX',
+257 silly get     'x-cache': 'HIT',
+257 silly get     'x-cache-hits': '1',
+257 silly get     'x-timer': 'S1429201555.340161,VS0,VE0',
+257 silly get     vary: 'Accept',
+257 silly get     'content-length': '0',
+257 silly get     'keep-alive': 'timeout=10, max=50',
+257 silly get     connection: 'Keep-Alive' } ]
+258 verbose etag https://registry.npmjs.org/nopt from cache
+259 verbose get saving nopt to /Users/ffff/.npm/registry.npmjs.org/nopt/.cache.json
+260 http 304 https://registry.npmjs.org/touch
+261 silly get cb [ 304,
+261 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+261 silly get     server: 'Apache',
+261 silly get     via: '1.1 varnish',
+261 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+261 silly get     'cache-control': 'max-age=60',
+261 silly get     etag: '"BZ27R72CQ7316RETIA3TJIR48"',
+261 silly get     age: '53',
+261 silly get     'x-served-by': 'cache-lax1432-LAX',
+261 silly get     'x-cache': 'HIT',
+261 silly get     'x-cache-hits': '1',
+261 silly get     'x-timer': 'S1429201555.341609,VS0,VE0',
+261 silly get     vary: 'Accept',
+261 silly get     'content-length': '0',
+261 silly get     'keep-alive': 'timeout=10, max=50',
+261 silly get     connection: 'Keep-Alive' } ]
+262 verbose etag https://registry.npmjs.org/touch from cache
+263 verbose get saving touch to /Users/ffff/.npm/registry.npmjs.org/touch/.cache.json
+264 http 304 https://registry.npmjs.org/readable-stream
+265 silly get cb [ 304,
+265 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+265 silly get     server: 'Apache',
+265 silly get     via: '1.1 varnish',
+265 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:44 GMT',
+265 silly get     'cache-control': 'max-age=60',
+265 silly get     etag: '"32FILY7NIYUJ856MT6RLM79TM"',
+265 silly get     age: '32',
+265 silly get     'x-served-by': 'cache-lax1422-LAX',
+265 silly get     'x-cache': 'HIT',
+265 silly get     'x-cache-hits': '2',
+265 silly get     'x-timer': 'S1429201555.343435,VS0,VE0',
+265 silly get     vary: 'Accept',
+265 silly get     'content-length': '0',
+265 silly get     'keep-alive': 'timeout=10, max=50',
+265 silly get     connection: 'Keep-Alive' } ]
+266 verbose etag https://registry.npmjs.org/readable-stream from cache
+267 verbose get saving readable-stream to /Users/ffff/.npm/registry.npmjs.org/readable-stream/.cache.json
+268 silly addNameRange number 2 { name: 'binary', range: '>=0.3.0 <0.4.0', hasData: true }
+269 silly addNameRange versions [ 'binary',
+269 silly addNameRange   [ '0.0.1',
+269 silly addNameRange     '0.0.2',
+269 silly addNameRange     '0.0.3',
+269 silly addNameRange     '0.0.4',
+269 silly addNameRange     '0.0.5',
+269 silly addNameRange     '0.0.6',
+269 silly addNameRange     '0.0.8',
+269 silly addNameRange     '0.1.0',
+269 silly addNameRange     '0.1.1',
+269 silly addNameRange     '0.1.2',
+269 silly addNameRange     '0.1.3',
+269 silly addNameRange     '0.1.4',
+269 silly addNameRange     '0.1.5',
+269 silly addNameRange     '0.1.6',
+269 silly addNameRange     '0.1.7',
+269 silly addNameRange     '0.1.8',
+269 silly addNameRange     '0.1.9',
+269 silly addNameRange     '0.2.0',
+269 silly addNameRange     '0.2.1',
+269 silly addNameRange     '0.2.2',
+269 silly addNameRange     '0.2.3',
+269 silly addNameRange     '0.2.4',
+269 silly addNameRange     '0.2.5',
+269 silly addNameRange     '0.2.6',
+269 silly addNameRange     '0.3.0' ] ]
+270 verbose addNamed binary@0.3.0
+271 silly addNamed semver.valid 0.3.0
+272 silly addNamed semver.validRange 0.3.0
+273 silly addNameRange number 2 { name: 'graceful-fs', range: '>=3.0.0 <4.0.0', hasData: true }
+274 silly addNameRange versions [ 'graceful-fs',
+274 silly addNameRange   [ '1.0.0',
+274 silly addNameRange     '1.0.1',
+274 silly addNameRange     '1.0.2',
+274 silly addNameRange     '1.1.0',
+274 silly addNameRange     '1.1.1',
+274 silly addNameRange     '1.1.2',
+274 silly addNameRange     '1.1.3',
+274 silly addNameRange     '1.1.4',
+274 silly addNameRange     '1.1.5',
+274 silly addNameRange     '1.1.6',
+274 silly addNameRange     '1.1.7',
+274 silly addNameRange     '1.1.8',
+274 silly addNameRange     '1.1.9',
+274 silly addNameRange     '1.1.10',
+274 silly addNameRange     '1.1.11',
+274 silly addNameRange     '1.1.12',
+274 silly addNameRange     '1.1.13',
+274 silly addNameRange     '1.1.14',
+274 silly addNameRange     '1.2.0',
+274 silly addNameRange     '1.2.1',
+274 silly addNameRange     '1.2.2',
+274 silly addNameRange     '1.2.3',
+274 silly addNameRange     '2.0.0',
+274 silly addNameRange     '2.0.1',
+274 silly addNameRange     '2.0.2',
+274 silly addNameRange     '2.0.3',
+274 silly addNameRange     '3.0.0',
+274 silly addNameRange     '3.0.1',
+274 silly addNameRange     '3.0.2',
+274 silly addNameRange     '3.0.3',
+274 silly addNameRange     '3.0.4',
+274 silly addNameRange     '3.0.5',
+274 silly addNameRange     '3.0.6' ] ]
+275 verbose addNamed graceful-fs@3.0.6
+276 silly addNamed semver.valid 3.0.6
+277 silly addNamed semver.validRange 3.0.6
+278 silly addNameRange number 2 { name: 'mkpath', range: '>=0.1.0 <0.2.0', hasData: true }
+279 silly addNameRange versions [ 'mkpath', [ '0.1.0' ] ]
+280 verbose addNamed mkpath@0.1.0
+281 silly addNamed semver.valid 0.1.0
+282 silly addNamed semver.validRange 0.1.0
+283 silly addNameRange number 2 { name: 'q', range: '>=1.1.2 <2.0.0', hasData: true }
+284 silly addNameRange versions [ 'q',
+284 silly addNameRange   [ '0.0.0',
+284 silly addNameRange     '0.0.1',
+284 silly addNameRange     '0.0.2',
+284 silly addNameRange     '0.0.3',
+284 silly addNameRange     '0.1.0',
+284 silly addNameRange     '0.1.1',
+284 silly addNameRange     '0.1.2',
+284 silly addNameRange     '0.1.3',
+284 silly addNameRange     '0.1.4',
+284 silly addNameRange     '0.1.5',
+284 silly addNameRange     '0.1.6',
+284 silly addNameRange     '0.1.7',
+284 silly addNameRange     '0.1.8',
+284 silly addNameRange     '0.1.9',
+284 silly addNameRange     '0.2.0-rc1',
+284 silly addNameRange     '0.2.0',
+284 silly addNameRange     '0.2.1',
+284 silly addNameRange     '0.2.2',
+284 silly addNameRange     '0.2.3',
+284 silly addNameRange     '0.2.4',
+284 silly addNameRange     '0.2.5',
+284 silly addNameRange     '0.2.6',
+284 silly addNameRange     '0.2.7',
+284 silly addNameRange     '0.2.8',
+284 silly addNameRange     '0.2.9',
+284 silly addNameRange     '0.3.0',
+284 silly addNameRange     '0.2.10',
+284 silly addNameRange     '0.4.0',
+284 silly addNameRange     '0.4.1',
+284 silly addNameRange     '0.4.2',
+284 silly addNameRange     '0.4.4',
+284 silly addNameRange     '0.5.0',
+284 silly addNameRange     '0.5.1',
+284 silly addNameRange     '0.5.2',
+284 silly addNameRange     '0.5.3',
+284 silly addNameRange     '0.6.0',
+284 silly addNameRange     '0.7.0',
+284 silly addNameRange     '0.7.1',
+284 silly addNameRange     '0.7.2',
+284 silly addNameRange     '0.8.0',
+284 silly addNameRange     '0.8.1',
+284 silly addNameRange     '0.8.2',
+284 silly addNameRange     '0.8.3',
+284 silly addNameRange     '0.8.4',
+284 silly addNameRange     '0.8.5',
+284 silly addNameRange     '0.8.6',
+284 silly addNameRange     '0.8.7',
+284 silly addNameRange     '0.8.8',
+284 silly addNameRange     '0.8.9',
+284 silly addNameRange     '0.8.10',
+284 silly addNameRange     '0.8.11',
+284 silly addNameRange     '0.8.12',
+284 silly addNameRange     '0.9.0',
+284 silly addNameRange     '0.9.1',
+284 silly addNameRange     '0.9.2',
+284 silly addNameRange     '0.9.3',
+284 silly addNameRange     '0.9.4',
+284 silly addNameRange     '0.9.5',
+284 silly addNameRange     '0.9.6',
+284 silly addNameRange     '0.9.7',
+284 silly addNameRange     '1.0.0',
+284 silly addNameRange     '1.0.1',
+284 silly addNameRange     '2.0.0',
+284 silly addNameRange     '2.0.1',
+284 silly addNameRange     '2.0.2',
+284 silly addNameRange     '1.1.0',
+284 silly addNameRange     '1.1.1',
+284 silly addNameRange     '1.1.2',
+284 silly addNameRange     '2.0.3',
+284 silly addNameRange     '1.2.0' ] ]
+285 verbose addNamed q@1.2.0
+286 silly addNamed semver.valid 1.2.0
+287 silly addNamed semver.validRange 1.2.0
+288 silly addNameRange number 2 { name: 'nopt', range: '>=3.0.1 <4.0.0', hasData: true }
+289 silly addNameRange versions [ 'nopt',
+289 silly addNameRange   [ '1.0.0',
+289 silly addNameRange     '1.0.1',
+289 silly addNameRange     '1.0.2',
+289 silly addNameRange     '1.0.3',
+289 silly addNameRange     '1.0.4',
+289 silly addNameRange     '1.0.5',
+289 silly addNameRange     '1.0.6',
+289 silly addNameRange     '1.0.7',
+289 silly addNameRange     '1.0.8',
+289 silly addNameRange     '1.0.9',
+289 silly addNameRange     '1.0.10',
+289 silly addNameRange     '2.0.0',
+289 silly addNameRange     '2.1.0',
+289 silly addNameRange     '2.1.1',
+289 silly addNameRange     '2.1.2',
+289 silly addNameRange     '2.2.0',
+289 silly addNameRange     '2.2.1',
+289 silly addNameRange     '3.0.0',
+289 silly addNameRange     '3.0.1' ] ]
+290 verbose addNamed nopt@3.0.1
+291 silly addNamed semver.valid 3.0.1
+292 silly addNamed semver.validRange 3.0.1
+293 silly cache afterAdd binary@0.3.0
+294 verbose afterAdd /Users/ffff/.npm/binary/0.3.0/package/package.json not in flight; writing
+295 silly addNameRange number 2 { name: 'readable-stream',
+295 silly addNameRange   range: '>=1.1.8 <2.0.0',
+295 silly addNameRange   hasData: true }
+296 silly addNameRange versions [ 'readable-stream',
+296 silly addNameRange   [ '0.0.1',
+296 silly addNameRange     '0.0.2',
+296 silly addNameRange     '0.0.3',
+296 silly addNameRange     '0.0.4',
+296 silly addNameRange     '0.1.0',
+296 silly addNameRange     '0.2.0',
+296 silly addNameRange     '0.3.0',
+296 silly addNameRange     '0.3.1',
+296 silly addNameRange     '1.0.0',
+296 silly addNameRange     '1.0.1',
+296 silly addNameRange     '1.0.2',
+296 silly addNameRange     '1.0.15',
+296 silly addNameRange     '1.0.17',
+296 silly addNameRange     '1.1.7',
+296 silly addNameRange     '1.1.8',
+296 silly addNameRange     '1.1.9',
+296 silly addNameRange     '1.0.24',
+296 silly addNameRange     '1.0.25',
+296 silly addNameRange     '1.1.10',
+296 silly addNameRange     '1.0.25-1',
+296 silly addNameRange     '1.1.11',
+296 silly addNameRange     '1.0.26',
+296 silly addNameRange     '1.0.26-1',
+296 silly addNameRange     '1.1.11-1',
+296 silly addNameRange     '1.0.26-2',
+296 silly addNameRange     '1.1.12',
+296 silly addNameRange     '1.0.26-3',
+296 silly addNameRange     '1.0.26-4',
+296 silly addNameRange     '1.1.12-1',
+296 silly addNameRange     '1.0.27-1',
+296 silly addNameRange     '1.1.13-1',
+296 silly addNameRange     '1.0.31',
+296 silly addNameRange     '1.1.13',
+296 silly addNameRange     '1.0.32',
+296 silly addNameRange     '1.0.32-1',
+296 silly addNameRange     '1.0.33-1',
+296 silly addNameRange     '1.0.33-2',
+296 silly addNameRange     '1.0.33' ] ]
+297 verbose addNamed readable-stream@1.1.13
+298 silly addNamed semver.valid 1.1.13
+299 silly addNamed semver.validRange 1.1.13
+300 silly cache afterAdd graceful-fs@3.0.6
+301 verbose afterAdd /Users/ffff/.npm/graceful-fs/3.0.6/package/package.json not in flight; writing
+302 silly cache afterAdd mkpath@0.1.0
+303 verbose afterAdd /Users/ffff/.npm/mkpath/0.1.0/package/package.json not in flight; writing
+304 silly cache afterAdd q@1.2.0
+305 verbose afterAdd /Users/ffff/.npm/q/1.2.0/package/package.json not in flight; writing
+306 verbose afterAdd /Users/ffff/.npm/binary/0.3.0/package/package.json written
+307 silly cache afterAdd nopt@3.0.1
+308 verbose afterAdd /Users/ffff/.npm/nopt/3.0.1/package/package.json not in flight; writing
+309 silly cache afterAdd touch@0.0.3
+310 verbose afterAdd /Users/ffff/.npm/touch/0.0.3/package/package.json not in flight; writing
+311 silly cache afterAdd readable-stream@1.1.13
+312 verbose afterAdd /Users/ffff/.npm/readable-stream/1.1.13/package/package.json not in flight; writing
+313 verbose afterAdd /Users/ffff/.npm/mkpath/0.1.0/package/package.json written
+314 verbose afterAdd /Users/ffff/.npm/graceful-fs/3.0.6/package/package.json written
+315 verbose afterAdd /Users/ffff/.npm/q/1.2.0/package/package.json written
+316 verbose afterAdd /Users/ffff/.npm/nopt/3.0.1/package/package.json written
+317 verbose afterAdd /Users/ffff/.npm/readable-stream/1.1.13/package/package.json written
+318 verbose afterAdd /Users/ffff/.npm/touch/0.0.3/package/package.json written
+319 silly install resolved [ { name: 'binary',
+319 silly install resolved     version: '0.3.0',
+319 silly install resolved     description: 'Unpack multibyte binary values from buffers',
+319 silly install resolved     main: './index.js',
+319 silly install resolved     repository:
+319 silly install resolved      { type: 'git',
+319 silly install resolved        url: 'git://github.com/substack/node-binary.git' },
+319 silly install resolved     keywords: [ 'binary', 'decode', 'endian', 'unpack', 'signed', 'unsigned' ],
+319 silly install resolved     author:
+319 silly install resolved      { name: 'James Halliday',
+319 silly install resolved        email: 'mail@substack.net',
+319 silly install resolved        url: 'http://substack.net' },
+319 silly install resolved     dependencies: { chainsaw: '~0.1.0', buffers: '~0.1.1' },
+319 silly install resolved     devDependencies: { seq: '~0.2.5', tap: '~0.2.4' },
+319 silly install resolved     scripts: { test: 'tap test/*.js' },
+319 silly install resolved     license: 'MIT',
+319 silly install resolved     engine: { node: '>=0.4.0' },
+319 silly install resolved     _npmUser: { name: 'substack', email: 'mail@substack.net' },
+319 silly install resolved     _id: 'binary@0.3.0',
+319 silly install resolved     optionalDependencies: {},
+319 silly install resolved     engines: { node: '*' },
+319 silly install resolved     _engineSupported: true,
+319 silly install resolved     _npmVersion: '1.1.19',
+319 silly install resolved     _nodeVersion: 'v0.6.11',
+319 silly install resolved     _defaultsLoaded: true,
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: '9f60553bc5ce8c3386f3b553cff47462adecaa79',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/binary/-/binary-0.3.0.tgz' },
+319 silly install resolved     readme: 'ERROR: No README data found!',
+319 silly install resolved     maintainers: [ [Object] ],
+319 silly install resolved     directories: {},
+319 silly install resolved     _shasum: '9f60553bc5ce8c3386f3b553cff47462adecaa79',
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/binary/-/binary-0.3.0.tgz',
+319 silly install resolved     _from: 'binary@>=0.3.0 <0.4.0',
+319 silly install resolved     bugs: { url: 'https://github.com/substack/node-binary/issues' },
+319 silly install resolved     homepage: 'https://github.com/substack/node-binary' },
+319 silly install resolved   { name: 'mkpath',
+319 silly install resolved     version: '0.1.0',
+319 silly install resolved     author: { name: 'Jonathan Rajavuori', email: 'jrajav@gmail.com' },
+319 silly install resolved     description: 'Make all directories in a path, like mkdir -p',
+319 silly install resolved     repository: { type: 'git', url: 'https://github.com/jrajav/mkpath' },
+319 silly install resolved     keywords: [ 'mkdir', 'mkdirp', 'directory', 'path', 'tree' ],
+319 silly install resolved     main: './mkpath',
+319 silly install resolved     scripts: { test: 'node node_modules/tap/bin/tap.js ./test' },
+319 silly install resolved     devDependencies: { tap: '~0.3' },
+319 silly install resolved     license: 'MIT',
+319 silly install resolved     readme: '# mkpath\n\nMake all directories in a path, like `mkdir -p`.\n\n## How to use\n\n    var mkpath = require(\'mkpath\');\n    \n    mkpath(\'red/green/violet\', function (err) {\n        if (err) throw err;\n        console.log(\'Directory structure red/green/violet created\');\n    });\n    \n    mkpath.sync(\'/tmp/blue/orange\', 0700);\n\n### mkpath(path, [mode = 0777 & (~process.umask()),] [callback])\n\nCreate all directories that don\'t exist in `path` with permissions `mode`. When finished, `callback(err)` fires with the error, if any.\n\n### mkpath.sync(path, [mode = 0777 & (~process.umask())]);\n\nSynchronous version of the same. Throws error, if any.\n\n## License\n\nThis software is released under the [MIT license](http://www.opensource.org/licenses/MIT).\n\n',
+319 silly install resolved     readmeFilename: 'README.md',
+319 silly install resolved     _id: 'mkpath@0.1.0',
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: '7554a6f8d871834cc97b5462b122c4c124d6de91',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/mkpath/-/mkpath-0.1.0.tgz' },
+319 silly install resolved     _npmVersion: '1.1.65',
+319 silly install resolved     _npmUser: { name: 'jrajav', email: 'jrajav@gmail.com' },
+319 silly install resolved     maintainers: [ [Object] ],
+319 silly install resolved     directories: {},
+319 silly install resolved     _shasum: '7554a6f8d871834cc97b5462b122c4c124d6de91',
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/mkpath/-/mkpath-0.1.0.tgz',
+319 silly install resolved     _from: 'mkpath@>=0.1.0 <0.2.0',
+319 silly install resolved     bugs: { url: 'https://github.com/jrajav/mkpath/issues' },
+319 silly install resolved     homepage: 'https://github.com/jrajav/mkpath' },
+319 silly install resolved   { author:
+319 silly install resolved      { name: 'Isaac Z. Schlueter',
+319 silly install resolved        email: 'i@izs.me',
+319 silly install resolved        url: 'http://blog.izs.me' },
+319 silly install resolved     name: 'graceful-fs',
+319 silly install resolved     description: 'A drop-in replacement for fs, making various improvements.',
+319 silly install resolved     version: '3.0.6',
+319 silly install resolved     repository:
+319 silly install resolved      { type: 'git',
+319 silly install resolved        url: 'git://github.com/isaacs/node-graceful-fs.git' },
+319 silly install resolved     main: 'graceful-fs.js',
+319 silly install resolved     engines: { node: '>=0.4.0' },
+319 silly install resolved     directories: { test: 'test' },
+319 silly install resolved     scripts: { test: 'tap test/*.js' },
+319 silly install resolved     keywords:
+319 silly install resolved      [ 'fs',
+319 silly install resolved        'module',
+319 silly install resolved        'reading',
+319 silly install resolved        'retry',
+319 silly install resolved        'retries',
+319 silly install resolved        'queue',
+319 silly install resolved        'error',
+319 silly install resolved        'errors',
+319 silly install resolved        'handling',
+319 silly install resolved        'EMFILE',
+319 silly install resolved        'EAGAIN',
+319 silly install resolved        'EINVAL',
+319 silly install resolved        'EPERM',
+319 silly install resolved        'EACCESS' ],
+319 silly install resolved     license: 'BSD',
+319 silly install resolved     devDependencies: { mkdirp: '^0.5.0', rimraf: '^2.2.8', tap: '^0.4.13' },
+319 silly install resolved     gitHead: '8c93aeee947014dafa113dcc8fa04d2e6a6e3e14',
+319 silly install resolved     bugs: { url: 'https://github.com/isaacs/node-graceful-fs/issues' },
+319 silly install resolved     homepage: 'https://github.com/isaacs/node-graceful-fs',
+319 silly install resolved     _id: 'graceful-fs@3.0.6',
+319 silly install resolved     _shasum: 'dce3a18351cb94cdc82e688b2e3dd2842d1b09bb',
+319 silly install resolved     _from: 'graceful-fs@>=3.0.0 <4.0.0',
+319 silly install resolved     _npmVersion: '2.7.1',
+319 silly install resolved     _nodeVersion: '1.4.2',
+319 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+319 silly install resolved     maintainers: [ [Object] ],
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: 'dce3a18351cb94cdc82e688b2e3dd2842d1b09bb',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/graceful-fs/-/graceful-fs-3.0.6.tgz' },
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/graceful-fs/-/graceful-fs-3.0.6.tgz',
+319 silly install resolved     readme: 'ERROR: No README data found!' },
+319 silly install resolved   { name: 'q',
+319 silly install resolved     version: '1.2.0',
+319 silly install resolved     description: 'A library for promises (CommonJS/Promises/A,B,D)',
+319 silly install resolved     homepage: 'https://github.com/kriskowal/q',
+319 silly install resolved     author:
+319 silly install resolved      { name: 'Kris Kowal',
+319 silly install resolved        email: 'kris@cixar.com',
+319 silly install resolved        url: 'https://github.com/kriskowal' },
+319 silly install resolved     keywords:
+319 silly install resolved      [ 'q',
+319 silly install resolved        'promise',
+319 silly install resolved        'promises',
+319 silly install resolved        'promises-a',
+319 silly install resolved        'promises-aplus',
+319 silly install resolved        'deferred',
+319 silly install resolved        'future',
+319 silly install resolved        'async',
+319 silly install resolved        'flow control',
+319 silly install resolved        'fluent',
+319 silly install resolved        'browser',
+319 silly install resolved        'node' ],
+319 silly install resolved     contributors: [ [Object], [Object], [Object] ],
+319 silly install resolved     bugs: { url: 'http://github.com/kriskowal/q/issues' },
+319 silly install resolved     license:
+319 silly install resolved      { type: 'MIT',
+319 silly install resolved        url: 'http://github.com/kriskowal/q/raw/master/LICENSE' },
+319 silly install resolved     main: 'q.js',
+319 silly install resolved     files: [ 'LICENSE', 'q.js', 'queue.js' ],
+319 silly install resolved     repository: { type: 'git', url: 'git://github.com/kriskowal/q.git' },
+319 silly install resolved     engines: { node: '>=0.6.0', teleport: '>=0.2.0' },
+319 silly install resolved     dependencies: {},
+319 silly install resolved     devDependencies:
+319 silly install resolved      { jshint: '~2.1.9',
+319 silly install resolved        cover: '*',
+319 silly install resolved        'jasmine-node': '1.11.0',
+319 silly install resolved        opener: '*',
+319 silly install resolved        'promises-aplus-tests': '1.x',
+319 silly install resolved        grunt: '~0.4.1',
+319 silly install resolved        'grunt-cli': '~0.1.9',
+319 silly install resolved        'grunt-contrib-uglify': '~0.2.2',
+319 silly install resolved        matcha: '~0.2.0' },
+319 silly install resolved     scripts:
+319 silly install resolved      { test: 'jasmine-node spec && promises-aplus-tests spec/aplus-adapter',
+319 silly install resolved        'test-browser': 'opener spec/q-spec.html',
+319 silly install resolved        benchmark: 'matcha',
+319 silly install resolved        lint: 'jshint q.js',
+319 silly install resolved        cover: 'cover run node_modules/jasmine-node/bin/jasmine-node spec && cover report html && opener cover_html/index.html',
+319 silly install resolved        minify: 'grunt',
+319 silly install resolved        prepublish: 'grunt' },
+319 silly install resolved     overlay: { teleport: [Object] },
+319 silly install resolved     directories: { test: './spec' },
+319 silly install resolved     gitHead: '2d9b6ab155ec8229516d34628b9aeeda90f6b6b8',
+319 silly install resolved     _id: 'q@1.2.0',
+319 silly install resolved     _shasum: '811705ce4a9802adff811ab0fcdbd01946e1fe22',
+319 silly install resolved     _from: 'q@>=1.1.2 <2.0.0',
+319 silly install resolved     _npmVersion: '1.4.21',
+319 silly install resolved     _npmUser: { name: 'kriskowal', email: 'kris.kowal@cixar.com' },
+319 silly install resolved     maintainers: [ [Object], [Object] ],
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: '811705ce4a9802adff811ab0fcdbd01946e1fe22',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/q/-/q-1.2.0.tgz' },
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/q/-/q-1.2.0.tgz',
+319 silly install resolved     readme: 'ERROR: No README data found!' },
+319 silly install resolved   { name: 'nopt',
+319 silly install resolved     version: '3.0.1',
+319 silly install resolved     description: 'Option parsing for Node, supporting types, shorthands, etc. Used by npm.',
+319 silly install resolved     author:
+319 silly install resolved      { name: 'Isaac Z. Schlueter',
+319 silly install resolved        email: 'i@izs.me',
+319 silly install resolved        url: 'http://blog.izs.me/' },
+319 silly install resolved     main: 'lib/nopt.js',
+319 silly install resolved     scripts: { test: 'tap test/*.js' },
+319 silly install resolved     repository: { type: 'git', url: 'http://github.com/isaacs/nopt' },
+319 silly install resolved     bin: { nopt: './bin/nopt.js' },
+319 silly install resolved     license:
+319 silly install resolved      { type: 'MIT',
+319 silly install resolved        url: 'https://github.com/isaacs/nopt/raw/master/LICENSE' },
+319 silly install resolved     dependencies: { abbrev: '1' },
+319 silly install resolved     devDependencies: { tap: '~0.4.8' },
+319 silly install resolved     gitHead: '4296f7aba7847c198fea2da594f9e1bec02817ec',
+319 silly install resolved     bugs: { url: 'https://github.com/isaacs/nopt/issues' },
+319 silly install resolved     homepage: 'https://github.com/isaacs/nopt',
+319 silly install resolved     _id: 'nopt@3.0.1',
+319 silly install resolved     _shasum: 'bce5c42446a3291f47622a370abbf158fbbacbfd',
+319 silly install resolved     _from: 'nopt@>=3.0.1 <4.0.0',
+319 silly install resolved     _npmVersion: '1.4.18',
+319 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+319 silly install resolved     maintainers: [ [Object] ],
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: 'bce5c42446a3291f47622a370abbf158fbbacbfd',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/nopt/-/nopt-3.0.1.tgz' },
+319 silly install resolved     directories: {},
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/nopt/-/nopt-3.0.1.tgz',
+319 silly install resolved     readme: 'ERROR: No README data found!' },
+319 silly install resolved   { name: 'readable-stream',
+319 silly install resolved     version: '1.1.13',
+319 silly install resolved     description: 'Streams3, a user-land copy of the stream library from Node.js v0.11.x',
+319 silly install resolved     main: 'readable.js',
+319 silly install resolved     dependencies:
+319 silly install resolved      { 'core-util-is': '~1.0.0',
+319 silly install resolved        isarray: '0.0.1',
+319 silly install resolved        string_decoder: '~0.10.x',
+319 silly install resolved        inherits: '~2.0.1' },
+319 silly install resolved     devDependencies: { tap: '~0.2.6' },
+319 silly install resolved     scripts: { test: 'tap test/simple/*.js' },
+319 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/readable-stream' },
+319 silly install resolved     keywords: [ 'readable', 'stream', 'pipe' ],
+319 silly install resolved     browser: { util: false },
+319 silly install resolved     author:
+319 silly install resolved      { name: 'Isaac Z. Schlueter',
+319 silly install resolved        email: 'i@izs.me',
+319 silly install resolved        url: 'http://blog.izs.me/' },
+319 silly install resolved     license: 'MIT',
+319 silly install resolved     gitHead: '3b672fd7ae92acf5b4ffdbabf74b372a0a56b051',
+319 silly install resolved     bugs: { url: 'https://github.com/isaacs/readable-stream/issues' },
+319 silly install resolved     homepage: 'https://github.com/isaacs/readable-stream',
+319 silly install resolved     _id: 'readable-stream@1.1.13',
+319 silly install resolved     _shasum: 'f6eef764f514c89e2b9e23146a75ba106756d23e',
+319 silly install resolved     _from: 'readable-stream@>=1.1.8 <2.0.0',
+319 silly install resolved     _npmVersion: '1.4.23',
+319 silly install resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+319 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: 'f6eef764f514c89e2b9e23146a75ba106756d23e',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/readable-stream/-/readable-stream-1.1.13.tgz' },
+319 silly install resolved     directories: {},
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.13.tgz',
+319 silly install resolved     readme: 'ERROR: No README data found!' },
+319 silly install resolved   { author:
+319 silly install resolved      { name: 'Isaac Z. Schlueter',
+319 silly install resolved        email: 'i@izs.me',
+319 silly install resolved        url: 'http://blog.izs.me/' },
+319 silly install resolved     name: 'touch',
+319 silly install resolved     description: 'like touch(1) in node',
+319 silly install resolved     version: '0.0.3',
+319 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/node-touch.git' },
+319 silly install resolved     main: 'touch.js',
+319 silly install resolved     engines: { node: '>=0.6' },
+319 silly install resolved     dependencies: { nopt: '~1.0.10' },
+319 silly install resolved     license: 'ISC',
+319 silly install resolved     bugs: { url: 'https://github.com/isaacs/node-touch/issues' },
+319 silly install resolved     homepage: 'https://github.com/isaacs/node-touch',
+319 silly install resolved     _id: 'touch@0.0.3',
+319 silly install resolved     dist:
+319 silly install resolved      { shasum: '51aef3d449571d4f287a5d87c9c8b49181a0db1d',
+319 silly install resolved        tarball: 'http://registry.npmjs.org/touch/-/touch-0.0.3.tgz' },
+319 silly install resolved     _from: 'touch@0.0.3',
+319 silly install resolved     _npmVersion: '1.3.25',
+319 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+319 silly install resolved     maintainers: [ [Object] ],
+319 silly install resolved     directories: {},
+319 silly install resolved     _shasum: '51aef3d449571d4f287a5d87c9c8b49181a0db1d',
+319 silly install resolved     _resolved: 'https://registry.npmjs.org/touch/-/touch-0.0.3.tgz',
+319 silly install resolved     readme: 'ERROR: No README data found!' } ]
+320 info install binary@0.3.0 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+321 info install mkpath@0.1.0 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+322 info install graceful-fs@3.0.6 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+323 info install q@1.2.0 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+324 info install nopt@3.0.1 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+325 info install readable-stream@1.1.13 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+326 info install touch@0.0.3 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+327 info installOne binary@0.3.0
+328 verbose installOne of binary to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+329 info installOne mkpath@0.1.0
+330 verbose installOne of mkpath to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+331 info installOne graceful-fs@3.0.6
+332 verbose installOne of graceful-fs to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+333 info installOne q@1.2.0
+334 verbose installOne of q to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+335 info installOne nopt@3.0.1
+336 verbose installOne of nopt to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+337 info installOne readable-stream@1.1.13
+338 verbose installOne of readable-stream to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+339 info installOne touch@0.0.3
+340 verbose installOne of touch to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip not in flight; installing
+341 verbose lock using /Users/ffff/.npm/_locks/binary-f04e826490374e56.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+342 verbose lock using /Users/ffff/.npm/_locks/mkpath-63499888f1633bba.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+343 verbose lock using /Users/ffff/.npm/_locks/graceful-fs-7af6d77b9acffa22.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+344 verbose lock using /Users/ffff/.npm/_locks/nopt-34cd608696b053d3.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+345 verbose lock using /Users/ffff/.npm/_locks/q-abfe9745b985fadc.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+346 verbose lock using /Users/ffff/.npm/_locks/readable-stream-dbb80cde80633e09.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+347 silly install write writing binary 0.3.0 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+348 silly cache addNamed cb binary@0.3.0
+349 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+350 silly install write writing mkpath 0.1.0 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+351 silly cache addNamed cb mkpath@0.1.0
+352 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+353 silly install write writing graceful-fs 3.0.6 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+354 silly cache addNamed cb graceful-fs@3.0.6
+355 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+356 silly install write writing nopt 3.0.1 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+357 silly cache addNamed cb nopt@3.0.1
+358 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+359 verbose lock using /Users/ffff/.npm/_locks/touch-4649ac503c0262d6.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+360 silly install write writing q 1.2.0 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+361 silly cache addNamed cb q@1.2.0
+362 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+363 silly install write writing readable-stream 1.1.13 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+364 silly cache addNamed cb readable-stream@1.1.13
+365 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+366 silly install write writing touch 0.0.3 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+367 silly cache addNamed cb touch@0.0.3
+368 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+369 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+370 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+371 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+372 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+373 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+374 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+375 verbose tar unpack /Users/ffff/.npm/binary/0.3.0/package.tgz
+376 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+377 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+378 verbose tar unpack /Users/ffff/.npm/mkpath/0.1.0/package.tgz
+379 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+380 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+381 verbose tar unpack /Users/ffff/.npm/graceful-fs/3.0.6/package.tgz
+382 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+383 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+384 verbose tar unpack /Users/ffff/.npm/nopt/3.0.1/package.tgz
+385 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+386 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+387 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+388 verbose tar unpack /Users/ffff/.npm/q/1.2.0/package.tgz
+389 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+390 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+391 verbose tar unpack /Users/ffff/.npm/readable-stream/1.1.13/package.tgz
+392 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+393 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+394 silly gunzTarPerm modes [ '755', '644' ]
+395 silly gunzTarPerm modes [ '755', '644' ]
+396 silly gunzTarPerm modes [ '755', '644' ]
+397 silly gunzTarPerm modes [ '755', '644' ]
+398 verbose tar unpack /Users/ffff/.npm/touch/0.0.3/package.tgz
+399 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+400 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+401 silly gunzTarPerm modes [ '755', '644' ]
+402 silly gunzTarPerm modes [ '755', '644' ]
+403 silly gunzTarPerm modes [ '755', '644' ]
+404 silly gunzTarPerm extractEntry package.json
+405 silly gunzTarPerm extractEntry package.json
+406 silly gunzTarPerm extractEntry package.json
+407 silly gunzTarPerm extractEntry package.json
+408 silly gunzTarPerm extractEntry package.json
+409 silly gunzTarPerm extractEntry package.json
+410 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+411 silly gunzTarPerm extractEntry package.json
+412 silly gunzTarPerm extractEntry .npmignore
+413 silly gunzTarPerm extractEntry index.js
+414 silly gunzTarPerm extractEntry .npmignore
+415 silly gunzTarPerm extractEntry README.md
+416 silly gunzTarPerm extractEntry .npmignore
+417 silly gunzTarPerm extractEntry README.md
+418 silly gunzTarPerm extractEntry .npmignore
+419 silly gunzTarPerm extractEntry README.md
+420 silly gunzTarPerm extractEntry README.md
+421 silly gunzTarPerm extractEntry LICENSE
+422 silly gunzTarPerm extractEntry q.js
+423 silly gunzTarPerm extractEntry queue.js
+424 silly gunzTarPerm extractEntry .npmignore
+425 silly gunzTarPerm extractEntry README.md
+426 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+427 silly gunzTarPerm extractEntry README.md
+428 silly gunzTarPerm extractEntry LICENSE
+429 silly gunzTarPerm extractEntry example/stream.js
+430 silly gunzTarPerm extractEntry example/parse.js
+431 silly gunzTarPerm extractEntry LICENSE
+432 silly gunzTarPerm extractEntry fs.js
+433 silly gunzTarPerm extractEntry LICENSE
+434 silly gunzTarPerm extractEntry bin/nopt.js
+435 silly gunzTarPerm modified mode [ 'bin/nopt.js', 489, 493 ]
+436 silly gunzTarPerm extractEntry LICENSE
+437 silly gunzTarPerm extractEntry mkpath.js
+438 silly gunzTarPerm extractEntry LICENSE
+439 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+440 silly gunzTarPerm extractEntry duplex.js
+441 silly gunzTarPerm extractEntry touch.js
+442 silly gunzTarPerm extractEntry bin/touch.js
+443 silly gunzTarPerm extractEntry example/buf.js
+444 silly gunzTarPerm extractEntry test/negbs.js
+445 silly gunzTarPerm extractEntry test/flush.js
+446 silly gunzTarPerm extractEntry test/into_stream.js
+447 silly gunzTarPerm extractEntry test/scan.js
+448 silly gunzTarPerm extractEntry test/scan_buf_null.js
+449 silly gunzTarPerm extractEntry test/parse.js
+450 silly gunzTarPerm extractEntry test/peek.js
+451 silly gunzTarPerm extractEntry test/skip.js
+452 silly gunzTarPerm extractEntry test/into_buffer.js
+453 silly gunzTarPerm extractEntry test/loop_scan.js
+454 silly gunzTarPerm extractEntry test/immediate.js
+455 silly gunzTarPerm extractEntry test/loop.js
+456 silly gunzTarPerm extractEntry test/negls.js
+457 silly gunzTarPerm extractEntry test/pipe.js
+458 silly gunzTarPerm extractEntry test/posls.js
+459 silly gunzTarPerm extractEntry test/from_buffer.js
+460 silly gunzTarPerm extractEntry test/deferred.js
+461 silly gunzTarPerm extractEntry test/posbs.js
+462 silly gunzTarPerm extractEntry test/get_buffer.js
+463 silly gunzTarPerm extractEntry test/not_enough_buf.js
+464 silly gunzTarPerm extractEntry test/interval.js
+465 silly gunzTarPerm extractEntry test/eof.js
+466 silly gunzTarPerm extractEntry test/not_enough_parse.js
+467 silly gunzTarPerm extractEntry test/lu.js
+468 silly gunzTarPerm extractEntry test/dots.js
+469 silly gunzTarPerm extractEntry test/nested.js
+470 silly gunzTarPerm extractEntry test/split.js
+471 silly gunzTarPerm extractEntry test/bu.js
+472 silly gunzTarPerm extractEntry test/scan_buf.js
+473 silly gunzTarPerm extractEntry perf/small.js
+474 silly gunzTarPerm extractEntry perf/loop.js
+475 silly gunzTarPerm extractEntry .travis.yml
+476 silly gunzTarPerm extractEntry lib/vars.js
+477 silly gunzTarPerm extractEntry README.markdown
+478 silly gunzTarPerm extractEntry graceful-fs.js
+479 silly gunzTarPerm extractEntry polyfills.js
+480 silly gunzTarPerm extractEntry examples/my-program.js
+481 silly gunzTarPerm extractEntry lib/nopt.js
+482 silly gunzTarPerm extractEntry test/basic.js
+483 silly gunzTarPerm extractEntry test/chmod.js
+484 silly gunzTarPerm extractEntry test/clobber.js
+485 silly gunzTarPerm extractEntry writable.js
+486 silly gunzTarPerm extractEntry passthrough.js
+487 silly gunzTarPerm extractEntry test/sanity.js
+488 silly gunzTarPerm extractEntry test/mkpath.js
+489 silly gunzTarPerm extractEntry test/perm.js
+490 silly gunzTarPerm extractEntry test/max-open.js
+491 silly gunzTarPerm extractEntry readable.js
+492 silly gunzTarPerm modified mode [ 'readable.js', 436, 420 ]
+493 silly gunzTarPerm extractEntry transform.js
+494 silly gunzTarPerm extractEntry test/perm_sync.js
+495 silly gunzTarPerm extractEntry test/rel.js
+496 silly gunzTarPerm extractEntry test/root.js
+497 silly gunzTarPerm extractEntry test/sync.js
+498 silly gunzTarPerm extractEntry test/umask.js
+499 silly gunzTarPerm extractEntry test/umask_sync.js
+500 silly gunzTarPerm extractEntry test/open.js
+501 silly gunzTarPerm extractEntry test/readdir-sort.js
+502 silly gunzTarPerm extractEntry float.patch
+503 silly gunzTarPerm modified mode [ 'float.patch', 436, 420 ]
+504 silly gunzTarPerm extractEntry lib/_stream_duplex.js
+505 silly gunzTarPerm modified mode [ 'lib/_stream_duplex.js', 436, 420 ]
+506 silly gunzTarPerm extractEntry lib/_stream_passthrough.js
+507 silly gunzTarPerm modified mode [ 'lib/_stream_passthrough.js', 436, 420 ]
+508 silly gunzTarPerm extractEntry lib/_stream_readable.js
+509 silly gunzTarPerm modified mode [ 'lib/_stream_readable.js', 436, 420 ]
+510 silly gunzTarPerm extractEntry lib/_stream_transform.js
+511 silly gunzTarPerm modified mode [ 'lib/_stream_transform.js', 436, 420 ]
+512 silly gunzTarPerm extractEntry lib/_stream_writable.js
+513 silly gunzTarPerm modified mode [ 'lib/_stream_writable.js', 436, 420 ]
+514 silly gunzTarPerm extractEntry test/write-then-read.js
+515 info preinstall touch@0.0.3
+516 silly prepareForInstallMany adding nopt@~1.0.10 from touch dependencies
+517 silly cache add args [ 'nopt@~1.0.10', null ]
+518 verbose cache add spec nopt@~1.0.10
+519 silly cache add parsed spec { raw: 'nopt@~1.0.10',
+519 silly cache add   scope: null,
+519 silly cache add   name: 'nopt',
+519 silly cache add   rawSpec: '~1.0.10',
+519 silly cache add   spec: '>=1.0.10 <1.1.0',
+519 silly cache add   type: 'range' }
+520 verbose addNamed nopt@>=1.0.10 <1.1.0
+521 silly addNamed semver.valid null
+522 silly addNamed semver.validRange >=1.0.10 <1.1.0
+523 silly addNameRange { name: 'nopt', range: '>=1.0.10 <1.1.0', hasData: false }
+524 silly mapToRegistry name nopt
+525 silly mapToRegistry using default registry
+526 silly mapToRegistry registry https://registry.npmjs.org/
+527 silly mapToRegistry uri https://registry.npmjs.org/nopt
+528 verbose addNameRange registry:https://registry.npmjs.org/nopt not in flight; fetching
+529 verbose get https://registry.npmjs.org/nopt not expired, no request
+530 silly addNameRange number 2 { name: 'nopt', range: '>=1.0.10 <1.1.0', hasData: true }
+531 silly addNameRange versions [ 'nopt',
+531 silly addNameRange   [ '1.0.0',
+531 silly addNameRange     '1.0.1',
+531 silly addNameRange     '1.0.2',
+531 silly addNameRange     '1.0.3',
+531 silly addNameRange     '1.0.4',
+531 silly addNameRange     '1.0.5',
+531 silly addNameRange     '1.0.6',
+531 silly addNameRange     '1.0.7',
+531 silly addNameRange     '1.0.8',
+531 silly addNameRange     '1.0.9',
+531 silly addNameRange     '1.0.10',
+531 silly addNameRange     '2.0.0',
+531 silly addNameRange     '2.1.0',
+531 silly addNameRange     '2.1.1',
+531 silly addNameRange     '2.1.2',
+531 silly addNameRange     '2.2.0',
+531 silly addNameRange     '2.2.1',
+531 silly addNameRange     '3.0.0',
+531 silly addNameRange     '3.0.1' ] ]
+532 verbose addNamed nopt@1.0.10
+533 silly addNamed semver.valid 1.0.10
+534 silly addNamed semver.validRange 1.0.10
+535 silly cache afterAdd nopt@1.0.10
+536 verbose afterAdd /Users/ffff/.npm/nopt/1.0.10/package/package.json not in flight; writing
+537 verbose afterAdd /Users/ffff/.npm/nopt/1.0.10/package/package.json written
+538 silly install resolved [ { name: 'nopt',
+538 silly install resolved     version: '1.0.10',
+538 silly install resolved     description: 'Option parsing for Node, supporting types, shorthands, etc. Used by npm.',
+538 silly install resolved     author:
+538 silly install resolved      { name: 'Isaac Z. Schlueter',
+538 silly install resolved        email: 'i@izs.me',
+538 silly install resolved        url: 'http://blog.izs.me/' },
+538 silly install resolved     main: 'lib/nopt.js',
+538 silly install resolved     scripts: { test: 'node lib/nopt.js' },
+538 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/nopt.git' },
+538 silly install resolved     bin: { nopt: './bin/nopt.js' },
+538 silly install resolved     license:
+538 silly install resolved      { type: 'MIT',
+538 silly install resolved        url: 'https://github.com/isaacs/nopt/raw/master/LICENSE' },
+538 silly install resolved     dependencies: { abbrev: '1' },
+538 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+538 silly install resolved     _id: 'nopt@1.0.10',
+538 silly install resolved     devDependencies: {},
+538 silly install resolved     engines: { node: '*' },
+538 silly install resolved     _engineSupported: true,
+538 silly install resolved     _npmVersion: '1.0.93',
+538 silly install resolved     _nodeVersion: 'v0.5.9-pre',
+538 silly install resolved     _defaultsLoaded: true,
+538 silly install resolved     dist:
+538 silly install resolved      { shasum: '6ddd21bd2a31417b92727dd585f8a6f37608ebee',
+538 silly install resolved        tarball: 'http://registry.npmjs.org/nopt/-/nopt-1.0.10.tgz' },
+538 silly install resolved     maintainers: [ [Object] ],
+538 silly install resolved     directories: {},
+538 silly install resolved     _shasum: '6ddd21bd2a31417b92727dd585f8a6f37608ebee',
+538 silly install resolved     _resolved: 'https://registry.npmjs.org/nopt/-/nopt-1.0.10.tgz',
+538 silly install resolved     _from: 'nopt@>=1.0.10 <1.1.0',
+538 silly install resolved     bugs: { url: 'https://github.com/isaacs/nopt/issues' },
+538 silly install resolved     readme: 'ERROR: No README data found!',
+538 silly install resolved     homepage: 'https://github.com/isaacs/nopt' } ]
+539 info install nopt@1.0.10 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+540 info installOne nopt@1.0.10
+541 verbose installOne of nopt to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch not in flight; installing
+542 verbose lock using /Users/ffff/.npm/_locks/nopt-df778620fc2766e5.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+543 silly install write writing nopt 1.0.10 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+544 silly cache addNamed cb nopt@1.0.10
+545 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+546 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+547 verbose tar unpack /Users/ffff/.npm/nopt/1.0.10/package.tgz
+548 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+549 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+550 silly gunzTarPerm modes [ '755', '644' ]
+551 silly gunzTarPerm extractEntry .gitignore
+552 silly gunzTarPerm extractEntry LICENSE
+553 silly gunzTarPerm extractEntry package.json
+554 silly gunzTarPerm extractEntry README.md
+555 silly gunzTarPerm extractEntry bin/nopt.js
+556 info preinstall graceful-fs@3.0.6
+557 silly install resolved []
+558 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+559 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+560 verbose linkStuff [ true,
+560 verbose linkStuff   '/usr/local/lib/node_modules',
+560 verbose linkStuff   false,
+560 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+561 info linkStuff graceful-fs@3.0.6
+562 silly gunzTarPerm extractEntry examples/my-program.js
+563 silly gunzTarPerm extractEntry lib/nopt.js
+564 info preinstall nopt@3.0.1
+565 silly prepareForInstallMany adding abbrev@1 from nopt dependencies
+566 verbose linkBins graceful-fs@3.0.6
+567 verbose linkMans graceful-fs@3.0.6
+568 verbose rebuildBundles graceful-fs@3.0.6
+569 info install graceful-fs@3.0.6
+570 silly cache add args [ 'abbrev@1', null ]
+571 verbose cache add spec abbrev@1
+572 silly cache add parsed spec { raw: 'abbrev@1',
+572 silly cache add   scope: null,
+572 silly cache add   name: 'abbrev',
+572 silly cache add   rawSpec: '1',
+572 silly cache add   spec: '>=1.0.0 <2.0.0',
+572 silly cache add   type: 'range' }
+573 verbose addNamed abbrev@>=1.0.0 <2.0.0
+574 silly addNamed semver.valid null
+575 silly addNamed semver.validRange >=1.0.0 <2.0.0
+576 silly addNameRange { name: 'abbrev', range: '>=1.0.0 <2.0.0', hasData: false }
+577 silly mapToRegistry name abbrev
+578 silly mapToRegistry using default registry
+579 silly mapToRegistry registry https://registry.npmjs.org/
+580 silly mapToRegistry uri https://registry.npmjs.org/abbrev
+581 verbose addNameRange registry:https://registry.npmjs.org/abbrev not in flight; fetching
+582 info postinstall graceful-fs@3.0.6
+583 verbose request uri https://registry.npmjs.org/abbrev
+584 verbose request no auth needed
+585 info attempt registry request try #1 at 9:25:54 AM
+586 verbose etag "AIK2XDX1GJIIYUUY93UDLGJV0"
+587 http request GET https://registry.npmjs.org/abbrev
+588 verbose unlock done using /Users/ffff/.npm/_locks/graceful-fs-7af6d77b9acffa22.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/graceful-fs
+589 info preinstall mkpath@0.1.0
+590 silly install resolved []
+591 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+592 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+593 verbose linkStuff [ true,
+593 verbose linkStuff   '/usr/local/lib/node_modules',
+593 verbose linkStuff   false,
+593 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+594 info linkStuff mkpath@0.1.0
+595 verbose linkBins mkpath@0.1.0
+596 verbose linkMans mkpath@0.1.0
+597 verbose rebuildBundles mkpath@0.1.0
+598 info install mkpath@0.1.0
+599 info postinstall mkpath@0.1.0
+600 verbose unlock done using /Users/ffff/.npm/_locks/mkpath-63499888f1633bba.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/mkpath
+601 info preinstall q@1.2.0
+602 silly install resolved []
+603 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+604 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+605 verbose linkStuff [ true,
+605 verbose linkStuff   '/usr/local/lib/node_modules',
+605 verbose linkStuff   false,
+605 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+606 info linkStuff q@1.2.0
+607 verbose linkBins q@1.2.0
+608 verbose linkMans q@1.2.0
+609 verbose rebuildBundles q@1.2.0
+610 info install q@1.2.0
+611 info postinstall q@1.2.0
+612 verbose unlock done using /Users/ffff/.npm/_locks/q-abfe9745b985fadc.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/q
+613 info preinstall nopt@1.0.10
+614 silly prepareForInstallMany adding abbrev@1 from nopt dependencies
+615 silly cache add args [ 'abbrev@1', null ]
+616 verbose cache add spec abbrev@1
+617 silly cache add parsed spec { raw: 'abbrev@1',
+617 silly cache add   scope: null,
+617 silly cache add   name: 'abbrev',
+617 silly cache add   rawSpec: '1',
+617 silly cache add   spec: '>=1.0.0 <2.0.0',
+617 silly cache add   type: 'range' }
+618 verbose addNamed abbrev@>=1.0.0 <2.0.0
+619 silly addNamed semver.valid null
+620 silly addNamed semver.validRange >=1.0.0 <2.0.0
+621 silly addNameRange { name: 'abbrev', range: '>=1.0.0 <2.0.0', hasData: false }
+622 silly mapToRegistry name abbrev
+623 silly mapToRegistry using default registry
+624 silly mapToRegistry registry https://registry.npmjs.org/
+625 silly mapToRegistry uri https://registry.npmjs.org/abbrev
+626 verbose addNameRange registry:https://registry.npmjs.org/abbrev already in flight; waiting
+627 info preinstall readable-stream@1.1.13
+628 silly prepareForInstallMany adding core-util-is@~1.0.0 from readable-stream dependencies
+629 silly prepareForInstallMany adding isarray@0.0.1 from readable-stream dependencies
+630 silly prepareForInstallMany adding string_decoder@~0.10.x from readable-stream dependencies
+631 silly prepareForInstallMany adding inherits@~2.0.1 from readable-stream dependencies
+632 silly cache add args [ 'core-util-is@~1.0.0', null ]
+633 verbose cache add spec core-util-is@~1.0.0
+634 silly cache add args [ 'isarray@0.0.1', null ]
+635 verbose cache add spec isarray@0.0.1
+636 silly cache add parsed spec { raw: 'core-util-is@~1.0.0',
+636 silly cache add   scope: null,
+636 silly cache add   name: 'core-util-is',
+636 silly cache add   rawSpec: '~1.0.0',
+636 silly cache add   spec: '>=1.0.0 <1.1.0',
+636 silly cache add   type: 'range' }
+637 verbose addNamed core-util-is@>=1.0.0 <1.1.0
+638 silly addNamed semver.valid null
+639 silly addNamed semver.validRange >=1.0.0 <1.1.0
+640 silly addNameRange { name: 'core-util-is', range: '>=1.0.0 <1.1.0', hasData: false }
+641 silly mapToRegistry name core-util-is
+642 silly mapToRegistry using default registry
+643 silly mapToRegistry registry https://registry.npmjs.org/
+644 silly mapToRegistry uri https://registry.npmjs.org/core-util-is
+645 verbose addNameRange registry:https://registry.npmjs.org/core-util-is not in flight; fetching
+646 silly cache add parsed spec { raw: 'isarray@0.0.1',
+646 silly cache add   scope: null,
+646 silly cache add   name: 'isarray',
+646 silly cache add   rawSpec: '0.0.1',
+646 silly cache add   spec: '0.0.1',
+646 silly cache add   type: 'version' }
+647 verbose addNamed isarray@0.0.1
+648 silly addNamed semver.valid 0.0.1
+649 silly addNamed semver.validRange 0.0.1
+650 silly mapToRegistry name isarray
+651 silly mapToRegistry using default registry
+652 silly mapToRegistry registry https://registry.npmjs.org/
+653 silly mapToRegistry uri https://registry.npmjs.org/isarray
+654 verbose addNameVersion registry:https://registry.npmjs.org/isarray not in flight; fetching
+655 silly cache add args [ 'string_decoder@~0.10.x', null ]
+656 verbose cache add spec string_decoder@~0.10.x
+657 silly cache add parsed spec { raw: 'string_decoder@~0.10.x',
+657 silly cache add   scope: null,
+657 silly cache add   name: 'string_decoder',
+657 silly cache add   rawSpec: '~0.10.x',
+657 silly cache add   spec: '>=0.10.0 <0.11.0',
+657 silly cache add   type: 'range' }
+658 verbose addNamed string_decoder@>=0.10.0 <0.11.0
+659 silly addNamed semver.valid null
+660 silly addNamed semver.validRange >=0.10.0 <0.11.0
+661 silly addNameRange { name: 'string_decoder',
+661 silly addNameRange   range: '>=0.10.0 <0.11.0',
+661 silly addNameRange   hasData: false }
+662 silly mapToRegistry name string_decoder
+663 silly mapToRegistry using default registry
+664 silly mapToRegistry registry https://registry.npmjs.org/
+665 silly mapToRegistry uri https://registry.npmjs.org/string_decoder
+666 verbose addNameRange registry:https://registry.npmjs.org/string_decoder not in flight; fetching
+667 silly cache add args [ 'inherits@~2.0.1', null ]
+668 verbose cache add spec inherits@~2.0.1
+669 silly cache add parsed spec { raw: 'inherits@~2.0.1',
+669 silly cache add   scope: null,
+669 silly cache add   name: 'inherits',
+669 silly cache add   rawSpec: '~2.0.1',
+669 silly cache add   spec: '>=2.0.1 <2.1.0',
+669 silly cache add   type: 'range' }
+670 verbose addNamed inherits@>=2.0.1 <2.1.0
+671 silly addNamed semver.valid null
+672 silly addNamed semver.validRange >=2.0.1 <2.1.0
+673 silly addNameRange { name: 'inherits', range: '>=2.0.1 <2.1.0', hasData: false }
+674 silly mapToRegistry name inherits
+675 silly mapToRegistry using default registry
+676 silly mapToRegistry registry https://registry.npmjs.org/
+677 silly mapToRegistry uri https://registry.npmjs.org/inherits
+678 verbose addNameRange registry:https://registry.npmjs.org/inherits not in flight; fetching
+679 verbose request uri https://registry.npmjs.org/core-util-is
+680 verbose request no auth needed
+681 info attempt registry request try #1 at 9:25:54 AM
+682 verbose etag "8N932ER6J79FE9PNV7H41QYLJ"
+683 http request GET https://registry.npmjs.org/core-util-is
+684 verbose request uri https://registry.npmjs.org/isarray
+685 verbose request no auth needed
+686 info attempt registry request try #1 at 9:25:54 AM
+687 verbose etag "79XQA3ZXVF5QN0X2VYCD81HMN"
+688 http request GET https://registry.npmjs.org/isarray
+689 verbose request uri https://registry.npmjs.org/string_decoder
+690 verbose request no auth needed
+691 info attempt registry request try #1 at 9:25:54 AM
+692 verbose etag "89NG6AVWTXZBFGLGXXUONULF1"
+693 http request GET https://registry.npmjs.org/string_decoder
+694 verbose request uri https://registry.npmjs.org/inherits
+695 verbose request no auth needed
+696 info attempt registry request try #1 at 9:25:54 AM
+697 verbose etag "2JQ9T5BW10349CYNB2L6ASWW6"
+698 http request GET https://registry.npmjs.org/inherits
+699 http 304 https://registry.npmjs.org/abbrev
+700 silly get cb [ 304,
+700 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+700 silly get     server: 'Apache',
+700 silly get     via: '1.1 varnish',
+700 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+700 silly get     'cache-control': 'max-age=60',
+700 silly get     etag: '"AIK2XDX1GJIIYUUY93UDLGJV0"',
+700 silly get     age: '27',
+700 silly get     'x-served-by': 'cache-lax1435-LAX',
+700 silly get     'x-cache': 'HIT',
+700 silly get     'x-cache-hits': '1',
+700 silly get     'x-timer': 'S1429201555.574534,VS0,VE0',
+700 silly get     vary: 'Accept',
+700 silly get     'content-length': '0',
+700 silly get     'keep-alive': 'timeout=10, max=50',
+700 silly get     connection: 'Keep-Alive' } ]
+701 verbose etag https://registry.npmjs.org/abbrev from cache
+702 verbose get saving abbrev to /Users/ffff/.npm/registry.npmjs.org/abbrev/.cache.json
+703 info preinstall binary@0.3.0
+704 silly prepareForInstallMany adding chainsaw@~0.1.0 from binary dependencies
+705 silly prepareForInstallMany adding buffers@~0.1.1 from binary dependencies
+706 silly addNameRange number 2 { name: 'abbrev', range: '>=1.0.0 <2.0.0', hasData: true }
+707 silly addNameRange versions [ 'abbrev', [ '1.0.3', '1.0.4', '1.0.5' ] ]
+708 verbose addNamed abbrev@1.0.5
+709 silly addNamed semver.valid 1.0.5
+710 silly addNamed semver.validRange 1.0.5
+711 silly addNameRange number 2 { name: 'abbrev', range: '>=1.0.0 <2.0.0', hasData: true }
+712 silly addNameRange versions [ 'abbrev', [ '1.0.3', '1.0.4', '1.0.5' ] ]
+713 verbose addNamed abbrev@1.0.5
+714 silly addNamed semver.valid 1.0.5
+715 silly addNamed semver.validRange 1.0.5
+716 silly cache add args [ 'chainsaw@~0.1.0', null ]
+717 verbose cache add spec chainsaw@~0.1.0
+718 silly cache add args [ 'buffers@~0.1.1', null ]
+719 verbose cache add spec buffers@~0.1.1
+720 silly cache add parsed spec { raw: 'chainsaw@~0.1.0',
+720 silly cache add   scope: null,
+720 silly cache add   name: 'chainsaw',
+720 silly cache add   rawSpec: '~0.1.0',
+720 silly cache add   spec: '>=0.1.0 <0.2.0',
+720 silly cache add   type: 'range' }
+721 verbose addNamed chainsaw@>=0.1.0 <0.2.0
+722 silly addNamed semver.valid null
+723 silly addNamed semver.validRange >=0.1.0 <0.2.0
+724 silly addNameRange { name: 'chainsaw', range: '>=0.1.0 <0.2.0', hasData: false }
+725 silly mapToRegistry name chainsaw
+726 silly mapToRegistry using default registry
+727 silly mapToRegistry registry https://registry.npmjs.org/
+728 silly mapToRegistry uri https://registry.npmjs.org/chainsaw
+729 verbose addNameRange registry:https://registry.npmjs.org/chainsaw not in flight; fetching
+730 silly cache add parsed spec { raw: 'buffers@~0.1.1',
+730 silly cache add   scope: null,
+730 silly cache add   name: 'buffers',
+730 silly cache add   rawSpec: '~0.1.1',
+730 silly cache add   spec: '>=0.1.1 <0.2.0',
+730 silly cache add   type: 'range' }
+731 verbose addNamed buffers@>=0.1.1 <0.2.0
+732 silly addNamed semver.valid null
+733 silly addNamed semver.validRange >=0.1.1 <0.2.0
+734 silly addNameRange { name: 'buffers', range: '>=0.1.1 <0.2.0', hasData: false }
+735 silly mapToRegistry name buffers
+736 silly mapToRegistry using default registry
+737 silly mapToRegistry registry https://registry.npmjs.org/
+738 silly mapToRegistry uri https://registry.npmjs.org/buffers
+739 verbose addNameRange registry:https://registry.npmjs.org/buffers not in flight; fetching
+740 silly cache afterAdd abbrev@1.0.5
+741 verbose afterAdd /Users/ffff/.npm/abbrev/1.0.5/package/package.json not in flight; writing
+742 silly cache afterAdd abbrev@1.0.5
+743 verbose afterAdd /Users/ffff/.npm/abbrev/1.0.5/package/package.json already in flight; not writing
+744 verbose request uri https://registry.npmjs.org/chainsaw
+745 verbose request no auth needed
+746 info attempt registry request try #1 at 9:25:54 AM
+747 verbose etag "BXHGEMF27G4M2QR1Q6V23AOME"
+748 http request GET https://registry.npmjs.org/chainsaw
+749 verbose request uri https://registry.npmjs.org/buffers
+750 verbose request no auth needed
+751 info attempt registry request try #1 at 9:25:54 AM
+752 verbose etag "B86MHUKB0M67RBF5TSP1O1XUN"
+753 http request GET https://registry.npmjs.org/buffers
+754 verbose afterAdd /Users/ffff/.npm/abbrev/1.0.5/package/package.json written
+755 silly install resolved [ { name: 'abbrev',
+755 silly install resolved     version: '1.0.5',
+755 silly install resolved     description: 'Like ruby\'s abbrev module, but in js',
+755 silly install resolved     author: { name: 'Isaac Z. Schlueter', email: 'i@izs.me' },
+755 silly install resolved     main: 'abbrev.js',
+755 silly install resolved     scripts: { test: 'node test.js' },
+755 silly install resolved     repository: { type: 'git', url: 'http://github.com/isaacs/abbrev-js' },
+755 silly install resolved     license:
+755 silly install resolved      { type: 'MIT',
+755 silly install resolved        url: 'https://github.com/isaacs/abbrev-js/raw/master/LICENSE' },
+755 silly install resolved     bugs: { url: 'https://github.com/isaacs/abbrev-js/issues' },
+755 silly install resolved     homepage: 'https://github.com/isaacs/abbrev-js',
+755 silly install resolved     _id: 'abbrev@1.0.5',
+755 silly install resolved     _shasum: '5d8257bd9ebe435e698b2fa431afde4fe7b10b03',
+755 silly install resolved     _from: 'abbrev@>=1.0.0 <2.0.0',
+755 silly install resolved     _npmVersion: '1.4.7',
+755 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+755 silly install resolved     maintainers: [ [Object] ],
+755 silly install resolved     dist:
+755 silly install resolved      { shasum: '5d8257bd9ebe435e698b2fa431afde4fe7b10b03',
+755 silly install resolved        tarball: 'http://registry.npmjs.org/abbrev/-/abbrev-1.0.5.tgz' },
+755 silly install resolved     directories: {},
+755 silly install resolved     _resolved: 'https://registry.npmjs.org/abbrev/-/abbrev-1.0.5.tgz',
+755 silly install resolved     readme: 'ERROR: No README data found!' } ]
+756 info install abbrev@1.0.5 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+757 info installOne abbrev@1.0.5
+758 verbose installOne of abbrev to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt not in flight; installing
+759 silly install resolved [ { name: 'abbrev',
+759 silly install resolved     version: '1.0.5',
+759 silly install resolved     description: 'Like ruby\'s abbrev module, but in js',
+759 silly install resolved     author: { name: 'Isaac Z. Schlueter', email: 'i@izs.me' },
+759 silly install resolved     main: 'abbrev.js',
+759 silly install resolved     scripts: { test: 'node test.js' },
+759 silly install resolved     repository: { type: 'git', url: 'http://github.com/isaacs/abbrev-js' },
+759 silly install resolved     license:
+759 silly install resolved      { type: 'MIT',
+759 silly install resolved        url: 'https://github.com/isaacs/abbrev-js/raw/master/LICENSE' },
+759 silly install resolved     bugs: { url: 'https://github.com/isaacs/abbrev-js/issues' },
+759 silly install resolved     homepage: 'https://github.com/isaacs/abbrev-js',
+759 silly install resolved     _id: 'abbrev@1.0.5',
+759 silly install resolved     _shasum: '5d8257bd9ebe435e698b2fa431afde4fe7b10b03',
+759 silly install resolved     _from: 'abbrev@>=1.0.0 <2.0.0',
+759 silly install resolved     _npmVersion: '1.4.7',
+759 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+759 silly install resolved     maintainers: [ [Object] ],
+759 silly install resolved     dist:
+759 silly install resolved      { shasum: '5d8257bd9ebe435e698b2fa431afde4fe7b10b03',
+759 silly install resolved        tarball: 'http://registry.npmjs.org/abbrev/-/abbrev-1.0.5.tgz' },
+759 silly install resolved     directories: {},
+759 silly install resolved     _resolved: 'https://registry.npmjs.org/abbrev/-/abbrev-1.0.5.tgz',
+759 silly install resolved     readme: 'ERROR: No README data found!' } ]
+760 info install abbrev@1.0.5 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+761 info installOne abbrev@1.0.5
+762 verbose installOne of abbrev to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt not in flight; installing
+763 verbose lock using /Users/ffff/.npm/_locks/abbrev-089f8814e6bf8bab.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+764 verbose lock using /Users/ffff/.npm/_locks/abbrev-d1c419752571cb4f.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+765 silly install write writing abbrev 1.0.5 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+766 silly cache addNamed cb abbrev@1.0.5
+767 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+768 silly install write writing abbrev 1.0.5 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+769 silly cache addNamed cb abbrev@1.0.5
+770 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+771 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+772 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+773 verbose tar unpack /Users/ffff/.npm/abbrev/1.0.5/package.tgz
+774 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+775 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+776 verbose tar unpack /Users/ffff/.npm/abbrev/1.0.5/package.tgz
+777 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+778 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+779 silly gunzTarPerm modes [ '755', '644' ]
+780 silly gunzTarPerm modes [ '755', '644' ]
+781 silly gunzTarPerm extractEntry package.json
+782 silly gunzTarPerm extractEntry package.json
+783 silly gunzTarPerm extractEntry README.md
+784 silly gunzTarPerm extractEntry LICENSE
+785 silly gunzTarPerm extractEntry README.md
+786 silly gunzTarPerm extractEntry LICENSE
+787 silly gunzTarPerm extractEntry abbrev.js
+788 silly gunzTarPerm extractEntry test.js
+789 silly gunzTarPerm extractEntry abbrev.js
+790 silly gunzTarPerm extractEntry test.js
+791 silly gunzTarPerm extractEntry CONTRIBUTING.md
+792 silly gunzTarPerm extractEntry CONTRIBUTING.md
+793 info preinstall abbrev@1.0.5
+794 info preinstall abbrev@1.0.5
+795 silly install resolved []
+796 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+797 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+798 verbose linkStuff [ true,
+798 verbose linkStuff   '/usr/local/lib/node_modules',
+798 verbose linkStuff   false,
+798 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules' ]
+799 info linkStuff abbrev@1.0.5
+800 verbose linkBins abbrev@1.0.5
+801 verbose linkMans abbrev@1.0.5
+802 verbose rebuildBundles abbrev@1.0.5
+803 silly install resolved []
+804 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+805 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+806 verbose linkStuff [ true,
+806 verbose linkStuff   '/usr/local/lib/node_modules',
+806 verbose linkStuff   false,
+806 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules' ]
+807 info linkStuff abbrev@1.0.5
+808 verbose linkBins abbrev@1.0.5
+809 verbose linkMans abbrev@1.0.5
+810 verbose rebuildBundles abbrev@1.0.5
+811 info install abbrev@1.0.5
+812 info install abbrev@1.0.5
+813 info postinstall abbrev@1.0.5
+814 info postinstall abbrev@1.0.5
+815 verbose unlock done using /Users/ffff/.npm/_locks/abbrev-d1c419752571cb4f.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt/node_modules/abbrev
+816 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+817 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+818 verbose linkStuff [ true,
+818 verbose linkStuff   '/usr/local/lib/node_modules',
+818 verbose linkStuff   false,
+818 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules' ]
+819 info linkStuff nopt@1.0.10
+820 verbose linkBins nopt@1.0.10
+821 verbose link bins [ { nopt: './bin/nopt.js' },
+821 verbose link bins   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/.bin',
+821 verbose link bins   false ]
+822 verbose linkMans nopt@1.0.10
+823 verbose rebuildBundles nopt@1.0.10
+824 verbose unlock done using /Users/ffff/.npm/_locks/abbrev-089f8814e6bf8bab.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt/node_modules/abbrev
+825 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+826 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+827 verbose linkStuff [ true,
+827 verbose linkStuff   '/usr/local/lib/node_modules',
+827 verbose linkStuff   false,
+827 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+828 info linkStuff nopt@3.0.1
+829 verbose linkBins nopt@3.0.1
+830 verbose link bins [ { nopt: './bin/nopt.js' },
+830 verbose link bins   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/.bin',
+830 verbose link bins   false ]
+831 verbose linkMans nopt@3.0.1
+832 verbose rebuildBundles nopt@3.0.1
+833 verbose rebuildBundles [ 'abbrev' ]
+834 http 304 https://registry.npmjs.org/string_decoder
+835 silly get cb [ 304,
+835 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+835 silly get     server: 'Apache',
+835 silly get     via: '1.1 varnish',
+835 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:23 GMT',
+835 silly get     'cache-control': 'max-age=60',
+835 silly get     etag: '"89NG6AVWTXZBFGLGXXUONULF1"',
+835 silly get     age: '36',
+835 silly get     'x-served-by': 'cache-lax1429-LAX',
+835 silly get     'x-cache': 'HIT',
+835 silly get     'x-cache-hits': '5',
+835 silly get     'x-timer': 'S1429201555.627619,VS0,VE0',
+835 silly get     vary: 'Accept',
+835 silly get     'content-length': '0',
+835 silly get     'keep-alive': 'timeout=10, max=50',
+835 silly get     connection: 'Keep-Alive' } ]
+836 verbose etag https://registry.npmjs.org/string_decoder from cache
+837 verbose get saving string_decoder to /Users/ffff/.npm/registry.npmjs.org/string_decoder/.cache.json
+838 http 304 https://registry.npmjs.org/inherits
+839 silly get cb [ 304,
+839 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+839 silly get     server: 'Apache',
+839 silly get     via: '1.1 varnish',
+839 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:40 GMT',
+839 silly get     'cache-control': 'max-age=60',
+839 silly get     etag: '"2JQ9T5BW10349CYNB2L6ASWW6"',
+839 silly get     age: '37',
+839 silly get     'x-served-by': 'cache-lax1429-LAX',
+839 silly get     'x-cache': 'HIT',
+839 silly get     'x-cache-hits': '4',
+839 silly get     'x-timer': 'S1429201555.628603,VS0,VE0',
+839 silly get     vary: 'Accept',
+839 silly get     'content-length': '0',
+839 silly get     'keep-alive': 'timeout=10, max=50',
+839 silly get     connection: 'Keep-Alive' } ]
+840 verbose etag https://registry.npmjs.org/inherits from cache
+841 verbose get saving inherits to /Users/ffff/.npm/registry.npmjs.org/inherits/.cache.json
+842 verbose rebuildBundles [ 'abbrev' ]
+843 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/.bin/nopt
+844 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/.bin/nopt
+845 info install nopt@1.0.10
+846 info install nopt@3.0.1
+847 info postinstall nopt@1.0.10
+848 info postinstall nopt@3.0.1
+849 silly addNameRange number 2 { name: 'inherits', range: '>=2.0.1 <2.1.0', hasData: true }
+850 silly addNameRange versions [ 'inherits', [ '1.0.0', '2.0.0', '2.0.1' ] ]
+851 verbose addNamed inherits@2.0.1
+852 silly addNamed semver.valid 2.0.1
+853 silly addNamed semver.validRange 2.0.1
+854 silly addNameRange number 2 { name: 'string_decoder',
+854 silly addNameRange   range: '>=0.10.0 <0.11.0',
+854 silly addNameRange   hasData: true }
+855 silly addNameRange versions [ 'string_decoder',
+855 silly addNameRange   [ '0.0.0',
+855 silly addNameRange     '0.0.1',
+855 silly addNameRange     '0.10.24',
+855 silly addNameRange     '0.11.10',
+855 silly addNameRange     '0.10.25',
+855 silly addNameRange     '0.11.10-1',
+855 silly addNameRange     '0.10.25-1',
+855 silly addNameRange     '0.10.31' ] ]
+856 verbose addNamed string_decoder@0.10.31
+857 silly addNamed semver.valid 0.10.31
+858 silly addNamed semver.validRange 0.10.31
+859 verbose unlock done using /Users/ffff/.npm/_locks/nopt-df778620fc2766e5.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch/node_modules/nopt
+860 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+861 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+862 verbose linkStuff [ true,
+862 verbose linkStuff   '/usr/local/lib/node_modules',
+862 verbose linkStuff   false,
+862 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+863 info linkStuff touch@0.0.3
+864 verbose linkBins touch@0.0.3
+865 verbose linkMans touch@0.0.3
+866 verbose rebuildBundles touch@0.0.3
+867 verbose unlock done using /Users/ffff/.npm/_locks/nopt-34cd608696b053d3.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/nopt
+868 verbose rebuildBundles [ '.bin', 'nopt' ]
+869 info install touch@0.0.3
+870 info postinstall touch@0.0.3
+871 silly cache afterAdd inherits@2.0.1
+872 verbose afterAdd /Users/ffff/.npm/inherits/2.0.1/package/package.json not in flight; writing
+873 silly cache afterAdd string_decoder@0.10.31
+874 verbose afterAdd /Users/ffff/.npm/string_decoder/0.10.31/package/package.json not in flight; writing
+875 verbose unlock done using /Users/ffff/.npm/_locks/touch-4649ac503c0262d6.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/touch
+876 verbose afterAdd /Users/ffff/.npm/string_decoder/0.10.31/package/package.json written
+877 verbose afterAdd /Users/ffff/.npm/inherits/2.0.1/package/package.json written
+878 http 304 https://registry.npmjs.org/buffers
+879 silly get cb [ 304,
+879 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+879 silly get     server: 'Apache',
+879 silly get     via: '1.1 varnish',
+879 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+879 silly get     'cache-control': 'max-age=60',
+879 silly get     etag: '"B86MHUKB0M67RBF5TSP1O1XUN"',
+879 silly get     age: '21',
+879 silly get     'x-served-by': 'cache-lax1425-LAX',
+879 silly get     'x-cache': 'HIT',
+879 silly get     'x-cache-hits': '1',
+879 silly get     'x-timer': 'S1429201555.657138,VS0,VE0',
+879 silly get     vary: 'Accept',
+879 silly get     'content-length': '0',
+879 silly get     'keep-alive': 'timeout=10, max=50',
+879 silly get     connection: 'Keep-Alive' } ]
+880 verbose etag https://registry.npmjs.org/buffers from cache
+881 verbose get saving buffers to /Users/ffff/.npm/registry.npmjs.org/buffers/.cache.json
+882 silly addNameRange number 2 { name: 'buffers', range: '>=0.1.1 <0.2.0', hasData: true }
+883 silly addNameRange versions [ 'buffers',
+883 silly addNameRange   [ '0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.1.0', '0.1.1' ] ]
+884 verbose addNamed buffers@0.1.1
+885 silly addNamed semver.valid 0.1.1
+886 silly addNamed semver.validRange 0.1.1
+887 silly cache afterAdd buffers@0.1.1
+888 verbose afterAdd /Users/ffff/.npm/buffers/0.1.1/package/package.json not in flight; writing
+889 verbose afterAdd /Users/ffff/.npm/buffers/0.1.1/package/package.json written
+890 http 304 https://registry.npmjs.org/chainsaw
+891 silly get cb [ 304,
+891 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+891 silly get     server: 'Apache',
+891 silly get     via: '1.1 varnish',
+891 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+891 silly get     'cache-control': 'max-age=60',
+891 silly get     etag: '"BXHGEMF27G4M2QR1Q6V23AOME"',
+891 silly get     age: '22',
+891 silly get     'x-served-by': 'cache-lax1421-LAX',
+891 silly get     'x-cache': 'HIT',
+891 silly get     'x-cache-hits': '1',
+891 silly get     'x-timer': 'S1429201555.868067,VS0,VE0',
+891 silly get     vary: 'Accept',
+891 silly get     'content-length': '0',
+891 silly get     'keep-alive': 'timeout=10, max=50',
+891 silly get     connection: 'Keep-Alive' } ]
+892 verbose etag https://registry.npmjs.org/chainsaw from cache
+893 verbose get saving chainsaw to /Users/ffff/.npm/registry.npmjs.org/chainsaw/.cache.json
+894 silly addNameRange number 2 { name: 'chainsaw', range: '>=0.1.0 <0.2.0', hasData: true }
+895 silly addNameRange versions [ 'chainsaw',
+895 silly addNameRange   [ '0.0.1',
+895 silly addNameRange     '0.0.3',
+895 silly addNameRange     '0.0.4',
+895 silly addNameRange     '0.0.5',
+895 silly addNameRange     '0.0.6',
+895 silly addNameRange     '0.0.7',
+895 silly addNameRange     '0.0.8',
+895 silly addNameRange     '0.0.9',
+895 silly addNameRange     '0.1.0' ] ]
+896 verbose addNamed chainsaw@0.1.0
+897 silly addNamed semver.valid 0.1.0
+898 silly addNamed semver.validRange 0.1.0
+899 silly cache afterAdd chainsaw@0.1.0
+900 verbose afterAdd /Users/ffff/.npm/chainsaw/0.1.0/package/package.json not in flight; writing
+901 verbose afterAdd /Users/ffff/.npm/chainsaw/0.1.0/package/package.json written
+902 silly install resolved [ { name: 'buffers',
+902 silly install resolved     description: 'Treat a collection of Buffers as a single contiguous partially mutable Buffer.',
+902 silly install resolved     version: '0.1.1',
+902 silly install resolved     repository:
+902 silly install resolved      { type: 'git',
+902 silly install resolved        url: 'git://github.com/substack/node-buffers.git' },
+902 silly install resolved     author:
+902 silly install resolved      { name: 'James Halliday',
+902 silly install resolved        email: 'mail@substack.net',
+902 silly install resolved        url: 'http://substack.net' },
+902 silly install resolved     main: './index',
+902 silly install resolved     scripts: { test: 'expresso' },
+902 silly install resolved     engines: { node: '>=0.2.0' },
+902 silly install resolved     _npmJsonOpts:
+902 silly install resolved      { file: '/home/substack/.npm/buffers/0.1.1/package/package.json',
+902 silly install resolved        wscript: false,
+902 silly install resolved        contributors: false,
+902 silly install resolved        serverjs: false },
+902 silly install resolved     _id: 'buffers@0.1.1',
+902 silly install resolved     dependencies: {},
+902 silly install resolved     devDependencies: {},
+902 silly install resolved     _engineSupported: true,
+902 silly install resolved     _npmVersion: '1.0.30',
+902 silly install resolved     _nodeVersion: 'v0.4.12',
+902 silly install resolved     _defaultsLoaded: true,
+902 silly install resolved     dist:
+902 silly install resolved      { shasum: 'b24579c3bed4d6d396aeee6d9a8ae7f5482ab7bb',
+902 silly install resolved        tarball: 'http://registry.npmjs.org/buffers/-/buffers-0.1.1.tgz' },
+902 silly install resolved     maintainers: [ [Object] ],
+902 silly install resolved     directories: {},
+902 silly install resolved     _shasum: 'b24579c3bed4d6d396aeee6d9a8ae7f5482ab7bb',
+902 silly install resolved     _resolved: 'https://registry.npmjs.org/buffers/-/buffers-0.1.1.tgz',
+902 silly install resolved     _from: 'buffers@>=0.1.1 <0.2.0',
+902 silly install resolved     bugs: { url: 'https://github.com/substack/node-buffers/issues' },
+902 silly install resolved     readme: 'ERROR: No README data found!',
+902 silly install resolved     homepage: 'https://github.com/substack/node-buffers' },
+902 silly install resolved   { name: 'chainsaw',
+902 silly install resolved     version: '0.1.0',
+902 silly install resolved     description: 'Build chainable fluent interfaces the easy way... with a freakin\' chainsaw!',
+902 silly install resolved     main: './index.js',
+902 silly install resolved     repository:
+902 silly install resolved      { type: 'git',
+902 silly install resolved        url: 'git://github.com/substack/node-chainsaw.git' },
+902 silly install resolved     dependencies: { traverse: '>=0.3.0 <0.4' },
+902 silly install resolved     keywords: [ 'chain', 'fluent', 'interface', 'monad', 'monadic' ],
+902 silly install resolved     author:
+902 silly install resolved      { name: 'James Halliday',
+902 silly install resolved        email: 'mail@substack.net',
+902 silly install resolved        url: 'http://substack.net' },
+902 silly install resolved     license: 'MIT/X11',
+902 silly install resolved     engine: { node: '>=0.4.0' },
+902 silly install resolved     _id: 'chainsaw@0.1.0',
+902 silly install resolved     devDependencies: {},
+902 silly install resolved     engines: { node: '*' },
+902 silly install resolved     _engineSupported: true,
+902 silly install resolved     _npmVersion: '1.0.10',
+902 silly install resolved     _nodeVersion: 'v0.5.0-pre',
+902 silly install resolved     _defaultsLoaded: true,
+902 silly install resolved     dist:
+902 silly install resolved      { shasum: '5eab50b28afe58074d0d58291388828b5e5fbc98',
+902 silly install resolved        tarball: 'http://registry.npmjs.org/chainsaw/-/chainsaw-0.1.0.tgz' },
+902 silly install resolved     scripts: {},
+902 silly install resolved     directories: {},
+902 silly install resolved     _shasum: '5eab50b28afe58074d0d58291388828b5e5fbc98',
+902 silly install resolved     _resolved: 'https://registry.npmjs.org/chainsaw/-/chainsaw-0.1.0.tgz',
+902 silly install resolved     _from: 'chainsaw@>=0.1.0 <0.2.0',
+902 silly install resolved     bugs: { url: 'https://github.com/substack/node-chainsaw/issues' },
+902 silly install resolved     readme: 'ERROR: No README data found!',
+902 silly install resolved     homepage: 'https://github.com/substack/node-chainsaw' } ]
+903 info install buffers@0.1.1 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+904 info install chainsaw@0.1.0 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+905 info installOne buffers@0.1.1
+906 verbose installOne of buffers to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary not in flight; installing
+907 info installOne chainsaw@0.1.0
+908 verbose installOne of chainsaw to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary not in flight; installing
+909 verbose lock using /Users/ffff/.npm/_locks/buffers-ad01ef02a857d05f.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+910 verbose lock using /Users/ffff/.npm/_locks/chainsaw-c847ff9049b49af9.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+911 silly install write writing buffers 0.1.1 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+912 silly cache addNamed cb buffers@0.1.1
+913 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+914 silly install write writing chainsaw 0.1.0 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+915 silly cache addNamed cb chainsaw@0.1.0
+916 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+917 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+918 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+919 verbose tar unpack /Users/ffff/.npm/buffers/0.1.1/package.tgz
+920 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+921 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+922 verbose tar unpack /Users/ffff/.npm/chainsaw/0.1.0/package.tgz
+923 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+924 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+925 silly gunzTarPerm modes [ '755', '644' ]
+926 silly gunzTarPerm modes [ '755', '644' ]
+927 silly gunzTarPerm extractEntry index.js
+928 silly gunzTarPerm extractEntry index.js
+929 silly gunzTarPerm extractEntry package.json
+930 silly gunzTarPerm extractEntry README.markdown
+931 silly gunzTarPerm extractEntry .npmignore
+932 silly gunzTarPerm extractEntry package.json
+933 silly gunzTarPerm extractEntry README.markdown
+934 silly gunzTarPerm extractEntry examples/add_do.js
+935 http 304 https://registry.npmjs.org/isarray
+936 silly get cb [ 304,
+936 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+936 silly get     server: 'Apache',
+936 silly get     via: '1.1 varnish',
+936 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:20 GMT',
+936 silly get     'cache-control': 'max-age=60',
+936 silly get     etag: '"79XQA3ZXVF5QN0X2VYCD81HMN"',
+936 silly get     age: '57',
+936 silly get     'x-served-by': 'cache-lax1423-LAX',
+936 silly get     'x-cache': 'HIT',
+936 silly get     'x-cache-hits': '4',
+936 silly get     'x-timer': 'S1429201555.886198,VS0,VE0',
+936 silly get     vary: 'Accept',
+936 silly get     'content-length': '0',
+936 silly get     'keep-alive': 'timeout=10, max=50',
+936 silly get     connection: 'Keep-Alive' } ]
+937 verbose etag https://registry.npmjs.org/isarray from cache
+938 verbose get saving isarray to /Users/ffff/.npm/registry.npmjs.org/isarray/.cache.json
+939 silly gunzTarPerm extractEntry examples/slice.js
+940 silly gunzTarPerm extractEntry examples/splice.js
+941 silly gunzTarPerm extractEntry examples/prompt.js
+942 silly gunzTarPerm extractEntry test/chainsaw.js
+943 silly gunzTarPerm extractEntry test/buffers.js
+944 silly cache afterAdd isarray@0.0.1
+945 verbose afterAdd /Users/ffff/.npm/isarray/0.0.1/package/package.json not in flight; writing
+946 verbose afterAdd /Users/ffff/.npm/isarray/0.0.1/package/package.json written
+947 http 304 https://registry.npmjs.org/core-util-is
+948 silly get cb [ 304,
+948 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+948 silly get     server: 'Apache',
+948 silly get     via: '1.1 varnish',
+948 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+948 silly get     'cache-control': 'max-age=60',
+948 silly get     etag: '"8N932ER6J79FE9PNV7H41QYLJ"',
+948 silly get     age: '7',
+948 silly get     'x-served-by': 'cache-lax1430-LAX',
+948 silly get     'x-cache': 'HIT',
+948 silly get     'x-cache-hits': '1',
+948 silly get     'x-timer': 'S1429201555.894544,VS0,VE0',
+948 silly get     vary: 'Accept',
+948 silly get     'content-length': '0',
+948 silly get     'keep-alive': 'timeout=10, max=50',
+948 silly get     connection: 'Keep-Alive' } ]
+949 verbose etag https://registry.npmjs.org/core-util-is from cache
+950 verbose get saving core-util-is to /Users/ffff/.npm/registry.npmjs.org/core-util-is/.cache.json
+951 silly addNameRange number 2 { name: 'core-util-is', range: '>=1.0.0 <1.1.0', hasData: true }
+952 silly addNameRange versions [ 'core-util-is', [ '1.0.0', '1.0.1' ] ]
+953 verbose addNamed core-util-is@1.0.1
+954 silly addNamed semver.valid 1.0.1
+955 silly addNamed semver.validRange 1.0.1
+956 silly cache afterAdd core-util-is@1.0.1
+957 verbose afterAdd /Users/ffff/.npm/core-util-is/1.0.1/package/package.json not in flight; writing
+958 verbose afterAdd /Users/ffff/.npm/core-util-is/1.0.1/package/package.json written
+959 silly install resolved [ { name: 'string_decoder',
+959 silly install resolved     version: '0.10.31',
+959 silly install resolved     description: 'The string_decoder module from Node core',
+959 silly install resolved     main: 'index.js',
+959 silly install resolved     dependencies: {},
+959 silly install resolved     devDependencies: { tap: '~0.4.8' },
+959 silly install resolved     scripts: { test: 'tap test/simple/*.js' },
+959 silly install resolved     repository:
+959 silly install resolved      { type: 'git',
+959 silly install resolved        url: 'git://github.com/rvagg/string_decoder.git' },
+959 silly install resolved     homepage: 'https://github.com/rvagg/string_decoder',
+959 silly install resolved     keywords: [ 'string', 'decoder', 'browser', 'browserify' ],
+959 silly install resolved     license: 'MIT',
+959 silly install resolved     gitHead: 'd46d4fd87cf1d06e031c23f1ba170ca7d4ade9a0',
+959 silly install resolved     bugs: { url: 'https://github.com/rvagg/string_decoder/issues' },
+959 silly install resolved     _id: 'string_decoder@0.10.31',
+959 silly install resolved     _shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+959 silly install resolved     _from: 'string_decoder@>=0.10.0 <0.11.0',
+959 silly install resolved     _npmVersion: '1.4.23',
+959 silly install resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+959 silly install resolved     maintainers: [ [Object], [Object] ],
+959 silly install resolved     dist:
+959 silly install resolved      { shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+959 silly install resolved        tarball: 'http://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz' },
+959 silly install resolved     directories: {},
+959 silly install resolved     _resolved: 'https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz',
+959 silly install resolved     readme: 'ERROR: No README data found!' },
+959 silly install resolved   { name: 'inherits',
+959 silly install resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+959 silly install resolved     version: '2.0.1',
+959 silly install resolved     keywords:
+959 silly install resolved      [ 'inheritance',
+959 silly install resolved        'class',
+959 silly install resolved        'klass',
+959 silly install resolved        'oop',
+959 silly install resolved        'object-oriented',
+959 silly install resolved        'inherits',
+959 silly install resolved        'browser',
+959 silly install resolved        'browserify' ],
+959 silly install resolved     main: './inherits.js',
+959 silly install resolved     browser: './inherits_browser.js',
+959 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits' },
+959 silly install resolved     license: 'ISC',
+959 silly install resolved     scripts: { test: 'node test' },
+959 silly install resolved     readme: 'Browser-friendly inheritance fully compatible with standard node.js\n[inherits](http://nodejs.org/api/util.html#util_util_inherits_constructor_superconstructor).\n\nThis package exports standard `inherits` from node.js `util` module in\nnode environment, but also provides alternative browser-friendly\nimplementation through [browser\nfield](https://gist.github.com/shtylman/4339901). Alternative\nimplementation is a literal copy of standard one located in standalone\nmodule to avoid requiring of `util`. It also has a shim for old\nbrowsers with no `Object.create` support.\n\nWhile keeping you sure you are using standard `inherits`\nimplementation in node.js environment, it allows bundlers such as\n[browserify](https://github.com/substack/node-browserify) to not\ninclude full `util` package to your client code if all you need is\njust `inherits` function. It worth, because browser shim for `util`\npackage is large and `inherits` is often the single function you need\nfrom it.\n\nIt\'s recommended to use this package instead of\n`require(\'util\').inherits` for any code that has chances to be used\nnot only in node.js but in browser too.\n\n## usage\n\n```js\nvar inherits = require(\'inherits\');\n// then use exactly as the standard one\n```\n\n## note on version ~1.0\n\nVersion ~1.0 had completely different motivation and is not compatible\nneither with 2.0 nor with standard node.js `inherits`.\n\nIf you are using version ~1.0 and planning to switch to ~2.0, be\ncareful:\n\n* new version uses `super_` instead of `super` for referencing\n  superclass\n* new version overwrites current prototype while old one preserves any\n  existing fields on it\n',
+959 silly install resolved     readmeFilename: 'README.md',
+959 silly install resolved     bugs: { url: 'https://github.com/isaacs/inherits/issues' },
+959 silly install resolved     _id: 'inherits@2.0.1',
+959 silly install resolved     dist:
+959 silly install resolved      { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+959 silly install resolved        tarball: 'http://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' },
+959 silly install resolved     _from: 'inherits@>=2.0.1 <2.1.0',
+959 silly install resolved     _npmVersion: '1.3.8',
+959 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+959 silly install resolved     maintainers: [ [Object] ],
+959 silly install resolved     directories: {},
+959 silly install resolved     _shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+959 silly install resolved     _resolved: 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz',
+959 silly install resolved     homepage: 'https://github.com/isaacs/inherits' },
+959 silly install resolved   { name: 'isarray',
+959 silly install resolved     description: 'Array#isArray for older browsers',
+959 silly install resolved     version: '0.0.1',
+959 silly install resolved     repository:
+959 silly install resolved      { type: 'git',
+959 silly install resolved        url: 'git://github.com/juliangruber/isarray.git' },
+959 silly install resolved     homepage: 'https://github.com/juliangruber/isarray',
+959 silly install resolved     main: 'index.js',
+959 silly install resolved     scripts: { test: 'tap test/*.js' },
+959 silly install resolved     dependencies: {},
+959 silly install resolved     devDependencies: { tap: '*' },
+959 silly install resolved     keywords: [ 'browser', 'isarray', 'array' ],
+959 silly install resolved     author:
+959 silly install resolved      { name: 'Julian Gruber',
+959 silly install resolved        email: 'mail@juliangruber.com',
+959 silly install resolved        url: 'http://juliangruber.com' },
+959 silly install resolved     license: 'MIT',
+959 silly install resolved     _id: 'isarray@0.0.1',
+959 silly install resolved     dist:
+959 silly install resolved      { shasum: '8a18acfca9a8f4177e09abfc6038939b05d1eedf',
+959 silly install resolved        tarball: 'http://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz' },
+959 silly install resolved     _from: 'isarray@0.0.1',
+959 silly install resolved     _npmVersion: '1.2.18',
+959 silly install resolved     _npmUser: { name: 'juliangruber', email: 'julian@juliangruber.com' },
+959 silly install resolved     maintainers: [ [Object] ],
+959 silly install resolved     directories: {},
+959 silly install resolved     _shasum: '8a18acfca9a8f4177e09abfc6038939b05d1eedf',
+959 silly install resolved     _resolved: 'https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz',
+959 silly install resolved     bugs: { url: 'https://github.com/juliangruber/isarray/issues' },
+959 silly install resolved     readme: 'ERROR: No README data found!' },
+959 silly install resolved   { name: 'core-util-is',
+959 silly install resolved     version: '1.0.1',
+959 silly install resolved     description: 'The `util.is*` functions introduced in Node v0.12.',
+959 silly install resolved     main: 'lib/util.js',
+959 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/core-util-is' },
+959 silly install resolved     keywords:
+959 silly install resolved      [ 'util',
+959 silly install resolved        'isBuffer',
+959 silly install resolved        'isArray',
+959 silly install resolved        'isNumber',
+959 silly install resolved        'isString',
+959 silly install resolved        'isRegExp',
+959 silly install resolved        'isThis',
+959 silly install resolved        'isThat',
+959 silly install resolved        'polyfill' ],
+959 silly install resolved     author:
+959 silly install resolved      { name: 'Isaac Z. Schlueter',
+959 silly install resolved        email: 'i@izs.me',
+959 silly install resolved        url: 'http://blog.izs.me/' },
+959 silly install resolved     license: 'MIT',
+959 silly install resolved     bugs: { url: 'https://github.com/isaacs/core-util-is/issues' },
+959 silly install resolved     readme: '# core-util-is\n\nThe `util.is*` functions introduced in Node v0.12.\n',
+959 silly install resolved     readmeFilename: 'README.md',
+959 silly install resolved     homepage: 'https://github.com/isaacs/core-util-is',
+959 silly install resolved     _id: 'core-util-is@1.0.1',
+959 silly install resolved     dist:
+959 silly install resolved      { shasum: '6b07085aef9a3ccac6ee53bf9d3df0c1521a5538',
+959 silly install resolved        tarball: 'http://registry.npmjs.org/core-util-is/-/core-util-is-1.0.1.tgz' },
+959 silly install resolved     _from: 'core-util-is@>=1.0.0 <1.1.0',
+959 silly install resolved     _npmVersion: '1.3.23',
+959 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+959 silly install resolved     maintainers: [ [Object] ],
+959 silly install resolved     directories: {},
+959 silly install resolved     _shasum: '6b07085aef9a3ccac6ee53bf9d3df0c1521a5538',
+959 silly install resolved     _resolved: 'https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.1.tgz',
+959 silly install resolved     scripts: {} } ]
+960 info install string_decoder@0.10.31 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+961 info install inherits@2.0.1 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+962 info install isarray@0.0.1 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+963 info install core-util-is@1.0.1 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+964 info installOne string_decoder@0.10.31
+965 verbose installOne of string_decoder to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream not in flight; installing
+966 info installOne inherits@2.0.1
+967 verbose installOne of inherits to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream not in flight; installing
+968 info installOne isarray@0.0.1
+969 verbose installOne of isarray to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream not in flight; installing
+970 info installOne core-util-is@1.0.1
+971 verbose installOne of core-util-is to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream not in flight; installing
+972 verbose lock using /Users/ffff/.npm/_locks/string-decoder-384f5a84922db6cd.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+973 verbose lock using /Users/ffff/.npm/_locks/inherits-d474f894c1ba9baa.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+974 verbose lock using /Users/ffff/.npm/_locks/isarray-36cbed8c19c6908d.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+975 silly install write writing string_decoder 0.10.31 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+976 silly cache addNamed cb string_decoder@0.10.31
+977 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+978 verbose lock using /Users/ffff/.npm/_locks/core-util-is-4c928c4655a4ae6a.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+979 silly install write writing inherits 2.0.1 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+980 silly cache addNamed cb inherits@2.0.1
+981 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+982 silly install write writing isarray 0.0.1 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+983 silly cache addNamed cb isarray@0.0.1
+984 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+985 silly install write writing core-util-is 1.0.1 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+986 silly cache addNamed cb core-util-is@1.0.1
+987 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+988 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+989 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+990 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+991 verbose tar unpack /Users/ffff/.npm/string_decoder/0.10.31/package.tgz
+992 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+993 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+994 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+995 verbose tar unpack /Users/ffff/.npm/inherits/2.0.1/package.tgz
+996 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+997 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+998 verbose tar unpack /Users/ffff/.npm/isarray/0.0.1/package.tgz
+999 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+1000 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+1001 silly gunzTarPerm modes [ '755', '644' ]
+1002 verbose tar unpack /Users/ffff/.npm/core-util-is/1.0.1/package.tgz
+1003 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+1004 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+1005 silly gunzTarPerm modes [ '755', '644' ]
+1006 silly gunzTarPerm modes [ '755', '644' ]
+1007 silly gunzTarPerm modes [ '755', '644' ]
+1008 silly gunzTarPerm extractEntry package.json
+1009 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+1010 info preinstall buffers@0.1.1
+1011 silly gunzTarPerm extractEntry package.json
+1012 silly gunzTarPerm extractEntry package.json
+1013 silly gunzTarPerm extractEntry package.json
+1014 silly gunzTarPerm extractEntry .npmignore
+1015 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+1016 silly gunzTarPerm extractEntry README.md
+1017 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+1018 silly install resolved []
+1019 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+1020 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+1021 verbose linkStuff [ true,
+1021 verbose linkStuff   '/usr/local/lib/node_modules',
+1021 verbose linkStuff   false,
+1021 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules' ]
+1022 info linkStuff buffers@0.1.1
+1023 verbose linkBins buffers@0.1.1
+1024 verbose linkMans buffers@0.1.1
+1025 verbose rebuildBundles buffers@0.1.1
+1026 silly gunzTarPerm extractEntry README.md
+1027 silly gunzTarPerm extractEntry LICENSE
+1028 silly gunzTarPerm extractEntry README.md
+1029 silly gunzTarPerm extractEntry index.js
+1030 info install buffers@0.1.1
+1031 silly gunzTarPerm extractEntry README.md
+1032 silly gunzTarPerm extractEntry util.js
+1033 info postinstall buffers@0.1.1
+1034 info preinstall chainsaw@0.1.0
+1035 verbose unlock done using /Users/ffff/.npm/_locks/buffers-ad01ef02a857d05f.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/buffers
+1036 silly prepareForInstallMany adding traverse@>=0.3.0 <0.4 from chainsaw dependencies
+1037 silly gunzTarPerm extractEntry LICENSE
+1038 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+1039 silly gunzTarPerm extractEntry index.js
+1040 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+1041 silly gunzTarPerm extractEntry inherits.js
+1042 silly gunzTarPerm extractEntry inherits_browser.js
+1043 silly gunzTarPerm extractEntry build/build.js
+1044 silly gunzTarPerm extractEntry component.json
+1045 silly cache add args [ 'traverse@>=0.3.0 <0.4', null ]
+1046 verbose cache add spec traverse@>=0.3.0 <0.4
+1047 silly cache add parsed spec { raw: 'traverse@>=0.3.0 <0.4',
+1047 silly cache add   scope: null,
+1047 silly cache add   name: 'traverse',
+1047 silly cache add   rawSpec: '>=0.3.0 <0.4',
+1047 silly cache add   spec: '>=0.3.0 <0.4.0',
+1047 silly cache add   type: 'range' }
+1048 verbose addNamed traverse@>=0.3.0 <0.4.0
+1049 silly addNamed semver.valid null
+1050 silly addNamed semver.validRange >=0.3.0 <0.4.0
+1051 silly addNameRange { name: 'traverse', range: '>=0.3.0 <0.4.0', hasData: false }
+1052 silly mapToRegistry name traverse
+1053 silly mapToRegistry using default registry
+1054 silly mapToRegistry registry https://registry.npmjs.org/
+1055 silly mapToRegistry uri https://registry.npmjs.org/traverse
+1056 verbose addNameRange registry:https://registry.npmjs.org/traverse not in flight; fetching
+1057 silly gunzTarPerm extractEntry float.patch
+1058 silly gunzTarPerm extractEntry lib/util.js
+1059 verbose request uri https://registry.npmjs.org/traverse
+1060 verbose request no auth needed
+1061 info attempt registry request try #1 at 9:25:54 AM
+1062 verbose etag "BZMA5V3BD0T735C058RWYVS6Q"
+1063 http request GET https://registry.npmjs.org/traverse
+1064 silly gunzTarPerm extractEntry test.js
+1065 info preinstall isarray@0.0.1
+1066 info preinstall inherits@2.0.1
+1067 info preinstall string_decoder@0.10.31
+1068 silly install resolved []
+1069 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+1070 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+1071 verbose linkStuff [ true,
+1071 verbose linkStuff   '/usr/local/lib/node_modules',
+1071 verbose linkStuff   false,
+1071 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules' ]
+1072 info linkStuff isarray@0.0.1
+1073 verbose linkBins isarray@0.0.1
+1074 verbose linkMans isarray@0.0.1
+1075 verbose rebuildBundles isarray@0.0.1
+1076 info install isarray@0.0.1
+1077 silly install resolved []
+1078 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+1079 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+1080 verbose linkStuff [ true,
+1080 verbose linkStuff   '/usr/local/lib/node_modules',
+1080 verbose linkStuff   false,
+1080 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules' ]
+1081 info linkStuff inherits@2.0.1
+1082 verbose linkBins inherits@2.0.1
+1083 verbose linkMans inherits@2.0.1
+1084 verbose rebuildBundles inherits@2.0.1
+1085 info postinstall isarray@0.0.1
+1086 info install inherits@2.0.1
+1087 silly install resolved []
+1088 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+1089 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+1090 verbose linkStuff [ true,
+1090 verbose linkStuff   '/usr/local/lib/node_modules',
+1090 verbose linkStuff   false,
+1090 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules' ]
+1091 info linkStuff string_decoder@0.10.31
+1092 verbose linkBins string_decoder@0.10.31
+1093 verbose linkMans string_decoder@0.10.31
+1094 verbose rebuildBundles string_decoder@0.10.31
+1095 info install string_decoder@0.10.31
+1096 info postinstall inherits@2.0.1
+1097 verbose unlock done using /Users/ffff/.npm/_locks/isarray-36cbed8c19c6908d.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/isarray
+1098 info postinstall string_decoder@0.10.31
+1099 verbose unlock done using /Users/ffff/.npm/_locks/inherits-d474f894c1ba9baa.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/inherits
+1100 verbose unlock done using /Users/ffff/.npm/_locks/string-decoder-384f5a84922db6cd.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/string_decoder
+1101 info preinstall core-util-is@1.0.1
+1102 silly install resolved []
+1103 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+1104 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+1105 verbose linkStuff [ true,
+1105 verbose linkStuff   '/usr/local/lib/node_modules',
+1105 verbose linkStuff   false,
+1105 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules' ]
+1106 info linkStuff core-util-is@1.0.1
+1107 verbose linkBins core-util-is@1.0.1
+1108 verbose linkMans core-util-is@1.0.1
+1109 verbose rebuildBundles core-util-is@1.0.1
+1110 info install core-util-is@1.0.1
+1111 info postinstall core-util-is@1.0.1
+1112 verbose unlock done using /Users/ffff/.npm/_locks/core-util-is-4c928c4655a4ae6a.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream/node_modules/core-util-is
+1113 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+1114 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+1115 verbose linkStuff [ true,
+1115 verbose linkStuff   '/usr/local/lib/node_modules',
+1115 verbose linkStuff   false,
+1115 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+1116 info linkStuff readable-stream@1.1.13
+1117 verbose linkBins readable-stream@1.1.13
+1118 verbose linkMans readable-stream@1.1.13
+1119 verbose rebuildBundles readable-stream@1.1.13
+1120 verbose rebuildBundles [ 'core-util-is', 'inherits', 'isarray', 'string_decoder' ]
+1121 info install readable-stream@1.1.13
+1122 info postinstall readable-stream@1.1.13
+1123 verbose unlock done using /Users/ffff/.npm/_locks/readable-stream-dbb80cde80633e09.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/readable-stream
+1124 http 304 https://registry.npmjs.org/traverse
+1125 silly get cb [ 304,
+1125 silly get   { date: 'Thu, 16 Apr 2015 16:25:55 GMT',
+1125 silly get     server: 'Apache',
+1125 silly get     via: '1.1 varnish',
+1125 silly get     'last-modified': 'Thu, 16 Apr 2015 16:25:55 GMT',
+1125 silly get     'cache-control': 'max-age=60',
+1125 silly get     etag: '"BZMA5V3BD0T735C058RWYVS6Q"',
+1125 silly get     age: '3',
+1125 silly get     'x-served-by': 'cache-lax1424-LAX',
+1125 silly get     'x-cache': 'HIT',
+1125 silly get     'x-cache-hits': '1',
+1125 silly get     'x-timer': 'S1429201555.990842,VS0,VE0',
+1125 silly get     vary: 'Accept',
+1125 silly get     'content-length': '0',
+1125 silly get     'keep-alive': 'timeout=10, max=50',
+1125 silly get     connection: 'Keep-Alive' } ]
+1126 verbose etag https://registry.npmjs.org/traverse from cache
+1127 verbose get saving traverse to /Users/ffff/.npm/registry.npmjs.org/traverse/.cache.json
+1128 silly addNameRange number 2 { name: 'traverse', range: '>=0.3.0 <0.4.0', hasData: true }
+1129 silly addNameRange versions [ 'traverse',
+1129 silly addNameRange   [ '0.1.2',
+1129 silly addNameRange     '0.1.3',
+1129 silly addNameRange     '0.2.0',
+1129 silly addNameRange     '0.2.1',
+1129 silly addNameRange     '0.2.2',
+1129 silly addNameRange     '0.2.3',
+1129 silly addNameRange     '0.2.4',
+1129 silly addNameRange     '0.3.0',
+1129 silly addNameRange     '0.3.1',
+1129 silly addNameRange     '0.2.5',
+1129 silly addNameRange     '0.2.6',
+1129 silly addNameRange     '0.3.2',
+1129 silly addNameRange     '0.3.3',
+1129 silly addNameRange     '0.3.4',
+1129 silly addNameRange     '0.3.5',
+1129 silly addNameRange     '0.3.6',
+1129 silly addNameRange     '0.3.7',
+1129 silly addNameRange     '0.3.8',
+1129 silly addNameRange     '0.4.0',
+1129 silly addNameRange     '0.4.1',
+1129 silly addNameRange     '0.4.2',
+1129 silly addNameRange     '0.3.9',
+1129 silly addNameRange     '0.4.3',
+1129 silly addNameRange     '0.4.4',
+1129 silly addNameRange     '0.4.5',
+1129 silly addNameRange     '0.4.6',
+1129 silly addNameRange     '0.5.0',
+1129 silly addNameRange     '0.5.1',
+1129 silly addNameRange     '0.5.2',
+1129 silly addNameRange     '0.6.0',
+1129 silly addNameRange     '0.6.1',
+1129 silly addNameRange     '0.6.2',
+1129 silly addNameRange     '0.6.3',
+1129 silly addNameRange     '0.6.5',
+1129 silly addNameRange     '0.6.6' ] ]
+1130 verbose addNamed traverse@0.3.9
+1131 silly addNamed semver.valid 0.3.9
+1132 silly addNamed semver.validRange 0.3.9
+1133 silly cache afterAdd traverse@0.3.9
+1134 verbose afterAdd /Users/ffff/.npm/traverse/0.3.9/package/package.json not in flight; writing
+1135 verbose afterAdd /Users/ffff/.npm/traverse/0.3.9/package/package.json written
+1136 silly install resolved [ { name: 'traverse',
+1136 silly install resolved     version: '0.3.9',
+1136 silly install resolved     description: 'Traverse and transform objects by visiting every node on a recursive walk',
+1136 silly install resolved     author: { name: 'James Halliday' },
+1136 silly install resolved     license: 'MIT/X11',
+1136 silly install resolved     main: './index',
+1136 silly install resolved     repository:
+1136 silly install resolved      { type: 'git',
+1136 silly install resolved        url: 'git://github.com/substack/js-traverse.git' },
+1136 silly install resolved     devDependencies: { expresso: '0.7.x' },
+1136 silly install resolved     scripts: { test: 'expresso' },
+1136 silly install resolved     _id: 'traverse@0.3.9',
+1136 silly install resolved     dependencies: {},
+1136 silly install resolved     engines: { node: '*' },
+1136 silly install resolved     _engineSupported: true,
+1136 silly install resolved     _npmVersion: '1.0.10',
+1136 silly install resolved     _nodeVersion: 'v0.5.0-pre',
+1136 silly install resolved     _defaultsLoaded: true,
+1136 silly install resolved     dist:
+1136 silly install resolved      { shasum: '717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9',
+1136 silly install resolved        tarball: 'http://registry.npmjs.org/traverse/-/traverse-0.3.9.tgz' },
+1136 silly install resolved     directories: {},
+1136 silly install resolved     _shasum: '717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9',
+1136 silly install resolved     _resolved: 'https://registry.npmjs.org/traverse/-/traverse-0.3.9.tgz',
+1136 silly install resolved     _from: 'traverse@>=0.3.0 <0.4.0',
+1136 silly install resolved     bugs: { url: 'https://github.com/substack/js-traverse/issues' },
+1136 silly install resolved     readme: 'ERROR: No README data found!',
+1136 silly install resolved     homepage: 'https://github.com/substack/js-traverse' } ]
+1137 info install traverse@0.3.9 into /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+1138 info installOne traverse@0.3.9
+1139 verbose installOne of traverse to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw not in flight; installing
+1140 verbose lock using /Users/ffff/.npm/_locks/traverse-2e4b48a5cb958b90.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1141 silly install write writing traverse 0.3.9 to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1142 silly cache addNamed cb traverse@0.3.9
+1143 verbose unbuild lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1144 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1145 verbose tar unpack /Users/ffff/.npm/traverse/0.3.9/package.tgz
+1146 verbose tar unpacking to /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1147 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1148 silly gunzTarPerm modes [ '755', '644' ]
+1149 silly gunzTarPerm extractEntry index.js
+1150 silly gunzTarPerm extractEntry .npmignore
+1151 silly gunzTarPerm extractEntry package.json
+1152 silly gunzTarPerm extractEntry README.markdown
+1153 silly gunzTarPerm extractEntry LICENSE
+1154 silly gunzTarPerm extractEntry examples/negative.js
+1155 silly gunzTarPerm extractEntry examples/leaves.js
+1156 silly gunzTarPerm extractEntry examples/json.js
+1157 silly gunzTarPerm extractEntry examples/stringify.js
+1158 silly gunzTarPerm extractEntry test/negative.js
+1159 silly gunzTarPerm extractEntry test/interface.js
+1160 silly gunzTarPerm extractEntry test/obj.js
+1161 silly gunzTarPerm extractEntry test/instance.js
+1162 silly gunzTarPerm extractEntry test/stop.js
+1163 silly gunzTarPerm extractEntry test/date.js
+1164 silly gunzTarPerm extractEntry test/leaves.js
+1165 silly gunzTarPerm extractEntry test/json.js
+1166 silly gunzTarPerm extractEntry test/mutability.js
+1167 silly gunzTarPerm extractEntry test/stringify.js
+1168 silly gunzTarPerm extractEntry test/super_deep.js
+1169 silly gunzTarPerm extractEntry test/circular.js
+1170 silly gunzTarPerm extractEntry test/equal.js
+1171 info preinstall traverse@0.3.9
+1172 silly install resolved []
+1173 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1174 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1175 verbose linkStuff [ true,
+1175 verbose linkStuff   '/usr/local/lib/node_modules',
+1175 verbose linkStuff   false,
+1175 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules' ]
+1176 info linkStuff traverse@0.3.9
+1177 verbose linkBins traverse@0.3.9
+1178 verbose linkMans traverse@0.3.9
+1179 verbose rebuildBundles traverse@0.3.9
+1180 info install traverse@0.3.9
+1181 info postinstall traverse@0.3.9
+1182 verbose unlock done using /Users/ffff/.npm/_locks/traverse-2e4b48a5cb958b90.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw/node_modules/traverse
+1183 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+1184 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+1185 verbose linkStuff [ true,
+1185 verbose linkStuff   '/usr/local/lib/node_modules',
+1185 verbose linkStuff   false,
+1185 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules' ]
+1186 info linkStuff chainsaw@0.1.0
+1187 verbose linkBins chainsaw@0.1.0
+1188 verbose linkMans chainsaw@0.1.0
+1189 verbose rebuildBundles chainsaw@0.1.0
+1190 verbose rebuildBundles [ 'traverse' ]
+1191 info install chainsaw@0.1.0
+1192 info postinstall chainsaw@0.1.0
+1193 verbose unlock done using /Users/ffff/.npm/_locks/chainsaw-c847ff9049b49af9.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary/node_modules/chainsaw
+1194 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+1195 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+1196 verbose linkStuff [ true,
+1196 verbose linkStuff   '/usr/local/lib/node_modules',
+1196 verbose linkStuff   false,
+1196 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules' ]
+1197 info linkStuff binary@0.3.0
+1198 verbose linkBins binary@0.3.0
+1199 verbose linkMans binary@0.3.0
+1200 verbose rebuildBundles binary@0.3.0
+1201 verbose rebuildBundles [ 'buffers', 'chainsaw' ]
+1202 info install binary@0.3.0
+1203 info postinstall binary@0.3.0
+1204 verbose unlock done using /Users/ffff/.npm/_locks/binary-f04e826490374e56.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip/node_modules/binary
+1205 verbose about to build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+1206 info build /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+1207 verbose linkStuff [ true,
+1207 verbose linkStuff   '/usr/local/lib/node_modules',
+1207 verbose linkStuff   false,
+1207 verbose linkStuff   '/usr/local/lib/node_modules/ngrok/node_modules' ]
+1208 info linkStuff decompress-zip@0.1.0
+1209 verbose linkBins decompress-zip@0.1.0
+1210 verbose link bins [ { 'decompress-zip': 'bin/decompress-zip' },
+1210 verbose link bins   '/usr/local/lib/node_modules/ngrok/node_modules/.bin',
+1210 verbose link bins   false ]
+1211 verbose linkMans decompress-zip@0.1.0
+1212 verbose rebuildBundles decompress-zip@0.1.0
+1213 verbose rebuildBundles [ '.bin',
+1213 verbose rebuildBundles   'binary',
+1213 verbose rebuildBundles   'graceful-fs',
+1213 verbose rebuildBundles   'mkpath',
+1213 verbose rebuildBundles   'nopt',
+1213 verbose rebuildBundles   'q',
+1213 verbose rebuildBundles   'readable-stream',
+1213 verbose rebuildBundles   'touch' ]
+1214 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok/node_modules/.bin/decompress-zip
+1215 info install decompress-zip@0.1.0
+1216 info postinstall decompress-zip@0.1.0
+1217 verbose unlock done using /Users/ffff/.npm/_locks/decompress-zip-60899257d90ef12e.lock for /usr/local/lib/node_modules/ngrok/node_modules/decompress-zip
+1218 verbose about to build /usr/local/lib/node_modules/ngrok
+1219 info build /usr/local/lib/node_modules/ngrok
+1220 verbose linkStuff [ true,
+1220 verbose linkStuff   '/usr/local/lib/node_modules',
+1220 verbose linkStuff   true,
+1220 verbose linkStuff   '/usr/local/lib/node_modules' ]
+1221 info linkStuff ngrok@0.1.99
+1222 verbose linkBins ngrok@0.1.99
+1223 verbose link bins [ { ngrok: './bin/ngrok' }, '/usr/local/bin', true ]
+1224 verbose linkMans ngrok@0.1.99
+1225 verbose rebuildBundles ngrok@0.1.99
+1226 verbose rebuildBundles [ '.bin', 'decompress-zip' ]
+1227 verbose gentlyRm verifying that /usr/local is managed by npm
+1228 silly isManaged /usr/local is not inside /usr/local/lib/node_modules
+1229 silly isManaged /usr/local is not inside /usr/local/lib/node_modules
+1230 silly isManaged /usr/local/bin is inside /usr/local
+1231 silly gentlyRm /usr/local is managed by npm
+1232 silly gentlyRm /usr/local/bin/ngrok is under /usr/local
+1233 verbose gentlyRm vacuuming /usr/local/bin/ngrok up to /usr/local
+1234 info install ngrok@0.1.99
+1235 info postinstall ngrok@0.1.99
+1236 verbose unsafe-perm in lifecycle true
+1237 info ngrok@0.1.99 Failed to exec postinstall script
+1238 verbose unlock done using /Users/ffff/.npm/_locks/ngrok-d1c70c9c77ebe6b2.lock for /usr/local/lib/node_modules/ngrok
+1239 verbose stack Error: ngrok@0.1.99 postinstall: `node ./postinstall.js`
+1239 verbose stack Exit status 1
+1239 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+1239 verbose stack     at EventEmitter.emit (events.js:110:17)
+1239 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+1239 verbose stack     at ChildProcess.emit (events.js:110:17)
+1239 verbose stack     at maybeClose (child_process.js:1008:16)
+1239 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+1240 verbose pkgid ngrok@0.1.99
+1241 verbose cwd /Users/ffff/Projects/heart-games
+1242 error Darwin 14.1.0
+1243 error argv "node" "/usr/local/bin/npm" "install" "-g" "ngrok"
+1244 error node v0.12.0
+1245 error npm  v2.5.0
+1246 error code ELIFECYCLE
+1247 error ngrok@0.1.99 postinstall: `node ./postinstall.js`
+1247 error Exit status 1
+1248 error Failed at the ngrok@0.1.99 postinstall script 'node ./postinstall.js'.
+1248 error This is most likely a problem with the ngrok package,
+1248 error not with npm itself.
+1248 error Tell the author that this fails on your system:
+1248 error     node ./postinstall.js
+1248 error You can get their info via:
+1248 error     npm owner ls ngrok
+1248 error There is likely additional logging output above.
+1249 verbose exit [ 1, true ]
+1250 verbose unbuild lib/node_modules/ngrok
+1251 info preuninstall ngrok@0.1.99
+1252 info uninstall ngrok@0.1.99
+1253 verbose unbuild rmStuff ngrok@0.1.99 from /usr/local/lib/node_modules
+1254 verbose gentlyRm verifying that /usr/local is managed by npm
+1255 silly isManaged /usr/local is not inside /usr/local/lib/node_modules
+1256 silly isManaged /usr/local is not inside /usr/local/lib/node_modules
+1257 silly isManaged /usr/local is not inside /usr/local/bin
+1258 silly isManaged /usr/local is inside /usr/local
+1259 silly gentlyRm /usr/local is managed by npm
+1260 silly gentlyRm /usr/local/bin/ngrok is under /usr/local
+1261 verbose gentlyRm vacuuming /usr/local/bin/ngrok up to /usr/local
+1262 silly gentlyRm removing /usr/local/bin/ngrok
+1263 silly gentlyRm quitting because other entries in /usr/local/bin
+1264 info postuninstall ngrok@0.1.99
+1265 verbose gentlyRm vacuuming /usr/local/lib/node_modules/ngrok
+1266 silly gentlyRm purging /usr/local/lib/node_modules/ngrok
+1267 silly gentlyRm quitting because other entries in /usr/local/lib/node_modules

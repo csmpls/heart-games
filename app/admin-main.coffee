@@ -35,7 +35,6 @@ apiCalls =  {
 }
 
 
-# ---- application
 init = ->
 
 	socket = io(socketURL)
@@ -46,25 +45,8 @@ init = ->
 
 	apiCallMakerView.setup(apiCalls, socket)
 
-	# socket.emit('new userlist', { my: 'data' }))
-
 	console.log 'admin app launched ok'
 
-
-# ---- application
-init = ->
-
-	socket = io(socketURL)
-
-	# server tells us about the state of all games
-	socket.on('games', (games) ->
-		currentGamesView.setup(games))
-
-	apiCallMakerView.setup(apiCalls, socket)
-
-	# socket.emit('new userlist', { my: 'data' }))
-
-	console.log 'admin app launched ok'
 
 # launch the app
 $(document).ready(() ->

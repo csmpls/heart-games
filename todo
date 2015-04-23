@@ -1,3 +1,4 @@
+
 . .
 . . + .
 	.
@@ -7,7 +8,7 @@
 	. . . 
 .
 .  .
-investigate sanity on memory) of how youre changing views
+look at our complexity in mem 
 	. . . 
 . . .
 .  .   
@@ -15,8 +16,7 @@ investigate sanity on memory) of how youre changing views
 .
 	. . . . .
 				. .
-turn "new points on round" to a config var
-the word "points" as well..
+turn "new points on round" to a config var, the word "points" as well..
 .
 	.
 	.
@@ -36,7 +36,6 @@ the word "points" as well..
 
 . .
 	.
-	TODO: 'noise' on tit for tat?
 . .
 .
 	. . .
@@ -47,6 +46,7 @@ the word "points" as well..
 .
 .
 
+.
 
 .
 	(what happens when i join a game that already exists?
@@ -61,9 +61,24 @@ the word "points" as well..
 
 . . .  
 
+SAVE ROUND ON READYFORNEXTTURN ..... AKA ASAP
+
 survey is part of this
 	ONE object with all the questions
-	yields form AND schema for storing it
+	feed it to a client
+	and they feed us an object back, to store,
+	(append to a json file)
+
+
+bot defects some constant amount for all conditions
+
+	'noise' on tit for tat?
+	especially 'pointsEntrusted'
+
+
+
+
+
 
 
 
