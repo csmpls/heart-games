@@ -8,4 +8,4 @@ bin/
 lib/
 run/
 db_config.coffee
-.cached/
+.cache/
