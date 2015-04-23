@@ -63,17 +63,35 @@ turn "new points on round" to a config var, the word "points" as well..
 
 SAVE ROUND ON READYFORNEXTTURN ..... AKA ASAP
 
+bot: after first turn (entrust 1)A entrust last amount + random(-1,1)
+(btwn 0 and CONFIG.POINTS_ON_NEW_ROUND) 
+
+bot: always entrust
+
+conditions 0, 1, 2
+2, where heartrate is always elevated
+
+
+play 30 rounds and send the csv to coye
+
+
+make a spreadsheet for user ids and payments
+
+
+
+
+
 survey is part of this
 	ONE object with all the questions
+		(this first)
 	feed it to a client
-	and they feed us an object back, to store,
-	(append to a json file)
+	and they feed it back to us
+		via websockets
+		one question at a time
+		their user ID, the Q , the ANSWER 
+		and we append to a json file str8, unedited 
 
 
-bot defects some constant amount for all conditions
-
-	'noise' on tit for tat?
-	especially 'pointsEntrusted'
 
 
 
