@@ -1,7 +1,7 @@
 $ = require 'jquery'
 _ = require 'lodash'
 io = require './lib/socket.io.js'
-# Bacon = require 'baconjs'
+Bacon = require 'baconjs'
 bacon$ = require 'bacon.jquery'
 baconmodel = require 'bacon.model'
 
@@ -9,7 +9,7 @@ currentGamesView = require './views/admin/CurrentGamesView.coffee'
 apiCallMakerView = require './views/admin/APICallMakerView.coffee'
 
 # ---- config
-socketURL = 'http://trust.coolworld.me/admin'
+socketURL = 'localhost:29087/admin'
 people = {} # currently connected people - no one's here, for now
 
 
@@ -17,18 +17,6 @@ apiCalls =  {
 
 	1: {
 		route: 'startGame'
-		data: 
-			null
-	},
-
-	2: {
-		route: 'okToAdvance'
-		data: 
-			null
-	},
-
-	3: {
-		route: 'clearGames'
 		data: 
 			null
 	}
@@ -41,7 +29,11 @@ init = ->
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
-		currentGamesView.setup(games))
+		serverMessages = currentGamesView.setup(games)
+
+		serverMessages.onValue((message) ->
+			socket.emit(message.route, message.data)) )
+
 
 	apiCallMakerView.setup(apiCalls, socket)
 

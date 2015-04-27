@@ -49,9 +49,6 @@ turn "new points on round" to a config var, the word "points" as well..
 .
 
 .
-	(what happens when i join a game that already exists?
-		if the player is connected, go awaay
-		if not, give that games state...somehow...)
 
 ....
 
@@ -67,36 +64,51 @@ turn "new points on round" to a config var, the word "points" as well..
 .
 
 
-'okToAdvance' gets broadcast TO SPECIFIC ROOMS!  appears on admin view
-
-'ARE YOU SURE!' dialog when start or clear is clicked!
-
-BUG: if you startGame, but some people haven't started or are offline, startNextTurnFn isn't defined
 
 
+.
+
+.
 
 
-test hr condition 0,1,2
 
-play 30 rounds and send the csv to coye
+make a tutorial
 
-make a survey app...pluggable
 
-make a spreadsheet for user ids and payments
+a way to direct everyone to survey
 
 
 
 
+'ARE YOU SURE!' dialog when CERTAIN messages clicked!
 
-survey is part of this
-	ONE object with all the questions
-		(this first)
-	feed it to a client
-	and they feed it back to us
-		via websockets
-		one question at a time
-		their user ID, the Q , the ANSWER 
-		and we append to a json file str8, unedited 
+
+if a player re-connects to a game
+	give them their old games state...
+
+
+
+
+
+play 30 rounds on one condition
+
+play 5 rounds on all 3 conditions 
+
+and send the csv to coye
+
+make something that returns a csv from a sql query
+
+
+
+
+
+
+
+generate a spreadsheet for user stations and payments
+
+
+
+
 
 
 

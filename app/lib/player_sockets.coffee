@@ -10,5 +10,6 @@ exports.setup = (socketURL) ->
 	socket.on('startEntrustTurn', (data) -> data)
 	socket.on('startCooperateDefectTurn', (data) -> data)
 	socket.on('turnSummary', (summary) -> summary)
+	socket.on('loginOK', (data) -> data)
 		
 	socket

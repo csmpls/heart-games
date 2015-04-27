@@ -8,6 +8,7 @@ randomInRange = require 'random-number-in-range'
 
 game = require './modules/game.coffee'
 saveTrustGameRound = require './modules/saveTrustGameRound.coffee'
+config = require './modules/config.coffee'
 
 port = 29087
 publicDir = "#{__dirname}/built-app"
@@ -61,28 +62,21 @@ pushGamesToAdmins = -> admins_ns.emit('games', games)
 emitToSubject = (subject_id, message, payload) ->
 	players_ns.in(subject_id).emit(message, payload)
 
-startNewGame = (socket, subject_id, station_num, elevatedHeartrateCondition) ->
-	# save player's id in their socket
-	socket.subject_id = subject_id
+startNewGameState = (socket, subject_id, station_num, elevatedHeartrateCondition) ->
 	# we store login data in our games state
 	games[subject_id] = game.initializeNewGame({
 		subject_id: subject_id
 		station_num: station_num 
 		elevated_heartrate_condition: elevatedHeartrateCondition})
-	# put the socket in a room named after their subject id
-	socket.join(subject_id)
+
 
 
 
 # handle sockets
 
 # if subject has a game, returns that game 
-doesUserHaveGame = (id) ->
-	try
-		games[data.subject_id]
-	catch
-		false
-
+getExistingGame = (subject_id) ->
+	games[subject_id]
 
 players_ns
 .on('connection', (socket) ->
@@ -90,12 +84,41 @@ players_ns
 	#  player login
 	socket.on('login', (data) ->
 
-		# pick HR condition (0,1,2)
-		elevatedHeartrateCondition = randomInRange(0,3)
-		# start a new game for this user
-		startNewGame(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
-		# let the admins know about the new game
-		admins_ns.emit('games', games))
+		existingGame = getExistingGame(data.subject_id)
+
+		# if user tries to login to an existing game
+		if existingGame
+			# and that player is online,
+			if existingGame.subject_is_connected
+				# ignore the request
+				console.log 'someone tried to log in to this game, but the subject was already online:', existingGame
+			# if that subject is not online right now,
+			# else
+				# give the incumbant log-inner their game state back
+
+				# socket.emit('loginOK', data)
+				# # start them over at an entrustTurn
+				# socket.subject_id = data.subject_id
+				# round = existingGame
+				# round.currentTurn = 'entrustTurn'
+				# round.subject_is_connected = true
+				# round.bot.playEntrustTurn(round, round.bot.humanStateLastRound, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion)
+				# socket.emit("startEntrustTurn", {points:config.game.POINTS_ON_NEW_ROUND})
+				# socket.join(data.subject_id)
+				# pushGamesToAdmins()
+
+		else
+			socket.emit('loginOK', data)
+			# save player's id in their socket
+			socket.subject_id = data.subject_id
+			# pick HR condition (0,1,2)
+			elevatedHeartrateCondition = randomInRange(0,3)
+			# start a new game for this user
+			startNewGameState(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
+			# put the socket in a room named after their subject id
+			socket.join(data.subject_id)
+			# let the admins know about the new game
+			admins_ns.emit('games', games))
 
 	# handle player turns
 	socket.on('readyForNextRound', () -> 
@@ -140,13 +163,21 @@ io.of('/admin')
 	socket.emit('games', games)
 
 	# this is the message that lets players advance from turn to turn
-	socket.on('okToAdvance', () ->
-		_.forEach(games, (round) ->
-			round.startNextTurnFn()))
+	socket.on('okToAdvance', (data) ->
+		# get the game round 
+		round = games[data.subject_id]
+		# start it on its next turn
+		if round.startNextTurnFn
+			round.startNextTurnFn()
+		else
+			console.log 'ERROR! cant find that game', data.subject_id)
 
-	# this is the message that clears all the admin games
-	socket.on('clearGames', () -> 
-		games = {}
+	# this deletes a users game
+	socket.on('deleteGame', (data) -> 
+		console.log 'deleting', data
+		# clear the user's game from the game state
+		delete games[data.subject_id]
+		# update the admins
 		pushGamesToAdmins())
 
 	# when admin decides to start the game
@@ -155,15 +186,9 @@ io.of('/admin')
 		_.forEach(games, (round) ->
 			# we set the current turn manually
 			round.currentTurn = 'entrustTurn'
-			# # tell the bot to play an entrust turn
+			# tell the bot to play an entrust turn
 			round.bot.playEntrustTurn(round, round.bot.humanStateLastRound, emitToSubject, pushGamesToAdmins, game.checkRoundCompletion))
-		# send a message to get them going
-		players_ns.emit("startEntrustTurn", {points:10})
+		# send a message to clients to get them going
+		players_ns.emit("startEntrustTurn", {points:config.game.POINTS_ON_NEW_ROUND})
 		# let admins know about the state of the games
 		pushGamesToAdmins() ))
-
-	
-
-
-
-

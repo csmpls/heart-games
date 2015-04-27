@@ -118,6 +118,19 @@ body {
 	margin:15px;
 }
 
+/* the div that appears when both people have made a move
+clicking it advances those players to the next turn */
+.bothDone {
+	background-color:blue;
+	cursor: pointer;
+	padding-left:20px;
+}
+
+.deleteGame{
+	background-color:red;
+	cursor: pointer;
+}
+
 .callMaker:hover {
 	background-color: #fff;
 	cursor: pointer;

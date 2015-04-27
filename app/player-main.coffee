@@ -12,7 +12,7 @@ loginView = require './views/player/LoginView.coffee'
 init = ->
 
 	# config
-	socketURL = 'http://trust.coolworld.me/players'
+	socketURL = 'localhost:29087/players'
 	# subject_id = 0
 	# station_num = 42 
 
@@ -29,9 +29,13 @@ init = ->
 	loginStream.onValue((loginData) ->
 
 		# emit login event
-		socket.emit('login', loginData)
+		socket.emit('login', loginData))
 
-		# ,and setup the rest of this program: 
+
+	# when the server says 'ok' to our login request,
+	Bacon.fromEventTarget(socket, 'loginOK').onValue((loginData) ->
+		# setup the rest of this program: 
+
 
 		#
 		# main view + header
