@@ -27,7 +27,7 @@ getGlobalChartOptions = () ->
 
 heartrateGraphTemplate = (interpretation) ->
 	_.template(
-		"<p><b>Partner's average heartrate during last turn</b>" +
+		'<h2>Your <span class="attention">partner</span>&#8217;s heartrate during the summary:</h2>' +
 		'<canvas id="heartrateGraph" width="170px" height="270px"></canvas>' +
 		'<br> <%= interpretation %></p> ')(interpretation: interpretation)	
 

@@ -63,6 +63,10 @@ body {
 
 /* summary view */
 
+.summary {
+	width:700px;
+}
+
 .badThing { 
 	color: red; 
 	font-weight: bold;
@@ -71,22 +75,9 @@ body {
 	color: green; 
 	font-weight: bold;
 }
-
-#summary {
-	height:400px;
-}
-
-#roundSummary {
-	float: left;
-	display: block;
-	width: 300px;
-	padding-right:50px;
-}
-
-#heartrateSummary {
-	float: right;
-	display: block;
-	width: 300px;
+.attention {
+	color: blue;
+	font-weight: bold;
 }
 
 #heartrateGraph{
