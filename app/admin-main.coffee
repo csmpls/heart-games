@@ -9,7 +9,7 @@ currentGamesView = require './views/admin/CurrentGamesView.coffee'
 apiCallMakerView = require './views/admin/APICallMakerView.coffee'
 
 # ---- config
-socketURL = 'localhost:29087/admin'
+socketURL = 'trust.coolworld.me/admin'
 people = {} # currently connected people - no one's here, for now
 
 

@@ -12,7 +12,7 @@ loginView = require './views/player/LoginView.coffee'
 init = ->
 
 	# config
-	socketURL = 'localhost:29087/players'
+	socketURL = 'trust.coolworld.me/players'
 	# subject_id = 0
 	# station_num = 42 
 

@@ -3,8 +3,8 @@ randomInRange = require 'random-number-in-range'
 config = require('./config.coffee')
 
 
-giveOrTake = (value, amount, lowerBound, upperBound) ->
-	result = value + randomInRange(-1*amount, amount+1)
+giveOrTake = (value, giveOrTakeAmount, lowerBound, upperBound) ->
+	result = value + randomInRange(-1*giveOrTakeAmount, giveOrTakeAmount+1)
 	if result < lowerBound
 		return lowerBound
 	if result > upperBound
@@ -14,22 +14,26 @@ giveOrTake = (value, amount, lowerBound, upperBound) ->
 ##
 ## probability-based decisions
 ##
-getEntrustDecision = (lastRound) -> 
+getEntrustDecision = (round, lastRound) -> 
 	# always entrust
 	return 'entrust'
 
-getPointsEntrusted = (lastRound) -> 
+getPointsEntrusted = (round, lastRound) -> 
+	console.log 'entrusting points... i think its round', round.round_num
 	# if this is the first round
-	if not lastRound
-		# enturst 1
-		return 1
+	if round.round_num == 0
+		# enturst 2
+		return 2
 	# otherwise
 	#, do whatever the player did last time,
 	# give or take 1 point
-	pointsToEntrust = giveOrTake(lastRound.entrustTurn.pointsEntrusted, 1, 0, config.game.POINTS_ON_NEW_ROUND)
+	pointsToEntrust = giveOrTake(lastRound.entrustTurn.pointsEntrusted
+		, 1
+		, 1
+		, config.game.POINTS_ON_NEW_ROUND)
 	return pointsToEntrust
 
-getCooperateDefectDecision = (lastRound) -> 
+getCooperateDefectDecision = (round, lastRound) -> 
 	# if this is the first round
 	if not lastRound
 		# cooperate
@@ -59,13 +63,13 @@ delay = (ms, func) -> setTimeout func, ms
 
 generateEntrustTurn = (round, lastRound)-> 
 	round.botState.entrustTurn = {
-		decision: getEntrustDecision(lastRound)
-		pointsEntrusted: getPointsEntrusted(lastRound) }
+		decision: getEntrustDecision(round, lastRound)
+		pointsEntrusted: getPointsEntrusted(round, lastRound) }
 	round
 
 generateCooperateDefectTurn = (round, lastRound) -> 
 	round.botState.cooperateDefectTurn = {
-		decision: getCooperateDefectDecision(lastRound) }
+		decision: getCooperateDefectDecision(round, lastRound) }
 	round
 
 generateReadyForNextRound = (round, lastRound) -> 
