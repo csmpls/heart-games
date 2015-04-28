@@ -9,3 +9,4 @@ lib/
 run/
 db_config.coffee
 .cache/
+.fuse*

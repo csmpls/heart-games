@@ -37,6 +37,8 @@ module.exports = (grunt) ->
 					script: 'server.coffee'
 
 		uglify:
+			options:
+				mangle: true
 			production:
 				files: 'built-app/player_bundle.js': ['built-app/player_bundle.js']
 		watch:
@@ -57,6 +59,6 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-coffeeify'
 	grunt.loadNpmTasks 'grunt-contrib-copy'
 	grunt.loadNpmTasks 'grunt-express-server'
-	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
-	grunt.registerTask 'default', ['coffeeify', 'copy']
+	grunt.registerTask 'default', ['coffeeify', 'copy', 'uglify']
