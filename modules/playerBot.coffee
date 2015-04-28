@@ -35,8 +35,8 @@ getPointsEntrusted = (round, lastRound) ->
 
 getCooperateDefectDecision = (round, lastRound) -> 
 	# if this is the first round
-	if not lastRound
-		# cooperate
+	if round.round_num == 0
+		# coopertae
 		return 'cooperate'
 	# otherwise,
 	# do whatever the opponent did last time

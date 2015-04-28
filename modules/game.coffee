@@ -78,8 +78,15 @@ setNextRoundState = (round, banks) ->
 #  earnings/bank calculations
 #
 
-# actor's earnings from a round
-getRoundEarnings = (actorState, opponentState) ->
+# TODO
+# we NEED to add the # of points we kept, as well, if we kept any
+# we NEED to  add the remaining round points to the bank
+# 		(config.POINTS_ON_NEW_ROUND + round earnings)
+
+
+# we add # points opponent returned 
+# (or subtract # of points opponent stole)
+pointsFromEntrusting = (actorState, opponentState) ->
 	# if opponent defected:
 	if opponentState.cooperateDefectTurn.decision == 'defect'
 		# subtract amount actor entrusted to opponent
@@ -87,6 +94,20 @@ getRoundEarnings = (actorState, opponentState) ->
 	# if opponent cooperated,
 	# double amount actor entrusted to opponent
 	return 2*actorState.entrustTurn.pointsEntrusted
+
+pointsFromTaking = (actorState, opponentState) ->
+	# if we took points
+	if actorState.cooperateDefectTurn.decision == 'defect'
+		return opponentState.entrustTurn.pointsEntrusted
+	return 0
+
+# actor's earnings from a round
+getRoundEarnings = (actorState, opponentState) ->
+	# what the subject hasn't yet spent this round
+	pointsLeftThisRound = config.game.POINTS_ON_NEW_ROUND - actorState.entrustTurn.pointsEntrusted
+	# what the subject hasn't yet spent + what the subject got (or lost) from entrusting decision + what the user got from taking, if they took
+	return pointsFromEntrusting(actorState, opponentState) + pointsFromTaking(actorState, opponentState) + pointsLeftThisRound
+
 
 # function takes a round
 # returns an object {botBank, humanBank}

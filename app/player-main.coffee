@@ -98,6 +98,8 @@ init = ->
 			headerBarView.setup(loginData.subject_id, loginData.station_num, roundSummary.bank)
 			# show the summary view
 			readyForNextRound = roundSummaryView.setup(roundSummary)
+			# clear the points this round view for now
+			pointsThisRoundView.setup()
 			readyForNextRound.onValue((readyMessage) ->
 				# emit 'ready' message 
 				socket.emit('readyForNextRound')
