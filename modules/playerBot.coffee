@@ -34,13 +34,16 @@ getPointsEntrusted = (round, lastRound) ->
 	return pointsToEntrust
 
 getCooperateDefectDecision = (round, lastRound) -> 
-	# if this is the first round
-	if round.round_num == 0
-		# coopertae
-		return 'cooperate'
-	# otherwise,
-	# do whatever the opponent did last time
-	return lastRound.cooperateDefectTurn.decision
+	# always cooperate
+	return 'cooperate'
+	
+	# # if this is the first round
+	# if round.round_num == 0
+	# 	# coopertae
+	# 	return 'cooperate'
+	# # otherwise,
+	# # do whatever the opponent did last time
+	# return lastRound.cooperateDefectTurn.decision
 
 getEntrustDelay = -> 
 	randomInRange(

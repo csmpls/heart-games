@@ -3,6 +3,7 @@ playerBot = require './playerBot.coffee'
 generateBotHeartrate = require './generateBotHeartrate.coffee'
 generateRoundSummary = require './generateRoundSummary.coffee'
 saveTrustGameRound = require './saveTrustGameRound.coffee'
+roundEarnings = require './roundEarnings.coffee'
 config = require './config.coffee'
 
 
@@ -74,49 +75,6 @@ setNextRoundState = (round, banks) ->
 
 
 
-#
-#  earnings/bank calculations
-#
-
-# TODO
-# we NEED to add the # of points we kept, as well, if we kept any
-# we NEED to  add the remaining round points to the bank
-# 		(config.POINTS_ON_NEW_ROUND + round earnings)
-
-
-# we add # points opponent returned 
-# (or subtract # of points opponent stole)
-pointsFromEntrusting = (actorState, opponentState) ->
-	# if opponent defected:
-	if opponentState.cooperateDefectTurn.decision == 'defect'
-		# subtract amount actor entrusted to opponent
-		return -actorState.entrustTurn.pointsEntrusted
-	# if opponent cooperated,
-	# double amount actor entrusted to opponent
-	return 2*actorState.entrustTurn.pointsEntrusted
-
-pointsFromTaking = (actorState, opponentState) ->
-	# if we took points
-	if actorState.cooperateDefectTurn.decision == 'defect'
-		return opponentState.entrustTurn.pointsEntrusted
-	return 0
-
-# actor's earnings from a round
-getRoundEarnings = (actorState, opponentState) ->
-	# what the subject hasn't yet spent this round
-	pointsLeftThisRound = config.game.POINTS_ON_NEW_ROUND - actorState.entrustTurn.pointsEntrusted
-	# what the subject hasn't yet spent + what the subject got (or lost) from entrusting decision + what the user got from taking, if they took
-	return pointsFromEntrusting(actorState, opponentState) + pointsFromTaking(actorState, opponentState) + pointsLeftThisRound
-
-
-# function takes a round
-# returns an object {botBank, humanBank}
-getBankAmounts = (round) ->
-	return {
-		botBank: round.botState.bank + getRoundEarnings(round.botState, round.humanState), 
-		humanBank: round.humanState.bank + getRoundEarnings(round.humanState, round.botState) 
-	}
-
 
 #
 #  manage the flow of turns
@@ -161,7 +119,7 @@ startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
 	round.bot.humanStateLastRound = round.humanState
 
 	# reset round state
-	banks = getBankAmounts(round)
+	banks = roundEarnings.getBankAmounts(round)
 	setNextRoundState(round, banks)
 
 	# send the client the points they can use during the next round
@@ -194,8 +152,8 @@ startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
 	nextBotTurnFn = round.bot.playReadyForNextRound
 	clientPayload = 
 				{summary: generateRoundSummary(round
-					, getRoundEarnings(round.humanState, round.botState))
-				, bank: getBankAmounts(round).humanBank
+					, roundEarnings.getRoundEarnings(round.humanState, round.botState))
+				, bank: roundEarnings.getBankAmounts(round).humanBank
 				opponentHeartrate: generateBotHeartrate(round.humanState, round.elevated_heartrate_condition) }
 
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
