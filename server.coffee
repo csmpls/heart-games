@@ -75,8 +75,7 @@ startNewGameState = (socket, subject_id, station_num, elevatedHeartrateCondition
 # handle sockets
 
 # if subject has a game, returns that game 
-getExistingGame = (subject_id) ->
-	games[subject_id]
+getExistingGame = (subject_id) -> games[subject_id]
 
 players_ns
 .on('connection', (socket) ->
@@ -151,7 +150,8 @@ players_ns
 	# handle player disconnect
 	socket.on('disconnect', () -> 
 		# set user's connected status to !connected
-		if games[socket.subject_id] then games[socket.subject_id].subject_is_connected = false
+		round = getRound(socket.subject_id)
+		if round then round.subject_is_connected = false
 		pushGamesToAdmins()))
 
 # admin namespace
@@ -165,12 +165,17 @@ io.of('/admin')
 	# this is the message that lets players advance from turn to turn
 	socket.on('okToAdvance', (data) ->
 		# get the game round 
-		round = games[data.subject_id]
+		round = getRound(data.subject_id)
 		# start it on its next turn
 		if round.startNextTurnFn
 			round.startNextTurnFn()
 		else
 			console.log 'ERROR! cant find that game', data.subject_id)
+
+	# this tells all connected clients to stop playing 
+	# and to take the survey
+	socket.on('pushSurveyToAll', () ->
+		players_ns.emit('startSurvey', {surveyURL: config.experiment.SURVEY_URL}))
 
 	# this deletes a users game
 	socket.on('deleteGame', (data) -> 

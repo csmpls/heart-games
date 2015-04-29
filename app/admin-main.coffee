@@ -19,6 +19,12 @@ apiCalls =  {
 		route: 'startGame'
 		data: 
 			null
+	},
+
+	2: {
+		route: 'pushSurveyToAll'
+		data:
+			null
 	}
 }
 

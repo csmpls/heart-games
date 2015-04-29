@@ -1,3 +1,7 @@
+# experiment config
+experiment = 
+
+	SURVEY_URL: 'http://goo.gl/forms/wct4wh1akm'
 
 # config about the game 
 game = 
@@ -44,6 +48,7 @@ heartrateConditionConfig =
 
 
 
+exports.experiment = experiment
+exports.game = game
 exports.globalBotConfig = globalBotConfig
 exports.heartrateConditionConfig = heartrateConditionConfig
-exports.game = game

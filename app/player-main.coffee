@@ -8,6 +8,7 @@ waitingView = require './views/player/WaitingView.coffee'
 headerBarView = require './views/player/HeaderBarView.coffee'
 pointsThisRoundView = require './views/player/PointsThisRoundView.coffee'
 loginView = require './views/player/LoginView.coffee'
+startSurveyView = require './views/player/StartSurveyView.coffee'
 
 init = ->
 
@@ -51,7 +52,6 @@ init = ->
 		#
 		# entrust turn
 		#
-
 		startEntrustTurnStream = Bacon.fromEventTarget(socket, 'startEntrustTurn')
 		startEntrustTurnStream.onValue((nextTurn) ->
 			# replenish our points for this round
@@ -104,7 +104,19 @@ init = ->
 				# emit 'ready' message 
 				socket.emit('readyForNextRound')
 				# & display waiting screen
-				waitingView.waitingFor('all players'))))
+				waitingView.waitingFor('all players')))
+
+
+		#
+		# start survey
+		#
+
+		# at the end of the experiment,
+		# the server will push a 'startSurvey' event 
+		# {surveyURL} 
+		startSurveyStream = Bacon.fromEventTarget(socket, 'startSurvey')
+		startSurveyStream.onValue((startSurvey) ->
+			startSurveyView.setup(startSurvey.surveyURL)))
 
 # launch the app
 $(document).ready(() ->
