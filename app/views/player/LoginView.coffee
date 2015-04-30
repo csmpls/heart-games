@@ -10,6 +10,7 @@ setEnabled = (element, enabled) -> element.attr("disabled", !enabled)
 
 loginTemplate = ->
 	_.template('''
+		<h2>Please wait here for the experimenter's instructions.</h2>
 		User ID: <input type="text" id="subjectIdInput"/>
 		Station number:  <input type="text" id="stationNumInput"/>
 		<button id = "loginButton">Log In</button>
