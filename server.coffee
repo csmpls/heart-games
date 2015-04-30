@@ -172,6 +172,11 @@ io.of('/admin')
 		else
 			console.log 'ERROR! cant find that game', data.subject_id)
 
+	# advance every player to the next round
+	socket.on('advanceAllPlayers', () ->
+		_.forEach(games, (round) -> 
+			round.startNextTurnFn()))
+
 	# this tells all connected clients to stop playing 
 	# and to take the survey
 	socket.on('pushSurveyToAll', () ->

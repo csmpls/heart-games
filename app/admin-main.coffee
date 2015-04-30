@@ -7,10 +7,11 @@ baconmodel = require 'bacon.model'
 
 currentGamesView = require './views/admin/CurrentGamesView.coffee'
 apiCallMakerView = require './views/admin/APICallMakerView.coffee'
+advanceAllButton = require './views/admin/AdvanceAllButton.coffee'
 
 # ---- config
 socketURL = 'trust.coolworld.me/admin'
-people = {} # currently connected people - no one's here, for now
+people = {} # currently connected people - no one's here for now
 
 
 apiCalls =  {
@@ -35,11 +36,17 @@ init = ->
 
 	# server tells us about the state of all games
 	socket.on('games', (games) ->
+
+		# this draws a button that lets us advance 
+		# all the players at once
+		# it only gets drawn when 
+		# everyone is done with their turn
+		if games then advanceAllButton.draw(socket, games)
+
 		serverMessages = currentGamesView.setup(games)
 
 		serverMessages.onValue((message) ->
 			socket.emit(message.route, message.data)) )
-
 
 	apiCallMakerView.setup(apiCalls, socket)
 
@@ -47,5 +54,4 @@ init = ->
 
 
 # launch the app
-$(document).ready(() ->
-	init())
+$(document).ready(() -> init())
