@@ -72,39 +72,15 @@ turn "new points on round" to a config var, the word "points" as well..
 
 
 
-make a tutorial
 
 
-a way to direct everyone to survey
-
-
-
-
+    *points/nothing should be red/green C/D view*
+    *entrusting/keeping/returning should update points view...*
 'ARE YOU SURE!' dialog when CERTAIN messages clicked!
-
-
-if a player re-connects to a game
+    *if a player re-connects to a game*
 	give them their old games state...
 
 
-
-
-
-play 30 rounds on one condition
-
-play 5 rounds on all 3 conditions 
-
-and send the csv to coye
-
-make something that returns a csv from a sql query
-
-
-
-
-
-
-
-generate a spreadsheet for user stations and payments
 
 
 
