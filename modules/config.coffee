@@ -37,14 +37,14 @@ heartrateConditionConfig =
 	ELEVATED_HEARTRATE_MEAN_MAX: 90 #mean
 	ELEVATED_HEARTRATE_STD_MIN: 6
 	ELEVATED_HEARTRATE_STD_MAX: 16 
-	ELEVATED_HEARTRATE_INTERPRETATION: "Your partner's heartrate was elevated."
+	ELEVATED_HEARTRATE_INTERPRETATION: "Your partner's biosignals were elevated."
 
 	# normal heartrate config
 	NORMAL_HEARTRATE_MEAN_MIN: 20
 	NORMAL_HEARTRATE_MEAN_MAX: 60 #mean
 	NORMAL_HEARTRATE_STD_MIN: 4
 	NORMAL_HEARTRATE_STD_MAX: 13 
-	NORMAL_HEARTRATE_INTERPRETATION: "Your partner's heartrate was normal."
+	NORMAL_HEARTRATE_INTERPRETATION: "Your partner's biosignals were normal."
 
 
 

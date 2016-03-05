@@ -110,8 +110,11 @@ players_ns
 			socket.emit('loginOK', data)
 			# save player's id in their socket
 			socket.subject_id = data.subject_id
-			# pick HR condition (0,1,2)
-			elevatedHeartrateCondition = randomInRange(0,3)
+			# pick HR condition (0,1)
+			if randomInRange(0,3) > 0 
+				elevatedHeartrateCondition = 1
+			else
+				elevatedHeartrateCondition = 0
 			# start a new game for this user
 			startNewGameState(socket, data.subject_id, data.station_num, elevatedHeartrateCondition)	
 			# put the socket in a room named after their subject id

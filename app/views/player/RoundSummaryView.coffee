@@ -13,7 +13,7 @@ delay = (delay, fn) -> setTimeout(fn,delay)
 placeFingerOnHeartrateMonitorView = ->
 	_.template('''
 		<div class="summary">
-			<h2>Please place your finger on the heartrate monitor.</h2>
+			<h2>Please place your finger on the biosignal monitor.</h2>
 			<p><small>To assure a good reading, keep your finger still, and don't press too hard on the monitor.</small></p>
 			<p>Press next after you've placed your finger on the monitor.</p>
 			<button id="seeSummaryView">Next</button>
@@ -24,7 +24,7 @@ placeFingerOnHeartrateMonitorView = ->
 roundSummaryView = (summary) ->
 	_.template('''
 		<div class="summary">
-			<h2> Please keep your finger on the heartrate monitor. </h2>
+			<h2> Please keep your finger on the biosignal monitor. </h2>
 			<div id = "roundSummary">
 				<%= summary %> </p>
 			</div>
@@ -37,8 +37,8 @@ roundSummaryView = (summary) ->
 calculatingPartnerHeartrateView = ->
 	_.template('''
 		<div class="summary">
-		<h2> You can take your finger off the heartrate monitor.</h2>
-		<p> Calculating your partner's heartrate...</p>
+		<h2> You can take your finger off the biosignal monitor.</h2>
+		<p> Calculating your partner's biosignals...</p>
 		<center><img src="assets/spinner.gif"></center>
 		</div>
 		''')
