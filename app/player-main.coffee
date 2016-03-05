@@ -14,6 +14,7 @@ init = ->
 
 	# config
 	socketURL = 'trust.coolworld.me/players'
+	#socketURL = 'http://localhost:29087/players'
 	# subject_id = 0
 	# station_num = 42 
 
@@ -94,6 +95,7 @@ init = ->
 		# the server sends us a summary of the turn.
 		roundSummaryStream = Bacon.fromEventTarget(socket, 'roundSummary')
 		roundSummaryStream.onValue((roundSummary) ->
+			console.log('ROUND SUMMARY', roundSummary)
 			# update the header bar
 			headerBarView.setup(loginData.subject_id, loginData.station_num, roundSummary.bank)
 			# show the summary view

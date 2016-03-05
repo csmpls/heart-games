@@ -11,6 +11,7 @@ advanceAllButton = require './views/admin/AdvanceAllButton.coffee'
 
 # ---- config
 socketURL = 'trust.coolworld.me/admin'
+#socketURL = 'http://localhost:29087/admin'
 people = {} # currently connected people - no one's here for now
 
 

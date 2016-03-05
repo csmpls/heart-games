@@ -5,7 +5,7 @@ module.exports = (grunt) ->
 		coffeeify: 
 			player: 
 				files: [
-					src: ['app/views/player/*.coffee', 'app/lib/*.coffee', 'app/player-main.coffee'],
+					src: [ 'app/views/player/*.coffee', 'app/lib/*.coffee', 'app/player-main.coffee'],
 					dest: 'built-app/player_bundle.js'
 				]
 			admin: 

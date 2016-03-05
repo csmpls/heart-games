@@ -128,6 +128,8 @@ startEntrustTurn = (round, emitToSubject, pushGamesToAdmins) ->
 	nextTurn = 'entrustTurn'
 	nextBotTurnFn = round.bot.playEntrustTurn
 
+	console.log 'reached, entrust'
+
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 
 
@@ -138,6 +140,8 @@ startCooperateDefectTurn = (round, emitToSubject, pushGamesToAdmins) ->
 	nextTurn = 'cooperateDefectTurn'
 	nextBotTurnFn = round.bot.playCooperateDefectTurn
 
+	console.log 'reached, cooperate defect'
+
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 
 
@@ -146,15 +150,17 @@ startReadyForNextRoundTurn = (round, emitToSubject, pushGamesToAdmins) ->
 	# save round data to a postgres database
 	saveTrustGameRound.saveTrustGameRound(round)
 
+
 	# we send the client a summary of the round
 	clientMessage = 'roundSummary'
 	nextTurn = 'readyForNextRound'
 	nextBotTurnFn = round.bot.playReadyForNextRound
 	clientPayload = 
-				{summary: generateRoundSummary(round
-					, roundEarnings.getRoundEarnings(round.humanState, round.botState))
+				{summary: generateRoundSummary(round, roundEarnings.getRoundEarnings(round.humanState, round.botState))
 				, bank: roundEarnings.getBankAmounts(round).humanBank
 				opponentHeartrate: generateBotHeartrate(round.humanState, round.elevated_heartrate_condition) }
+
+	console.log 'reached', clientPayload 
 
 	startTurn(round, clientMessage, clientPayload, nextTurn, nextBotTurnFn, emitToSubject, pushGamesToAdmins)
 

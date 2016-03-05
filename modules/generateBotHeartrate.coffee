@@ -10,17 +10,19 @@ heartrateConfig = require('./config.coffee').heartrateConditionConfig
 -------------------------------------------
 ###
 
+
+
 generateBotHeartrate = (humanPlayerState, elevatedHeartrateCondition) ->
 
-	didHumanScrewMeOver = didPlayerDefect(humanPlayerState)
+	#didHumanScrewMeOver = didPlayerDefect(humanPlayerState)
 
 	# condition 2: always return an elevated heartrate 
 	if elevatedHeartrateCondition == 2
 		return generateElevatedHeartrate()
 
 	# condition 1: return an elevated heartrate if the human screwed the bot over
-	if didHumanScrewMeOver and elevatedHeartrateCondition == 1
-		return generateElevatedHeartrate() 
+	#if didHumanScrewMeOver and elevatedHeartrateCondition == 1
+	#	return generateElevatedHeartrate() 
 
 	# condition 0: always return a normal heartrate
 	return  generateNormalHeartrate() 
@@ -37,6 +39,7 @@ returns {mean, std, interpretation}
 didPlayerDefect = (playerState) -> playerState.cooperateDefectTurn.decision == 'defect'
 
 generateElevatedHeartrate = ->
+	console.log(normalHeartrateInterpretation())
 	return {
 		mean: elevatedHeartrateMean()
 		std: elevatedHeartrateStd()
@@ -44,6 +47,7 @@ generateElevatedHeartrate = ->
 	}
 
 generateNormalHeartrate = ->
+	console.log(normalHeartrateInterpretation())
 	return {
 		mean: normalHeartrateMean()
 		std: normalHeartrateStd()

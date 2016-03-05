@@ -127,6 +127,7 @@ players_ns
 		# update game state
 		round = getRound(socket.subject_id)
 		round.humanState.readyForNextRound = true
+		console.log 'reached! client ready for next'
 		# check if both rounds have been submitted, act if necessary
 		game.checkRoundCompletion(round, emitToSubject, pushGamesToAdmins)
 		# notify admins
@@ -136,6 +137,7 @@ players_ns
 		# update game state
 		round = getRound(socket.subject_id)
 		round.humanState.entrustTurn = turn
+		console.log 'reached! client did entrust'
 		# check if both rounds have been submitted, act if necessary
 		game.checkRoundCompletion(round, emitToSubject, pushGamesToAdmins)	
 		# notify admins..
@@ -145,6 +147,7 @@ players_ns
 		# update game state
 		round = getRound(socket.subject_id)
 		round.humanState.cooperateDefectTurn = turn 
+		console.log 'reached! client did c/d'
 		# check if both rounds have been submitted, act if necessary
 		game.checkRoundCompletion(round, emitToSubject, pushGamesToAdmins)	
 		# notify admins
